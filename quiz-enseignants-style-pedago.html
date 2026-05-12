@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Enseignants : Quel prof êtes-vous ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            background: #f3e5f5;
+        }
+
+        /* Purple hover */
+    </style>
+</head>
+
+<body class="theme-purple">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #7209b7; margin-bottom:2rem;">Quel type de pédagogue êtes-vous ? 🎓
+            </h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Un étudiant arrive 10 minutes en retard...", o: [
+                    { t: "Porte fermée. Tant pis pour lui.", s: { MAG: 3, COACH: 0, GEEK: 0 } },
+                    { t: "Il rentre mais discrètement.", s: { MAG: 1, COACH: 2, GEEK: 1 } },
+                    { t: "Pas grave, je partage le replay du cours.", s: { MAG: 0, COACH: 1, GEEK: 3 } }
+                ]
+            },
+            {
+                t: "Vos supports de cours c'est plutôt...", o: [
+                    { t: "Un PowerPoint de 150 slides (texte only).", s: { MAG: 3, COACH: 0, GEEK: 0 } },
+                    { t: "Des études de cas concrets et des débats.", s: { MAG: 0, COACH: 3, GEEK: 1 } },
+                    { t: "Kahoot, Wooclap, Vidéos YouTube.", s: { MAG: 0, COACH: 1, GEEK: 3 } }
+                ]
+            },
+            {
+                t: "Pendant le cours, ça bavarde...", o: [
+                    { t: "C'est inacceptable. Je sors les coupables.", s: { MAG: 3, COACH: 0, GEEK: 0 } },
+                    { t: "J'essaie de recentrer l'attention avec une blague.", s: { MAG: 0, COACH: 3, GEEK: 1 } },
+                    { t: "Je lance un sondage interactif pour les réveiller.", s: { MAG: 0, COACH: 1, GEEK: 3 } }
+                ]
+            },
+            {
+                t: "L'IA (ChatGPT) pour vous c'est...", o: [
+                    { t: "De la triche pure et simple. Interdit !", s: { MAG: 3, COACH: 1, GEEK: 0 } },
+                    { t: "Un outil intéressant s'il est bien utilisé.", s: { MAG: 1, COACH: 3, GEEK: 2 } },
+                    { t: "J'apprends à mes élèves à prompter.", s: { MAG: 0, COACH: 1, GEEK: 3 } }
+                ]
+            }
+        ];
+        let c = 0, sc = { MAG: 0, COACH: 0, GEEK: 0 };
+        function l() {
+            if (c >= 4) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let w = Object.keys(sc).reduce((a, b) => sc[a] > sc[b] ? a : b);
+                let txt = {
+                    MAG: "Le Magistral 🏛️<br><small>Pour vous, le savoir est sacré. Rigueur et discipline sont vos maîtres-mots. Attention à ne pas perdre l'attention de la génération TikTok !</small>",
+                    COACH: "Le Mentor / Coach 🤝<br><small>Vous êtes proche de vos étudiants. Vous privilégiez l'échange et la pratique. Vous formez des pros, pas juste des élèves.</small>",
+                    GEEK: "Le Prof Techno 2.0 🤖<br><small>Toujours à la pointe ! Vos cours sont interactifs et gamifiés. Vous parlez le langage du futur. Attention à ne pas oublier les fondamentaux.</small>"
+                };
+                d.innerHTML = `<h2 style="color:#7209b7;">${txt[w]}</h2><br><a href="/enseignants.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='let s=${JSON.stringify(x.s)};for(k in s)sc[k]+=s[k];c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

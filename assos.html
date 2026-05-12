@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vie Associative - EtuReady</title>
+    <meta name="description" content="Découvrez la vie associative étudiante : BDE, sports, arts, humanitaire." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="theme-multi">
+    <!-- Header -->
+    <site-header></site-header>
+
+    <!-- Hero Section -->
+    <header class="hero"
+        style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('/images/assos-hero.png'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: center;">
+        <div class="container" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">La Vie Associative</h1>
+            <p style="font-size: 1.25rem; max-width: 600px;">Le cœur battant de ton campus. Engage-toi, crée des
+                projets, et vis des moments inoubliables.</p>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: -3rem; position: relative; z-index: 10;">
+
+        <!-- Featured Asso (Spotlight) -->
+        <div class="card"
+            style="display: flex; flex-direction: row; overflow: hidden; margin-bottom: 4rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <div
+                style="flex: 1; background: url('https://placehold.co/600x600/f72585/ffffff?text=Asso+du+Mois') center/cover;">
+            </div>
+            <div
+                style="flex: 1; padding: 3rem; background: white; display: flex; flex-direction: column; justify-content: center;">
+                <span class="tag"
+                    style="background: #f72585; color: white; align-self: flex-start; margin-bottom: 1rem;">🏆 Asso du
+                    Mois</span>
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #333;">Le Bureau des Arts (BDA) - "L'Art en
+                    Scène"</h2>
+                <p style="color: #666; margin-bottom: 2rem; font-size: 1.1rem;">Découvrez comment le BDA de l'ESCP a
+                    organisé le plus grand festival étudiant de l'année, rassemblant plus de 3000 participants autour de
+                    la musique et du théâtre.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="/formulaire-generique.html" class="btn-primary"
+                        style="background: #d0006f; color: white; border: none; font-weight: 700;">Lire le reportage</a>
+                    <a href="/annuaire-bde.html" class="btn-white">Voir l'annuaire</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Grid -->
+        <div class="section-title">
+            <h2>Explorez les Univers Associatifs</h2>
+            <p>Il y a forcément une asso faite pour toi.</p>
+        </div>
+        <div class="grid"
+            style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+            <!-- BDE -->
+            <a href="/bde.html" class="card card-hover-scale" style="border-top: 4px solid #4361ee;">
+                <div class="card-content" style="padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #333;">BDE (Élèves)</h3>
+                    <p style="color: #666; font-size: 0.95rem;">L'âme de l'école. Soirées, WEI, voyages et cohésion.</p>
+                </div>
+            </a>
+            <!-- BDS -->
+            <a href="/article-detail.html" class="card card-hover-scale" style="border-top: 4px solid #ff9f1c;">
+                <div class="card-content" style="padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #333;">BDS (Sports)</h3>
+                    <p style="color: #666; font-size: 0.95rem;">Compétitions universitaires, entraînements et tournois.
+                    </p>
+                </div>
+            </a>
+            <!-- BDA -->
+            <a href="/article-detail.html" class="card card-hover-scale" style="border-top: 4px solid #9d4edd;">
+                <div class="card-content" style="padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #333;">BDA (Arts)</h3>
+                    <p style="color: #666; font-size: 0.95rem;">Théâtre, musique, cinéma, photo. Exprime ton talent.</p>
+                </div>
+            </a>
+            <!-- Humanitaire -->
+            <a href="/article-detail.html" class="card card-hover-scale" style="border-top: 4px solid #2ec4b6;">
+                <div class="card-content" style="padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #333;">Humanitaire & RSE</h3>
+                    <p style="color: #666; font-size: 0.95rem;">Solidarité internationale, tutorat, développement
+                        durable.</p>
+                </div>
+            </a>
+            <!-- Junior Entreprise -->
+            <a href="/article-detail.html" class="card card-hover-scale" style="border-top: 4px solid #1a237e;">
+                <div class="card-content" style="padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+                    <h3 style="margin-bottom: 0.5rem; color: #333;">Junior Entreprise</h3>
+                    <p style="color: #666; font-size: 0.95rem;">La passerelle vers le monde pro. Missions réelles et CA.
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Toolbox Section -->
+        <div class="cta-section"
+            style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 16px; padding: 3rem;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: #000000; font-weight: 800;">🧰 La Boîte à
+                    Outils des Assos</h2>
+                <p style="color: #666;">Tout ce qu'il faut pour gérer ton association comme un pro.</p>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div class="card" style="background: white; padding: 1.5rem;">
+                    <h4
+                        style="font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        📝 Administratif</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="javascript:void(0)"
+                                style="color: var(--primary-color); text-decoration: underline;">Créer son asso
+                                (Statuts)</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="javascript:void(0)"
+                                style="color: var(--primary-color); text-decoration: underline;">Ouvrir un compte
+                                bancaire</a></li>
+                        <li><a href="javascript:void(0)" style="color: var(--primary-color); text-decoration: underline;">L'assurance
+                                Asso</a></li>
+                    </ul>
+                </div>
+                <div class="card" style="background: white; padding: 1.5rem;">
+                    <h4
+                        style="font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        💰 Trésorerie</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="javascript:void(0)"
+                                style="color: var(--primary-color); text-decoration: underline;">Demander des
+                                subventions</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="javascript:void(0)"
+                                style="color: var(--primary-color); text-decoration: underline;">Trouver des
+                                sponsors</a></li>
+                        <li><a href="javascript:void(0)" style="color: var(--primary-color); text-decoration: underline;">Gérer un
+                                budget</a></li>
+                    </ul>
+                </div>
+                <div class="card" style="background: white; padding: 1.5rem;">
+                    <h4
+                        style="font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        📣 Communication</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="javascript:void(0)"
+                                style="color: var(--primary-color); text-decoration: underline;">Kit réseaux sociaux</a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;"><a href="javascript:void(0)"
+                                style="color: var(--primary-color); text-decoration: underline;">Créer une affiche</a>
+                        </li>
+                        <li><a href="javascript:void(0)" style="color: var(--primary-color); text-decoration: underline;">Vendre des
+                                places en ligne</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "bon-plan-apple",
+    "sourceFile": "bon-plan-apple.html",
+    "type": "deal",
+    "title": "Apple Education",
+    "tag": "Tech",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": "<h2>⭐ Apple Éducation : jusqu’à 150 € offerts en carte cadeau pour l’achat d’un Mac</h2> <p>Chaque année, Apple propose une offre dédiée aux étudiants et au personnel éducatif. En achetant un Mac éligible, tu peux profiter de jusqu’à 150 € en carte cadeau Apple, à utiliser pour des apps, du stockage iCloud, des accessoires ou même un nouvel appareil.</p> <h3>🎓 Qui peut en bénéficier ?</h3> <ul> <li>Étudiants du supérieur</li> <li>Parents achetant pour un étudiant</li> <li>Enseignants, chercheurs, personnels éducatifs</li> </ul> <h3>💻 Quels appareils sont concernés ?</h3> <p>En général :</p> <ul> <li>MacBook Air</li> <li>MacBook Pro</li> <li>iMac</li> <li>Et parfois certains iPad avec un montant différent</li> </ul> <h3>💡 Pourquoi c’est intéressant ?</h3> <ul> <li>Le prix Éducation est déjà réduit, la carte cadeau vient s'ajouter.</li> <li>Idéal pour acheter : des AirPods, une housse ou un clavier, un stockage iCloud, des logiciels professionnels.</li> </ul> <div > <h3>💡 Conseil EtuReady</h3> <p>Combine l’offre avec une revente de ton ancien appareil pour faire chuter encore plus le prix final.</p> <a href=\"https://www.apple.com/fr-edu/store\" target=\"_blank\" >Accéder au store Éducation</a> </div>"
+  },
+  {
+    "id": "bon-plan-basic-fit",
+    "sourceFile": "bon-plan-basic-fit.html",
+    "type": "deal",
+    "title": "Basic-Fit : frais d’inscription offerts",
+    "tag": "Sport",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": "<h2>⭐ Basic-Fit : frais d’inscription offerts pour les étudiants</h2> <p>Envie de te remettre en forme sans exploser ton budget ? Basic-Fit propose les frais d’inscription offerts pour tous les étudiants, une économie immédiate de plusieurs dizaines d’euros.</p> <h3>🏋️ Ce que ça inclut</h3> <ul> <li>0 € de frais d’inscription</li> <li>Accès illimité à la salle choisie</li> <li>Machines de cardio et musculation</li> <li>Cours collectifs virtuels</li> <li>Espaces étirements et coaching vidéo</li> </ul> <h3>💡 Pourquoi c’est une super offre ?</h3> <ul> <li>Le sport est idéal pour gérer le stress, améliorer la concentration et garder le moral.</li> <li>L’abonnement reste accessible même après la réduction.</li> <li>Disponible dans toute la France (200+ salles).</li> </ul> <div > <h3>💡 Astuce EtuReady</h3> <p>Si tu es en colocation, motivez-vous à plusieurs : à plusieurs, on tient mieux ses objectifs – et c’est plus fun.</p> <a href=\"/formulaire-generique.html\" >M'inscrire maintenant</a> </div>"
+  },
+  {
+    "id": "bon-plan-bk",
+    "sourceFile": "bon-plan-bk.html",
+    "type": "deal",
+    "title": "-20% chez Burger King",
+    "tag": "Food",
+    "image": "https://placehold.co/200x200?text=QR+CODE",
+    "date": "",
+    "author": "EtuReady",
+    "content": "<h2>⭐ –20% chez Burger King : l’offre étudiante à ne pas manquer !</h2> <p>Bonne nouvelle pour les étudiants fans de burgers : Burger King propose désormais –20% de réduction sur votre commande, simplement en présentant votre QR code étudiant au moment de régler.</p> <p>Une offre simple, rapide, et surtout très utile pour les petites faims… ou les grosses !</p> <h3>🔍 Comment ça marche ?</h3> <ul> <li>Montre ton QR code étudiant (smartphone ou carte virtuelle).</li> <li>Offre valable dans la plupart des restaurants participants en France.</li> <li>Réduction immédiate appliquée sur l’ensemble de la commande (hors menus spéciaux selon conditions locales).</li> </ul> <h3>🍔 Pourquoi c’est top pour les étudiants ?</h3> <ul> <li>Parfait pour les pauses entre deux cours.</li> <li>Un vrai coup de pouce pour votre budget.</li> <li>Idéal en soirée ou après une séance de sport.</li> </ul> <div > <h3>💡 L’astuce EtuReady</h3> <p>Si tu fais souvent des commandes à plusieurs, utilise la réduction sur les plus gros menus : tu gagneras encore plus.</p> </div>"
+  },
+  {
+    "id": "bon-plan-boursorama",
+    "sourceFile": "bon-plan-boursorama.html",
+    "type": "deal",
+    "title": "Offre Boursorama Banque",
+    "tag": "Banque",
+    "image": "https://placehold.co/200x200?text=QR+CODE",
+    "date": "",
+    "author": "EtuReady",
+    "content": "<h2>Détails de l'offre</h2> <ul> <li>80€ offerts à l'ouverture du compte</li> <li>+ 70€ si vous commandez une carte bancaire (gratuite)</li> <li>0€ de frais de tenue de compte</li> <li>Paiements à l'étranger gratuits</li> </ul> <a href=\"/formulaire-generique.html\" >Profiter de l'offre en ligne</a>"
+  }
+]

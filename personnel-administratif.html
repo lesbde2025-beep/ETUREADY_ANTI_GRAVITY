@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace Personnel Administratif - EtuReady</title>
+    <meta name="description" content="Ressources et outils pour le personnel administratif." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="theme-green">
+    <site-header></site-header>
+
+    <header class="hero"
+        style="background: linear-gradient(rgba(32, 163, 150, 0.9), rgba(56, 176, 172, 0.8)), url('/images/admin_hero.png'); background-size: cover; background-position: center;">
+        <div class="container" style="color: white;">
+            <h1>Espace Administratif</h1>
+            <p>Carrière, bien-être et vie de campus pour les équipes BIATSS et administratives.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <div class="section-intro">
+            <p>Bienvenue dans votre espace. Ici, on parle de votre carrière, de la relation avec les étudiants et de
+                votre qualité de vie au travail.</p>
+        </div>
+
+        <!-- 📅 AGENDA DU PERSONNEL -->
+        <div class="section-title">
+            <h2 class="text-theme">📅 Agenda & Échéances</h2>
+            <a href="javascript:void(0)" class="view-all text-theme">Tout l'agenda RH</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 4rem;">
+            <div class="card glass-card" style="border-left: 5px solid var(--theme-green);">
+                <div class="card-content">
+                    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                        <span
+                            style="background:var(--theme-green); color:white; padding:0.5rem 0.8rem; border-radius:8px; font-weight:800; font-size:0.9rem;">12
+                            DÉC</span>
+                        <h4 style="margin:0; font-size:1.1rem; color: var(--text-main);">Commission Paritaire</h4>
+                    </div>
+                    <p>Réunion de la CPE. Ordre du jour disponible sur l'intranet.</p>
+                </div>
+            </div>
+            <div class="card glass-card" style="border-left: 5px solid var(--theme-green);">
+                <div class="card-content">
+                    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                        <span
+                            style="background:var(--theme-green); color:white; padding:0.5rem 0.8rem; border-radius:8px; font-weight:800; font-size:0.9rem;">20
+                            DÉC</span>
+                        <h4 style="margin:0; font-size:1.1rem; color: var(--text-main);">Fermeture Admin.</h4>
+                    </div>
+                    <p>Début des congés de fin d'année. Pensez à vos messages d'absence.</p>
+                </div>
+            </div>
+            <div class="card glass-card" style="border-left: 5px solid var(--theme-green);">
+                <div class="card-content">
+                    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                        <span
+                            style="background:var(--theme-green); color:white; padding:0.5rem 0.8rem; border-radius:8px; font-weight:800; font-size:0.9rem;">05
+                            JAN</span>
+                        <h4 style="margin:0; font-size:1.1rem; color: var(--text-main);">Vœux Direction</h4>
+                    </div>
+                    <p>Cérémonie des vœux et galette des rois dans le Hall A.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🟢 CARRIÈRE & FORMATION -->
+        <div class="section-title">
+            <h2 class="text-theme">🟢 Carrière & Formation</h2>
+        </div>
+        <div class="grid" style="margin-bottom: 4rem;">
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>📈 Évolution Professionnelle</h3>
+                    <p>Concours, mobilité et passerelles.</p>
+                    <ul style="list-style:none; margin-top:1rem; font-size:0.9rem;">
+                        <li style="margin-bottom:0.5rem">👉 <a href="/article-admin-formation-continue.html"
+                                class="text-theme">La formation continue</a></li>
+                        <li>👉 <a href="javascript:void(0)" class="text-theme">Concours ITRF / Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>🎓 VAE & Compétences</h3>
+                    <p>Valider ses acquis et faire reconnaître son expérience.</p>
+                    <ul style="list-style:none; margin-top:1rem; font-size:0.9rem;">
+                        <li style="margin-bottom:0.5rem">👉 <a href="javascript:void(0)" class="text-theme">Dossier VAE : mode
+                                d'emploi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>🏢 Public vs Privé</h3>
+                    <p>Les spécificités de carrières dans l'enseignement supérieur.</p>
+                    <a href="javascript:void(0)" class="read-more text-theme">Lire le comparatif →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🟢 VIE AU CAMPUS & ETUDIANTS -->
+        <div class="section-title">
+            <h2 class="text-theme">🟢 Vie au Campus & Relation Étudiante</h2>
+        </div>
+        <div class="categories-grid"
+            style="margin-bottom: 4rem; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+            <a href="/article-admin-relation-etudiants.html" class="category-item border-theme">
+                <span class="category-icon">🤝</span><span>Accueil & Relation</span>
+            </a>
+            <a href="/article-admin-gestion-conflits.html" class="category-item border-theme">
+                <span class="category-icon">⚖️</span><span>Gestion de Conflits</span>
+            </a>
+            <a href="/article-admin-digitalisation-outils.html" class="category-item border-theme">
+                <span class="category-icon">💻</span><span>Outils Digitaux</span>
+            </a>
+            <a href="/article-admin-rse-campus.html" class="category-item border-theme">
+                <span class="category-icon">🌱</span><span>RSE & Campus Vert</span>
+            </a>
+            <a href="/article-admin-management-bienveillant.html" class="category-item border-theme">
+                <span class="category-icon">👥</span><span>Management</span>
+            </a>
+        </div>
+
+        <!-- 🛠 BOITE A OUTILS -->
+        <div class="section-title">
+            <h2 class="text-theme">🛠 Boîte à Outils & Services</h2>
+        </div>
+        <div class="categories-grid"
+            style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); margin-bottom: 4rem;">
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">📂</span><span>Intranet RH</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">🎫</span><span>Billetterie</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">🍽</span><span>Menus Restaurant</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">🚗</span><span>Réservation Véhicule</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">🆘</span><span>Assistance IT</span>
+            </a>
+        </div>
+
+        <!-- 🧠 PERSONNEL QUIZ ZONE -->
+        <section style="margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2 class="text-theme">🧠 Espace Tests & Quiz</h2>
+                <span class="view-all">Détente & Compétences</span>
+            </div>
+            <div class="grid">
+                <!-- Quiz Pouvoir -->
+                <a href="/quiz-personnel-super-pouvoir.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Profil</span>
+                        <h3>Quel est votre Super-Pouvoir ?</h3>
+                        <p>Flash, Sage ou Diplomate ? Quel est votre style ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Reforme -->
+                <a href="/quiz-personnel-reforme.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Expertise</span>
+                        <h3>Incollable sur l'administration ?</h3>
+                        <p>Testez vos connaissances sur l'Enseignement Sup.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Stress -->
+                <a href="/quiz-personnel-bien-etre.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Bien-être</span>
+                        <h3>Niveau de Zenitude</h3>
+                        <p>Êtes-vous stressé ou maître de la situation ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- 🟢 MODE DE VIE -->
+        <div class="section-title">
+            <h2 class="text-theme">🟢 Mode de Vie & Avantages</h2>
+        </div>
+        <div class="grid">
+            <!-- Transport -->
+            <a href="/article-detail.html" class="card">
+                <div class="card-image" style="background-image: url('/images/admin_mobility.png');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Transport</span>
+                    <h3>Mobilité Douce & Forfait</h3>
+                    <p>Aides au vélo, covoiturage et remboursement transports.</p>
+                </div>
+            </a>
+            <!-- Loisirs -->
+            <a href="/article-detail.html" class="card">
+                <div class="card-image" style="background-image: url('/images/admin_leisure.png');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Avantages</span>
+                    <h3>SRIAS & Bons Plans</h3>
+                    <p>Vacances, billetterie et avantages sociaux dédiés.</p>
+                </div>
+            </a>
+            <!-- Santé -->
+            <a href="/article-admin-ergonomie-poste.html" class="card">
+                <div class="card-image" style="background-image: url('/images/admin_health.png');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Bien-être</span>
+                    <h3>Ergonomie & Santé</h3>
+                    <p>Télétravail, posture et prévention au bureau.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>Paroles de Pro</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"La formation sur la gestion du stress m'a beaucoup aidée pour la période
+                    des inscriptions."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=S" alt="Sylvie" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sylvie M.</h4>
+                        <span>Secrétaire Pédagogique</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Grâce au comparatif des outils, nous avons modernisé notre gestion des
+                    plannings."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=D" alt="David" class="author-avatar">
+                    <div class="author-info">
+                        <h4>David L.</h4>
+                        <span>Responsable Scolarité</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CTA Section -->
+        <div class="cta-section" style="margin-top: 4rem;">
+            <h2>Une idée pour améliorer le campus ?</h2>
+            <p>Partagez vos suggestions pour l'amélioration de la qualité de vie au travail.</p>
+            <a href="javascript:void(0)" class="btn-white">Boîte à idées</a>
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

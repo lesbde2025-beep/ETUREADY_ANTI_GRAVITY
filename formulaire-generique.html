@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <h1 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color);">Candidature / Demande</h1>
+            <p style="color: #666; margin-bottom: 2rem;">Veuillez remplir ce formulaire pour soumettre votre demande.</p>
+            <form onsubmit="event.preventDefault(); alert('Formulaire soumis avec succès !'); window.history.back();">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nom complet</label>
+                    <input type="text" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;" required>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                    <input type="email" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;" required>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message ou motivation</label>
+                    <textarea style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; min-height: 120px;" required></textarea>
+                </div>
+                <button type="submit" class="btn-theme" style="width: 100%;">Soumettre</button>
+            </form>
+            <div style="margin-top: 2rem; text-align: center;">
+                <button class="btn-theme-outline" style="border: none; background: transparent; color: #666; cursor: pointer; text-decoration: underline;" onclick="window.history.back()">Annuler</button>
+            </div>
+        </div>
+    </main>
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

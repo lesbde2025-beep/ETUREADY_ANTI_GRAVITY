@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Alumni : As-tu gardé l'esprit de promo ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: #fb5607;
+            background: #fff3e0;
+        }
+
+        /* Orange hover */
+    </style>
+</head>
+
+<body class="theme-orange">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #fb5607; margin-bottom:2rem;">As-tu gardé l'esprit de promo ? 🎓</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Quand tu penses à tes années étudiantes...", o: [
+                    { t: "C'était les meilleures années de ma vie !", s: 20 },
+                    { t: "C'était sympa mais j'ai tourné la page.", s: 10 },
+                    { t: "Je ne me souviens même plus du nom de l'école.", s: 0 }
+                ]
+            },
+            {
+                t: "Tu as gardé contact avec combien de personnes ?", o: [
+                    { t: "Tout le monde, on a un groupe WhatsApp actif.", s: 20 },
+                    { t: "2 ou 3 amis proches.", s: 10 },
+                    { t: "Aucun.", s: 0 }
+                ]
+            },
+            {
+                t: "Si on t'invite au Gala de cette année...", o: [
+                    { t: "J'y vais direct pour voir les anciens profs !", s: 20 },
+                    { t: "Pourquoi pas si mes potes y vont.", s: 10 },
+                    { t: "J'ai piscine.", s: 0 }
+                ]
+            },
+            {
+                t: "Tu portes encore ton sweat de promo ?", o: [
+                    { t: "Oui, il est collector.", s: 20 },
+                    { t: "Pour dormir ou bricoler.", s: 10 },
+                    { t: "Je l'ai donné à Emmaüs.", s: 0 }
+                ]
+            }
+        ];
+        let c = 0, s = 0;
+        function l() {
+            if (c >= 4) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let t = "", m = "";
+                if (s < 30) { t = "Le Fantôme 👻"; m = "Pour toi, l'école c'est du passé. Tu as tourné la page, et c'est très bien comme ça."; }
+                else if (s < 60) { t = "Le Nostalgique Modéré 🙂"; m = "Tu as gardé de bons souvenirs et quelques amis, mais tu vis dans le présent."; }
+                else { t = "L'Âme de la Promo ❤️"; m = "Tu es le gardien du temple ! On peut compter sur toi pour organiser les retrouvailles dans 10 ans."; }
+                d.innerHTML = `<h2 style="color:#fb5607;">${t}</h2><p style="font-size:1.2rem; margin:2rem 0;">${m}</p><a href="/alumni.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='s+=${x.s};c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

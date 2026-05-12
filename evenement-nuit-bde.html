@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nuit des BDE - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <!-- New Header Structure (L'Etudiant Style) -->
+            <site-header></site-header>
+
+    <header class="hero"
+        style="background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(48, 63, 159, 0.8)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200'); background-size: cover; background-position: center;">
+        <div class="container">
+            <span class="tag">Soirée</span>
+            <h1>La Nuit des BDE</h1>
+            <p>L'événement incontournable de l'année pour tous les étudiants du campus.</p>
+        </div>
+    </header>
+
+    <main class="container article-content">
+        <div class="event-details-card">
+            <div class="detail-item">
+                <span class="icon">📅</span>
+                <strong>Date :</strong> 15 Décembre 2024
+            </div>
+            <div class="detail-item">
+                <span class="icon">📍</span>
+                <strong>Lieu :</strong> Le Zénith
+            </div>
+            <div class="detail-item">
+                <span class="icon">💶</span>
+                <strong>Prix :</strong> 15€ (Prévente) / 20€ (Sur place)
+            </div>
+        </div>
+
+        <h2>Au programme</h2>
+        <p>Préparez-vous pour une nuit de folie ! Les BDE de toutes les écoles se réunissent pour vous offrir une soirée
+            mémorable.</p>
+        <ul>
+            <li>3 scènes, 3 ambiances (Electro, Pop/Rock, Hip-Hop)</li>
+            <li>Food trucks et bars à thèmes</li>
+            <li>Animations et goodies toute la nuit</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Réservez votre place</h3>
+            <p>Les places partent vite, ne tardez pas !</p>
+            <a href="/article-detail.html" class="btn">Acheter mon billet</a>
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

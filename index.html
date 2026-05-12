@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EtuReady - La plateforme vivante pour tous</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@700&display=swap"
+    rel="stylesheet">
+  <!-- Using a simple icon set for demo purposes (e.g. Phosphor Icons or similar via CDN if needed, but using emojis/SVG for now to keep it simple) -->
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <!-- Top Banner Ad Placeholder -->
+  <ad-top-banner sponsor="Compass App" title="Découvrez Compass, l'app géolocalisée gratuite pour les étudiants locaux !" cta="Télécharger"></ad-top-banner>
+
+  <!-- Header -->
+  <!-- Header (Modern Stacked & Glassmorphism) -->
+  <site-header></site-header>
+
+  <!-- Hero Section (Impactful) -->
+  <section class="hero hero-light">
+    <!-- Decorative Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container hero-grid" style="position: relative; z-index: 1;">
+      <div class="hero-content">
+        <span class="tag reveal">✨ Plateforme Etu-dynamique pour tous !</span>
+        <h1 class="reveal" style="animation-delay: 0.1s;">Vivez votre vie étudiante <br><span class="text-theme">à
+            100%</span></h1>
+        <p class="reveal" style="animation-delay: 0.2s; color: var(--text-secondary) !important; font-weight: 500;">
+          Accédez à tous les services, événements et bons plans de votre campus en un seul endroit.
+          Connectez-vous à votre écosystème avec EtuReady.
+        </p>
+        <div class="reveal hero-actions"
+          style="animation-delay: 0.3s; display: flex; gap: 1rem; justify-content: flex-start;">
+          <a href="/inscription.html" class="hero-cta">Commencer maintenant</a>
+          <a href="/etudiant.html" class="btn-theme-outline">Découvrir les profils</a>
+        </div>
+      </div>
+      <div class="hero-visuals reveal" style="animation-delay: 0.4s;">
+        <div class="collage">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=500"
+            alt="Students gathering" class="collage-img img-main">
+          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=400"
+            alt="Student working" class="collage-img img-sub1">
+          <div class="glass-float-card">
+            <span class="icon">🚀</span>
+            <div>
+              <strong>+15k</strong>
+              <span>Étudiants actifs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Section -->
+  <section class="trending-section reveal">
+    <div class="trending-label">
+      <span class="pulse-icon"></span> EN DIRECT
+    </div>
+    <div class="trending-marquee">
+      <div class="marquee-item">🚀 500 nouveaux stages déposés ce matin</div>
+      <div class="marquee-item">🎫 Plus que 10 places pour le Gala BDE !</div>
+      <div class="marquee-item">🎓 Salon virtuel de l'orientation : Demain à 14h</div>
+      <div class="marquee-item">🔥 Promo exclu : -50% sur les laptops Dell</div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="marquee-item">🚀 500 nouveaux stages déposés ce matin</div>
+      <div class="marquee-item">🎫 Plus que 10 places pour le Gala BDE !</div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Profile Access Blocks -->
+    <!-- Avatar Selection Section -->
+    <section class="avatar-selection reveal">
+      <div class="section-header-center">
+        <h2>Une plateforme vivante pour tous</h2>
+        <p>Découvrez comment EtuReady accompagne chaque profil dans sa vie étudiante et professionnelle</p>
+      </div>
+      <div class="avatar-carousel-wrapper">
+        <button class="avatar-nav-btn prev" id="avatar-prev">❮</button>
+        <div class="avatar-grid" id="avatar-grid">
+          <!-- Student -->
+          <a href="/etudiant.html" class="avatar-card student-card">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=400"
+                alt="Étudiant">
+            </div>
+            <h3>Étudiant</h3>
+            <p>Soirées, événements, intégration... Vivez pleinement votre vie étudiante !</p>
+          </a>
+          <!-- BDE -->
+          <a href="/bde.html" class="avatar-card bde-card">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=400"
+                alt="BDE">
+            </div>
+            <h3>Membre BDE/BDS/BDA</h3>
+            <p>Organisez des événements mémorables et créez du lien social sur votre campus.</p>
+          </a>
+          <!-- Teacher -->
+          <a href="/enseignants.html" class="avatar-card teacher-card">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400"
+                alt="Enseignant">
+            </div>
+            <h3>Enseignant<br>Chercheur</h3>
+            <p>Accompagnez la nouvelle génération et partagez votre passion pour la connaissance.</p>
+          </a>
+          <!-- Parent -->
+          <a href="/parents.html" class="avatar-card parent-card">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1581985673473-0784a7a44e39?auto=format&fit=crop&q=80&w=400"
+                alt="Parent">
+            </div>
+            <h3>Parent</h3>
+            <p>Suivez le parcours de votre enfant et découvrez les opportunités qui s'offrent à lui.</p>
+          </a>
+          <!-- Alumni -->
+          <a href="/alumni.html" class="avatar-card alumni-card">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400"
+                alt="Alumni">
+            </div>
+            <h3>Ancien étudiant</h3>
+            <p>Partagez votre expérience et guidez les futurs diplômés vers la réussite.</p>
+          </a>
+          <!-- Personnel Administratif -->
+          <a href="/personnel-administratif.html" class="avatar-card admin-card">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=400"
+                alt="Admin">
+            </div>
+            <h3>Personnel Administratif</h3>
+            <p>Outils, formations et conseils pour tous les acteurs de l'écosystème éducatif.</p>
+          </a>
+        </div>
+        <button class="avatar-nav-btn next" id="avatar-next">❯</button>
+      </div>
+    </section>
+
+    <!-- Premium Formulas Section (Redesigned) -->
+    <section class="premium-pass-section reveal">
+      <div class="premium-background"></div>
+      <div class="container" style="position: relative; z-index: 10;">
+        <div class="premium-header">
+          <div class="premium-badge-top">🚀 Passez au niveau supérieur</div>
+          <h2 class="premium-title">Débloquez un max d'avantages avec <br><span class="gradient-text">Le Pass
+              EtuReady</span></h2>
+          <p class="premium-subtitle">
+            Bons plans, réductions locales, billets en avant-première, outils surpuissants et tirages au sort
+            mensuels.
+            Choisissez la formule qui va révolutionner votre vie étudiante.
+          </p>
+        </div>
+
+        <div class="premium-grid">
+          <!-- Premium BDE Card -->
+          <div class="premium-pricing-card bde-pro-card">
+            <div class="card-glow bde-glow"></div>
+            <div class="pricing-card-inner">
+              <div class="pricing-top">
+                <div class="badge-pro">PRO 🏆</div>
+                <h3 class="pricing-name">Premium BDE</h3>
+                <p class="pricing-desc">La boîte à outils ultime pour gérer et propulser votre association comme
+                  des pros.</p>
+                <div class="pricing-price-block">
+                  <span class="price-val">Sur devis</span>
+                  <span class="price-period">/ asso</span>
+                </div>
+                <a href="/bde.html" class="btn-premium btn-bde">Découvrir l'offre BDE</a>
+              </div>
+              <div class="pricing-features">
+                <h4>Inclus dans le Pass Pro :</h4>
+                <ul>
+                  <li><span class="check-icon">✓</span> Participation au Grand Trophée des BDE</li>
+                  <li><span class="check-icon">✓</span> Cumul des XP & Abonnements à gagner pour l'équipe</li>
+                  <li><span class="check-icon">✓</span> <strong>Activité "À la UNE"</strong> (1 semaine/an)
+                  </li>
+                  <li><span class="check-icon">✓</span> Outils Ski & Vacances clé en main gratuits</li>
+                  <li><span class="check-icon">✓</span> Accès à un réseau de partenaires exclusifs (QR Code)
+                  </li>
+                  <li><span class="check-icon">✓</span> Dashboard Analytics pour suivre l'engagement</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Premium Student Card (Highlight) -->
+          <div class="premium-pricing-card student-fam-card popular-choice">
+            <div class="card-glow student-glow"></div>
+            <div class="popular-ribbon">⭐ Le plus choisi</div>
+            <div class="pricing-card-inner">
+              <div class="pricing-top">
+                <div class="badge-fam">FAMILLE & ÉTUDIANT 💎</div>
+                <h3 class="pricing-name">Le Pass Premium</h3>
+                <p class="pricing-desc">Faites exploser votre pouvoir d'achat, accélérez votre réussite et
+                  simplifiez votre quotidien.</p>
+                <div class="pricing-price-block">
+                  <span class="price-val small-price">À partir de</span>
+                  <span class="price-val">3,99€</span>
+                  <span class="price-period">/ mois</span>
+                </div>
+                <a href="/pass-etuready.html" class="btn-premium btn-student">Je prends mon Pass</a>
+              </div>
+              <div class="pricing-features enriched-features">
+                <h4 class="enriched-features-title">✨ Vos avantages exclusifs :</h4>
+                <ul class="enriched-features-list">
+                  <li>
+                    <div class="feature-icon-wrapper">🏷️</div>
+                    <div class="feature-content">
+                      <strong>Bons plans & réductions locales</strong>
+                      <span>instantanées</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="feature-icon-wrapper">🎟️</div>
+                    <div class="feature-content">
+                      <strong>Early tickets</strong>
+                      <span>pour les concerts et festivals</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="feature-icon-wrapper">🎁</div>
+                    <div class="feature-content">
+                      <strong>Plus de chances aux tirages au sort</strong>
+                      <span>mensuels</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="feature-icon-wrapper">💬</div>
+                    <div class="feature-content">
+                      <strong>Accès illimité aux Forums Spécialisés</strong>
+                      <span>(Logement, Banque)</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="feature-icon-wrapper">🤖</div>
+                    <div class="feature-content">
+                      <strong>Générateur de CV, Lettres types</strong>
+                      <span>& Outils IA de motivation</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="feature-icon-wrapper">🌍</div>
+                    <div class="feature-content">
+                      <strong>Aide prioritaire au Logement</strong>
+                      <span>& Mobilité internationale</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="feature-icon-wrapper">🤝</div>
+                    <div class="feature-content">
+                      <strong>Match making VIP :</strong>
+                      <span>Stages & Alternances partenaires</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Ad Banner -->
+    <div class="featured-box reveal">
+      <span class="featured-tag">Direct Link</span>
+      <img src="/images/special_offer_laptop.png" alt="Offre Spéciale Laptop">
+    </div>
+
+    <!-- Main Categories -->
+    <div class="section-title reveal">
+      <h2>Explorer par thématiques</h2>
+    </div>
+    <div class="categories-grid reveal">
+      <a href="/actus.html" class="category-item">
+        <span class="category-icon">📰</span>
+        <span>Mes Actus</span>
+      </a>
+      <a href="/marketplace.html" class="category-item">
+        <span class="category-icon">🛒</span>
+        <span>Ma MarketEtuPlace</span>
+      </a>
+      <a href="/bons-plans.html" class="category-item" style="animation-delay: 0.2s">
+        <span class="category-icon">🏷️</span>
+        <span>Mes Bons Plans</span>
+      </a>
+      <a href="/formation.html" class="category-item" style="animation-delay: 0.3s">
+        <span class="category-icon">🎓</span>
+        <span>Ma Formation</span>
+      </a>
+      <a href="/assos.html" class="category-item" style="animation-delay: 0.4s">
+        <span class="category-icon">🤝</span>
+        <span>Mes Assos</span>
+      </a>
+      <a href="/reseau.html" class="category-item" style="animation-delay: 0.5s">
+        <span class="category-icon">🌐</span>
+        <span>Mon Réseau</span>
+      </a>
+    </div>
+
+    <!-- In-Content Ad Placeholder -->
+    <ad-in-content sponsor="Nike" title="Jusqu'à -20% avec Nike" copy="Équipez-vous pour la rentrée ou le sport avec les offres exclusives Nike." cta="Profiter de l'offre"></ad-in-content>
+
+    <!-- Events & Experiences -->
+    <section class="reveal section-alt" style="padding: 4rem 0;">
+      <div class="section-title">
+        <h2>Événements & Expériences</h2>
+        <a href="/evenement.html" class="view-all">Voir l'agenda →</a>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600');">
+          </div>
+          <div class="card-content">
+            <span class="tag">Études</span>
+            <h3>Planning des partiels S1</h3>
+            <p>Le calendrier officiel est sorti. Prépare-toi !</p>
+            <a href="/article-planning-partiels.html" class="read-more">Voir le calendrier</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600');">
+          </div>
+          <div class="card-content">
+            <span class="tag">Vie Étudiante</span>
+            <h3>Afterwork du Jeudi</h3>
+            <p>Rendez-vous au foyer à partir de 18h.</p>
+            <a href="/evenement-afterwork-jeudi.html" class="read-more">En savoir plus</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600');">
+          </div>
+          <div class="card-content">
+            <span class="tag">Pédagogie</span>
+            <h3>L'IA dans l'enseignement</h3>
+            <p>Conférence sur l'impact de l'IA générative.</p>
+            <a href="/article-ia-enseignement.html" class="read-more">Lire l'article</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Deals Section (Massive Redesign Full Width) -->
+    <section class="deals-section reveal" style="margin-top: 6rem; margin-bottom: 6rem; background: #0f172a; padding: 6rem 0; position: relative; overflow: hidden; color: white;">
+        
+        <!-- Decorative blobs -->
+        <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%); border-radius: 50%; top: -200px; left: -200px; pointer-events: none;"></div>
+        <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, transparent 70%); border-radius: 50%; bottom: -200px; right: -200px; pointer-events: none;"></div>
+
+        <div class="container" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; position: relative; z-index: 2;">
+            <!-- Left Column: Title & CTA -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <span style="display: inline-block; padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.2); color: #fca5a5; border-radius: 50px; font-weight: 800; font-size: 0.85rem; margin-bottom: 1.5rem; width: fit-content; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(239,68,68,0.3);">🔥 Bons Plans</span>
+                <h2 style="font-size: 3.5rem; font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1.5rem;">Faites fondre vos dépenses.</h2>
+                <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 2.5rem; max-width: 90%;">Accédez à des centaines de réductions exclusives sur vos marques préférées. De la tech à la food, on s'occupe de votre budget étudiant.</p>
+                <a href="/bons-plans.html" style="display: inline-flex; align-items: center; justify-content: center; background: white; color: #0f172a; padding: 1rem 2rem; border-radius: 16px; font-weight: 800; text-decoration: none; font-size: 1.1rem; width: fit-content; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(255, 255, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">Découvrir tous les codes →</a>
+            </div>
+
+            <!-- Right Column: Bento Grid of 4 Deals -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                
+                <!-- Deal 1 -->
+                <div style="background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: transform 0.3s, background 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)';">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 56px; height: 56px; background: white; border-radius: 16px; padding: 10px; flex-shrink: 0;"><img src="https://placehold.co/150x150/000000/ffffff?text=Apple" alt="Apple" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                        <div><span style="font-size: 0.7rem; font-weight: 800; color: #c4b5fd; background: rgba(139,92,246,0.2); padding: 0.2rem 0.5rem; border-radius: 6px;">TECH</span><h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: white;">Apple Education</h3></div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">Jusqu'à 150€ de carte cadeau offerts.</p>
+                    <a href="/bons-plans.html" style="display: block; text-align: center; background: rgba(255,255,255,0.1); color: white; font-weight: 700; text-decoration: none; padding: 0.6rem; border-radius: 12px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)';" onmouseout="this.style.background='rgba(255,255,255,0.1)';">Voir l'offre</a>
+                </div>
+
+                <!-- Deal 2 -->
+                <div style="background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: transform 0.3s, background 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)';">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 56px; height: 56px; background: white; border-radius: 16px; padding: 10px; flex-shrink: 0;"><img src="https://placehold.co/150x150/d62300/ffffff?text=BK" alt="Burger King" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                        <div><span style="font-size: 0.7rem; font-weight: 800; color: #fca5a5; background: rgba(239,68,68,0.2); padding: 0.2rem 0.5rem; border-radius: 6px;">FOOD</span><h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: white;">Burger King</h3></div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">-20% sur tous les menus avec la carte.</p>
+                    <a href="/bons-plans.html" style="display: block; text-align: center; background: rgba(255,255,255,0.1); color: white; font-weight: 700; text-decoration: none; padding: 0.6rem; border-radius: 12px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)';" onmouseout="this.style.background='rgba(255,255,255,0.1)';">Voir l'offre</a>
+                </div>
+
+                <!-- Deal 3 -->
+                <div style="background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: transform 0.3s, background 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)';">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 56px; height: 56px; background: white; border-radius: 16px; padding: 10px; flex-shrink: 0;"><img src="https://placehold.co/150x150/1db954/ffffff?text=Spotify" alt="Spotify" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                        <div><span style="font-size: 0.7rem; font-weight: 800; color: #6ee7b7; background: rgba(16,185,129,0.2); padding: 0.2rem 0.5rem; border-radius: 6px;">MUSIQUE</span><h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: white;">Spotify Premium</h3></div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">3 mois offerts puis 5,99€/mois.</p>
+                    <a href="/bons-plans.html" style="display: block; text-align: center; background: rgba(255,255,255,0.1); color: white; font-weight: 700; text-decoration: none; padding: 0.6rem; border-radius: 12px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)';" onmouseout="this.style.background='rgba(255,255,255,0.1)';">Voir l'offre</a>
+                </div>
+
+                <!-- Deal 4 -->
+                <div style="background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: transform 0.3s, background 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.05)';">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 56px; height: 56px; background: white; border-radius: 16px; padding: 10px; flex-shrink: 0;"><img src="https://placehold.co/150x150/820046/ffffff?text=SNCF" alt="SNCF" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                        <div><span style="font-size: 0.7rem; font-weight: 800; color: #fcd34d; background: rgba(245,158,11,0.2); padding: 0.2rem 0.5rem; border-radius: 6px;">VOYAGE</span><h3 style="font-size: 1.1rem; font-weight: 800; margin: 0; color: white;">Carte Avantage</h3></div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">-30% sur vos billets toute l'année.</p>
+                    <a href="/bons-plans.html" style="display: block; text-align: center; background: rgba(255,255,255,0.1); color: white; font-weight: 700; text-decoration: none; padding: 0.6rem; border-radius: 12px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)';" onmouseout="this.style.background='rgba(255,255,255,0.1)';">Voir l'offre</a>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Mobile responsive styles for this section -->
+        <style>
+            @media (max-width: 992px) {
+                .deals-section .container { grid-template-columns: 1fr !important; }
+                .deals-section h2 { font-size: 2.5rem !important; }
+                .deals-section > .container > div:last-child { grid-template-columns: 1fr !important; }
+            }
+        </style>
+    </section>
+
+    <!-- Articles & Guides -->
+    <section class="reveal section-alt" style="padding: 4rem 0;">
+      <div class="section-title">
+        <h2>Articles & Guides Pratiques</h2>
+        <a href="/article.html" class="view-all">Lire le blog →</a>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=600');">
+          </div>
+          <div class="card-content">
+            <span class="tag">Logement</span>
+            <h3>Trouver son appart : le guide ultime</h3>
+            <p>Dossier, garants, APL... On vous explique tout pour ne pas galérer dans vos recherches.</p>
+            <a href="/article-apl.html" class="read-more">Lire l'article</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=600');">
+          </div>
+          <div class="card-content">
+            <span class="tag">Budget</span>
+            <h3>5 astuces pour économiser 100€/mois</h3>
+            <p>Des gestes simples et des bons plans utiles pour mieux gérer son budget étudiant sans se priver.</p>
+            <a href="/article-budget.html" class="read-more">Lire l'article</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600');">
+          </div>
+          <div class="card-content">
+            <span class="tag">Productivité</span>
+            <h3>Gérer son temps comme un pro</h3>
+            <p>Méthodes d'organisation (Pomodoro, Notion) pour concilier études, projets assos et vie sociale.</p>
+            <a href="/article-ia-enseignement.html" class="read-more">Lire l'article</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Campus Pulse Stats -->
+    <section class="campus-pulse reveal">
+      <div class="stats-card">
+        <div class="stat-value">12.5k</div>
+        <div class="stat-label">Étudiants Actifs</div>
+      </div>
+      <div class="stats-card">
+        <div class="stat-value">450+</div>
+        <div class="stat-label">BDE Partenaires</div>
+      </div>
+      <div class="stats-card">
+        <div class="stat-value">8.9k</div>
+        <div class="stat-label">Offres Validées</div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section cta-section reveal">
+      <h2>Ne ratez aucune info !</h2>
+      <p style="margin-bottom: 2rem; opacity: 0.9;">Inscrivez-vous à la newsletter pour recevoir le récap de la semaine
+        directement dans votre boîte mail.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre email étudiant" class="newsletter-input">
+        <button type="submit" class="newsletter-btn">S'abonner</button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Search Formation Section -->
+  <section class="search-formation-section reveal">
+    <div class="container">
+      <div class="search-formation-card">
+        <h2>Trouvez votre voie</h2>
+        <p>Explorez plus de 15 000 formations certifiées par le ministère. Votre future carrière commence ici.</p>
+
+        <div class="search-buttons-grid">
+          <a href="/formation.html" class="search-btn-box">
+            <span class="icon">🎯</span>
+            <span>Par spécialité</span>
+          </a>
+          <a href="/formation.html" class="search-btn-box">
+            <span class="icon">💼</span>
+            <span>Par métier</span>
+          </a>
+          <a href="/formation.html" class="search-btn-box">
+            <span class="icon">📜</span>
+            <span>Par diplôme</span>
+          </a>
+          <a href="/formation.html" class="search-btn-box">
+            <span class="icon">🏫</span>
+            <span>Par établissement</span>
+          </a>
+        </div>
+
+        <div class="search-input-wrapper">
+          <label for="establishment-search">Je connais déjà l'établissement</label>
+          <div class="input-group">
+            <input type="text" id="establishment-search" placeholder="Ex: Sorbonne, Epitech, BTS NRC...">
+            <button class="search-icon-btn">🔍 Rechercher</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Banner Ad Placeholder -->
+  <ad-footer-banner sponsor="La Banque Postale" title="Compte étudiant – La Banque Postale" copy="Ouvrez votre compte 100% en ligne en 5 min et recevez 80€ offerts à l'ouverture pour tous vos projets." cta="Découvrir l'offre"></ad-footer-banner>
+
+  <site-footer></site-footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

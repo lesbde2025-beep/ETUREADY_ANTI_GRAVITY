@@ -1,0 +1,99 @@
+/* User Profile Widget (Modern) */
+.user-profile-widget {
+    position: relative;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: none;
+    background: white;
+    cursor: pointer;
+    padding: 0.4rem 0.5rem 0.4rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+    border: 1px solid var(--border-light);
+}
+
+.profile-btn:hover {
+    background: var(--bg-body);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.profile-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    display: none;
+    /* Often hidden on mobile or small screens, show on larger if needed */
+}
+
+@media (min-width: 768px) {
+    .profile-name {
+        display: block;
+    }
+}
+
+/* Reuse .dropdown-menu-modern logic for profile but positioned right */
+.user-profile-widget .dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: white;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    display: none;
+    /* JS Toggle */
+    flex-direction: column;
+    z-index: 1020;
+    transform-origin: top right;
+    animation: slideInMenu 0.2s ease-out;
+}
+
+@keyframes slideInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.user-profile-widget .dropdown-menu a {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.user-profile-widget .dropdown-menu a:hover {
+    background: var(--bg-body);
+    color: var(--primary-color);
+}

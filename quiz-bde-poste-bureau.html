@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz BDE : Quel poste est fait pour toi ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            background: #eef2ff;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+    <main class="container theme-purple" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <h1 style="text-align:center; color: var(--primary-color); margin-bottom:2rem;">Quel poste du Bureau est
+                fait pour toi ? 🏅</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const questions = [
+            {
+                text: "Dans un groupe de projet, tu es naturellement...", options: [
+                    { text: "Celui qui motive les troupes et prend les décisions.", scores: { PRESI: 3, EVENT: 1, COM: 1, TRESO: 0, PARTEN: 1 } },
+                    { text: "Celui qui gère le budget Excel au centime près.", scores: { PRESI: 1, EVENT: 0, COM: 0, TRESO: 3, PARTEN: 1 } },
+                    { text: "Celui qui fait les slides et la présentation orale.", scores: { PRESI: 1, EVENT: 0, COM: 3, TRESO: 0, PARTEN: 1 } },
+                    { text: "Celui qui organise l'apéro de fin de projet.", scores: { PRESI: 1, EVENT: 3, COM: 1, TRESO: 0, PARTEN: 0 } }
+                ]
+            },
+            {
+                text: "Ton pire cauchemar, c'est...", options: [
+                    { text: "Personne ne vient à la soirée prévue.", scores: { PRESI: 1, EVENT: 3, COM: 2, TRESO: 0, PARTEN: 1 } },
+                    { text: "Un trou de 500€ dans la caisse.", scores: { PRESI: 1, EVENT: 0, COM: 0, TRESO: 3, PARTEN: 0 } },
+                    { text: "Un conflit interne qui explose l'équipe.", scores: { PRESI: 3, EVENT: 0, COM: 1, TRESO: 0, PARTEN: 0 } },
+                    { text: "Avoir oublié de contacter le sponsor Coca-Cola.", scores: { PRESI: 1, EVENT: 0, COM: 0, TRESO: 1, PARTEN: 3 } }
+                ]
+            },
+            {
+                text: "Pour toi, une bonne communication c'est...", options: [
+                    { text: "Des visuels stylés et des Reels TikTok viraux.", scores: { PRESI: 0, EVENT: 1, COM: 3, TRESO: 0, PARTEN: 0 } },
+                    { text: "Des mails clairs et professionnels aux partenaires.", scores: { PRESI: 1, EVENT: 0, COM: 1, TRESO: 0, PARTEN: 3 } },
+                    { text: "Un discours inspirant devant toute la promo.", scores: { PRESI: 3, EVENT: 0, COM: 1, TRESO: 0, PARTEN: 1 } },
+                    { text: "Le bouche-à-oreille efficace sur le campus.", scores: { PRESI: 1, EVENT: 2, COM: 1, TRESO: 0, PARTEN: 0 } }
+                ]
+            },
+            {
+                text: "Si tu dois négocier...", options: [
+                    { text: "Je suis un requin, je ne lâche rien sur les prix.", scores: { PRESI: 1, EVENT: 0, COM: 0, TRESO: 2, PARTEN: 3 } },
+                    { text: "J'essaie de trouver un compromis qui arrange tout le monde.", scores: { PRESI: 3, EVENT: 0, COM: 1, TRESO: 0, PARTEN: 1 } },
+                    { text: "Je vends du rêve pour convaincre.", scores: { PRESI: 1, EVENT: 1, COM: 3, TRESO: 0, PARTEN: 1 } },
+                    { text: "Je vérifie d'abord si on a le budget.", scores: { PRESI: 0, EVENT: 0, COM: 0, TRESO: 3, PARTEN: 0 } }
+                ]
+            },
+            {
+                text: "Ton outil préféré ?", options: [
+                    { text: "Canva / Photoshop.", scores: { PRESI: 0, EVENT: 0, COM: 3, TRESO: 0, PARTEN: 0 } },
+                    { text: "Excel / Lydia Pro.", scores: { PRESI: 0, EVENT: 0, COM: 0, TRESO: 3, PARTEN: 1 } },
+                    { text: "Mon agenda / Trello.", scores: { PRESI: 2, EVENT: 3, COM: 0, TRESO: 1, PARTEN: 1 } },
+                    { text: "LinkedIn / Téléphone.", scores: { PRESI: 1, EVENT: 0, COM: 1, TRESO: 0, PARTEN: 3 } }
+                ]
+            }
+        ];
+
+        let currentQ = 0;
+        let scores = { PRESI: 0, EVENT: 0, COM: 0, TRESO: 0, PARTEN: 0 };
+
+        function loadQ() {
+            const q = questions[currentQ];
+            document.getElementById('progress').style.width = ((currentQ) / 5) * 100 + "%";
+            let html = `<div class="question active"><h3>${q.text}</h3>`;
+            q.options.forEach((o, i) => html += `<button class="btn-quiz" onclick='answer(${JSON.stringify(o.scores)})'>${o.text}</button>`);
+            document.getElementById('quiz-area').innerHTML = html + "</div>";
+        }
+
+        window.answer = (s) => {
+            for (let k in s) scores[k] += s[k];
+            currentQ++;
+            if (currentQ < 5) loadQ(); else result();
+        };
+
+        function result() {
+            document.getElementById('progress').style.width = "100%";
+            document.getElementById('quiz-area').style.display = 'none';
+            const resDiv = document.getElementById('result-area');
+            resDiv.style.display = 'block';
+
+            let winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+            const profiles = {
+                PRESI: { t: "Président(e)", d: "Le Chef d'Orchestre. Tu as la vision et le leadership pour guider l'asso." },
+                EVENT: { t: "Respo Événementiel", d: "L'Ambianceur Organisé. Tu sais créer des moments inoubliables sans (trop) de chaos." },
+                COM: { t: "Respo Com", d: "La Voix de l'Asso. Créatif(ve) et connecté(e), tu sais faire buzzer les projets." },
+                TRESO: { t: "Trésorier(e)", d: "Le Gardien du Temple. Rigueur et sérieux, l'argent de l'asso est en sécurité avec toi." },
+                PARTEN: { t: "Respo Partenariats", d: "Le Business Developer. Tu sais vendre l'asso et décrocher les meilleurs contrats." }
+            };
+
+            resDiv.innerHTML = `<h2>Tu es fait(e) pour être : <br><span style="color:var(--primary-color); font-size:2.5rem;">${profiles[winner].t}</span></h2><p style="font-size:1.2rem; margin:2rem 0;">${profiles[winner].d}</p><a href="/bde.html" class="btn-theme">Retour</a>`;
+        }
+        loadQ();
+    </script>
+</body>
+
+</html>

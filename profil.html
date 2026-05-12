@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Profil - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/style-auth.css">
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="container" style="padding: 4rem 0;">
+        <div
+            style="max-width: 800px; margin: 0 auto; background: white; border-radius: 16px; padding: 3rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+            <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                <h1 style="color: var(--primary-color);">Mon Profil</h1>
+                <p style="color: var(--text-secondary);">Gérer vos informations personnelles et préférences.</p>
+            </div>
+
+            <form id="profile-form">
+                <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+                    <div style="flex: 1;">
+                        <label class="form-group" style="display:block;">
+                            <span
+                                style="font-weight:600; font-size: 0.9rem; color: var(--text-secondary);">Prénom</span>
+                            <input type="text" id="prenom"
+                                style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border-radius: 8px; border: 1px solid var(--border-light);"
+                                disabled>
+                        </label>
+                    </div>
+                    <div style="flex: 1;">
+                        <label class="form-group" style="display:block;">
+                            <span style="font-weight:600; font-size: 0.9rem; color: var(--text-secondary);">Nom</span>
+                            <input type="text" id="nom"
+                                style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border-radius: 8px; border: 1px solid var(--border-light);"
+                                disabled>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label style="font-weight:600; font-size: 0.9rem; color: var(--text-secondary);">Email (non
+                        modifiable)</label>
+                    <input type="email" id="email"
+                        style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border-radius: 8px; border: 1px solid var(--border-light); background: #f8fafc;"
+                        disabled>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label style="font-weight:600; font-size: 0.9rem; color: var(--text-secondary);">Rôle</label>
+                    <input type="text" id="role-display"
+                        style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border-radius: 8px; border: 1px solid var(--border-light); text-transform: capitalize;"
+                        disabled>
+                </div>
+
+                <button type="button"
+                    style="background: var(--primary-color); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: not-allowed; opacity: 0.7;">Enregistrer
+                    les modifications (Bientôt)</button>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module">
+        import { authService } from '/src/auth-service.js';
+
+        (async () => {
+            const user = await authService.getCurrentUser();
+            if (!user) {
+                window.location.href = '/connexion.html';
+                return;
+            }
+
+            const meta = user.user_metadata || {};
+
+            document.getElementById('prenom').value = meta.prenom || '';
+            document.getElementById('nom').value = meta.nom || '';
+            document.getElementById('role-display').value = meta.role || 'Étudiant';
+            document.getElementById('email').value = user.email;
+        })();
+    </script>
+</body>
+
+</html>

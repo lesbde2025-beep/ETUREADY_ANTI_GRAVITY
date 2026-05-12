@@ -1,0 +1,380 @@
+[
+  {
+    "title": "Burger King",
+    "category": "Food",
+    "region": "National",
+    "city": "all",
+    "description": "-20% sur tous les menus, sur présentation de votre carte étudiante en caisse ou borne.",
+    "logo": "/images/articles/img_food.png",
+    "tag": "Food"
+  },
+  {
+    "title": "McDonald's",
+    "category": "Food",
+    "region": "National",
+    "city": "all",
+    "description": "Un burger ou un dessert offert pour l'achat d'un menu Maxi Best Of.",
+    "logo": "/images/articles/img_food.png",
+    "tag": "Food"
+  },
+  {
+    "title": "Uber Eats",
+    "category": "Food",
+    "region": "National",
+    "city": "all",
+    "description": "-15€ sur votre première commande + livraison offerte pendant 6 mois avec Uber One étudiant.",
+    "logo": "/images/articles/img_food.png",
+    "tag": "Livraison"
+  },
+  {
+    "title": "Deliveroo",
+    "category": "Food",
+    "region": "National",
+    "city": "all",
+    "description": "Livraison gratuite pendant 1 an avec Deliveroo Plus pour les membres Amazon Prime Student.",
+    "logo": "/images/articles/img_food.png",
+    "tag": "Livraison"
+  },
+  {
+    "title": "Apple Education",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "Jusqu'à 150€ de carte cadeau offerts pour l'achat d'un Mac ou iPad. AirPods offerts en été.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "High-Tech"
+  },
+  {
+    "title": "Samsung Student",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "Jusqu'à -30% sur les smartphones Galaxy, tablettes et PC portables.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "High-Tech"
+  },
+  {
+    "title": "HP Store",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "Jusqu'à -40% sur la gamme de PC portables HP Pavilion et Envy.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "High-Tech"
+  },
+  {
+    "title": "Dell Advantage",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "-20% de remise immédiate sur tous les PC portables XPS et Inspiron.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "High-Tech"
+  },
+  {
+    "title": "Adobe Creative Cloud",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "-65% sur la suite complète Adobe (Photoshop, Premiere, Illustrator, InDesign...).",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "Logiciel"
+  },
+  {
+    "title": "Microsoft Office 365",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "Suite Office 100% gratuite (Word, Excel, PowerPoint) avec votre adresse mail étudiante.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "Logiciel"
+  },
+  {
+    "title": "Notion Pro",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "Abonnement Notion Personal Pro 100% gratuit avec votre adresse .edu ou .univ.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "Productivité"
+  },
+  {
+    "title": "Canva Pro",
+    "category": "Tech",
+    "region": "National",
+    "city": "all",
+    "description": "1 an d'accès à Canva Pro avec la plateforme GitHub Student Developer Pack.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "Design"
+  },
+  {
+    "title": "Spotify Premium",
+    "category": "Culture",
+    "region": "National",
+    "city": "all",
+    "description": "3 mois offerts puis 5,99€/mois. Écoute hors ligne et sans publicité.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Musique"
+  },
+  {
+    "title": "Apple Music",
+    "category": "Culture",
+    "region": "National",
+    "city": "all",
+    "description": "Abonnement étudiant à 5,99€/mois, incluant l'accès à Apple TV+ gratuit.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Musique"
+  },
+  {
+    "title": "Deezer Premium",
+    "category": "Culture",
+    "region": "National",
+    "city": "all",
+    "description": "Offre étudiant à 5,99€/mois (au lieu de 11,99€) sur présentation de la carte.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Musique"
+  },
+  {
+    "title": "CinéPass Pathé",
+    "category": "Culture",
+    "region": "National",
+    "city": "all",
+    "description": "Abonnement -26 ans pour le cinéma à volonté partout en France à 16,90€/mois.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Cinéma"
+  },
+  {
+    "title": "UGC Illimité",
+    "category": "Culture",
+    "region": "National",
+    "city": "all",
+    "description": "Abonnement illimité UGC pour les -26 ans à tarif réduit (17,90€/mois).",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Cinéma"
+  },
+  {
+    "title": "Nike",
+    "category": "Mode",
+    "region": "National",
+    "city": "all",
+    "description": "-10% supplémentaires sur tout le site, cumulables avec les promotions en cours via UNiDAYS.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Sneakers"
+  },
+  {
+    "title": "ASOS",
+    "category": "Mode",
+    "region": "National",
+    "city": "all",
+    "description": "-10% de réduction étudiante sur tous vos achats de vêtements et accessoires.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Mode"
+  },
+  {
+    "title": "Zalando",
+    "category": "Mode",
+    "region": "National",
+    "city": "all",
+    "description": "-15% dès 50€ d'achat avec StudentBeans, valable sur des milliers de marques.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Mode"
+  },
+  {
+    "title": "H&M",
+    "category": "Mode",
+    "region": "National",
+    "city": "all",
+    "description": "-15% pour la rentrée étudiante en magasin sur présentation de votre carte.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Mode"
+  },
+  {
+    "title": "Levi's",
+    "category": "Mode",
+    "region": "National",
+    "city": "all",
+    "description": "-20% sur tout le catalogue Levi's toute l'année pour les étudiants.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Mode"
+  },
+  {
+    "title": "Sephora",
+    "category": "Beauté",
+    "region": "National",
+    "city": "all",
+    "description": "-10% sur tous les parfums et soins visage en magasin.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Cosmétiques"
+  },
+  {
+    "title": "Lookfantastic",
+    "category": "Beauté",
+    "region": "National",
+    "city": "all",
+    "description": "-20% sur plus de 600 marques de cosmétiques via StudentBeans.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Cosmétiques"
+  },
+  {
+    "title": "Carte Avantage Jeune SNCF",
+    "category": "Voyage",
+    "region": "National",
+    "city": "all",
+    "description": "-30% sur vos billets de train TGV et Intercités. Prix plafonnés de dernière minute.",
+    "logo": "/images/articles/img_transport.png",
+    "tag": "Train"
+  },
+  {
+    "title": "FlixBus",
+    "category": "Voyage",
+    "region": "National",
+    "city": "all",
+    "description": "-10% sur tous vos trajets en bus en Europe via ESNcard ou StudentBeans.",
+    "logo": "/images/articles/img_transport.png",
+    "tag": "Bus"
+  },
+  {
+    "title": "Booking.com",
+    "category": "Voyage",
+    "region": "National",
+    "city": "all",
+    "description": "Jusqu'à -15% et 4% de cashback sur vos réservations pour vos week-ends BDE.",
+    "logo": "/images/articles/img_travel.png",
+    "tag": "Hôtel"
+  },
+  {
+    "title": "Airbnb",
+    "category": "Voyage",
+    "region": "National",
+    "city": "all",
+    "description": "50€ offerts sur votre première réservation pour les voyages d'études.",
+    "logo": "/images/articles/img_travel.png",
+    "tag": "Logement"
+  },
+  {
+    "title": "Amazon Prime Student",
+    "category": "Shopping",
+    "region": "National",
+    "city": "all",
+    "description": "90 jours d'essai gratuit puis -50% (34,90€/an). Livraison en 1 jour et Prime Video inclus.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Abonnement"
+  },
+  {
+    "title": "FNAC",
+    "category": "Shopping",
+    "region": "National",
+    "city": "all",
+    "description": "Carte Fnac+ à prix réduit (9,99€ la première année) + -5% sur les livres High-Tech.",
+    "logo": "/images/articles/img_budget.png",
+    "tag": "Culture"
+  },
+  {
+    "title": "Basic-Fit",
+    "category": "Sport",
+    "region": "National",
+    "city": "all",
+    "description": "4 semaines offertes et frais d'inscription gratuits pour toute souscription annuelle.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Gym"
+  },
+  {
+    "title": "Fitness Park",
+    "category": "Sport",
+    "region": "National",
+    "city": "all",
+    "description": "Abonnement étudiant à 19,95€ le premier mois puis tarif préférentiel.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Gym"
+  },
+  {
+    "title": "Nike Run Club",
+    "category": "Sport",
+    "region": "National",
+    "city": "all",
+    "description": "Programmes d'entraînement premium débloqués gratuitement.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "App"
+  },
+  {
+    "title": "Vélo'v - 1 an offert",
+    "category": "Sport",
+    "region": "Auvergne-Rhône-Alpes",
+    "city": "Lyon",
+    "description": "Abonnement annuel offert pour les étudiants boursiers (ou -50% pour les non-boursiers).",
+    "logo": "/images/articles/img_transport.png",
+    "tag": "Transport"
+  },
+  {
+    "title": "Vélib' Métropole",
+    "category": "Sport",
+    "region": "Île-de-France",
+    "city": "Paris",
+    "description": "Tarif V-Plus Jeune à seulement 3,10€/mois pour rouler partout à Paris.",
+    "logo": "/images/articles/img_transport.png",
+    "tag": "Transport"
+  },
+  {
+    "title": "Navigo Imagine R",
+    "category": "Voyage",
+    "region": "Île-de-France",
+    "city": "Paris",
+    "description": "Forfait de transport annuel étudiant à 373€ pour toute l'Île-de-France.",
+    "logo": "/images/articles/img_transport.png",
+    "tag": "Transport"
+  },
+  {
+    "title": "RTM - Tarif Jeune",
+    "category": "Voyage",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "city": "Marseille",
+    "description": "Pass permanent Jeune (moins de 26 ans) à tarif réduit pour le métro/bus/tramway.",
+    "logo": "/images/articles/img_transport.png",
+    "tag": "Transport"
+  },
+  {
+    "title": "Musée du Louvre",
+    "category": "Culture",
+    "region": "Île-de-France",
+    "city": "Paris",
+    "description": "Gratuit pour les -26 ans résidants de l'UE. Accès illimité aux collections permanentes.",
+    "logo": "/images/articles/img_travel.png",
+    "tag": "Musée"
+  },
+  {
+    "title": "Cité du Vin",
+    "category": "Culture",
+    "region": "Nouvelle-Aquitaine",
+    "city": "Bordeaux",
+    "description": "-50% sur le parcours permanent pour les étudiants. Dégustation incluse.",
+    "logo": "/images/articles/img_travel.png",
+    "tag": "Musée"
+  },
+  {
+    "title": "Cité de l'Espace",
+    "category": "Culture",
+    "region": "Occitanie",
+    "city": "Toulouse",
+    "description": "Tarif réduit étudiant pour découvrir les secrets de l'univers et la conquête spatiale.",
+    "logo": "/images/articles/img_tech.png",
+    "tag": "Loisir"
+  },
+  {
+    "title": "Braderie de Lille",
+    "category": "Culture",
+    "region": "Hauts-de-France",
+    "city": "Lille",
+    "description": "Le paradis de la seconde main. Offres spéciales Moules-Frites dans les restaurants partenaires.",
+    "logo": "/images/articles/img_party.png",
+    "tag": "Événement"
+  },
+  {
+    "title": "Marché de Noël",
+    "category": "Culture",
+    "region": "Grand Est",
+    "city": "Strasbourg",
+    "description": "Réductions spéciales patinoire et spectacles de Noël pour les étudiants de l'UNISTRA.",
+    "logo": "/images/articles/img_travel.png",
+    "tag": "Événement"
+  }
+]

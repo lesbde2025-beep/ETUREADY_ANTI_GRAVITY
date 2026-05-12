@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Parents : Quel type de parent d'étudiant êtes-vous ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            background: #fff8e1;
+        }
+
+        /* Yellowish hover for Parents theme */
+    </style>
+</head>
+
+<body class="theme-yellow">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #fb8500; margin-bottom:2rem;">Quel parent d'étudiant êtes-vous ? 🏠
+            </h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Il ne répond pas au téléphone depuis 2 jours...", o: [
+                    { t: "J'appelle la police et les pompiers.", s: { POULE: 3, COOL: 0, COACH: 0 } },
+                    { t: "C'est normal, il doit être occupé ou en soirée.", s: { POULE: 0, COOL: 3, COACH: 1 } },
+                    { t: "Je lui envoie un petit SMS 'Tout va bien ?'.", s: { POULE: 1, COOL: 1, COACH: 3 } }
+                ]
+            },
+            {
+                t: "C'est la période des partiels...", o: [
+                    { t: "Je lui prépare des fiches de révision (oui, à 20 ans).", s: { POULE: 3, COOL: 0, COACH: 0 } },
+                    { t: "Je lui souhaite bonne chance et je croise les doigts.", s: { POULE: 0, COOL: 3, COACH: 1 } },
+                    { t: "Je lui demande s'il a besoin d'aide ou de calme.", s: { POULE: 1, COOL: 0, COACH: 3 } }
+                ]
+            },
+            {
+                t: "Il a eu 8/20 à un partiel.", o: [
+                    { t: "C'est la fin du monde ! On va contester la note.", s: { POULE: 3, COOL: 0, COACH: 0 } },
+                    { t: "Boh, c'est pas grave, ça arrive / 20.", s: { POULE: 0, COOL: 3, COACH: 0 } },
+                    { t: "Ok, analysons pourquoi. Manque de travail ou sujet difficile ?", s: { POULE: 0, COOL: 0, COACH: 3 } }
+                ]
+            },
+            {
+                t: "Son alimentation, c'est...", o: [
+                    { t: "Je lui apporte des Tuperware tous les week-ends.", s: { POULE: 3, COOL: 0, COACH: 1 } },
+                    { t: "Il se débrouille, les pâtes c'est bien.", s: { POULE: 0, COOL: 3, COACH: 0 } },
+                    { t: "Je lui ai offert un livre de cuisine facile.", s: { POULE: 0, COOL: 1, COACH: 3 } }
+                ]
+            }
+        ];
+        let c = 0, sc = { POULE: 0, COOL: 0, COACH: 0 };
+        function l() {
+            if (c >= 4) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let w = Object.keys(sc).reduce((a, b) => sc[a] > sc[b] ? a : b);
+                let txt = {
+                    POULE: "Le Parent Poule 🐔<br><small>Vous êtes (très) protecteur. Attention, il faut couper le cordon un jour ! Votre soutien est précieux mais laissez-le respirer.</small>",
+                    COOL: "Le Parent Cool 😎<br><small>Pour vous, l'autonomie c'est la clé. Vous faites confiance, peut-être parfois un peu trop ? Vérifiez quand même de temps en temps.</small>",
+                    COACH: "Le Parent Coach 🤝<br><small>L'équilibre parfait. Vous accompagnez sans faire à la place. Vous êtes un partenaire de réussite. Bravo !</small>"
+                };
+                d.innerHTML = `<h2 style="color:#fb8500;">${txt[w]}</h2><br><a href="/parents.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='let s=${JSON.stringify(x.s)};for(k in s)sc[k]+=s[k];c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

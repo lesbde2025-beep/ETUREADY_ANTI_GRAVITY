@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace Alumni - EtuReady</title>
+    <meta name="description" content="Ressources et réseau pour les anciens étudiants." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="theme-orange">
+    <!-- New Header Structure (L'Etudiant Style) -->
+    <site-header></site-header>
+
+    <header class="hero"
+        style="background: linear-gradient(rgba(251, 86, 7, 0.9), rgba(255, 190, 11, 0.8)), url('/images/alumni_hero.png'); background-size: cover; background-position: center;">
+        <div class="container" style="color: white;">
+            <h1>Espace Alumni</h1>
+            <p>Gardez le lien, boostez votre carrière et inspirez les étudiants d'aujourd'hui.</p>
+        </div>
+    </header>
+    <main class="container">
+        <!-- Intro Section -->
+        <div class="section-intro">
+            <p>Bienvenue dans la communauté des anciens. Ici, votre expérience a de la valeur et votre réseau
+                s'agrandit.</p>
+        </div>
+
+        <!-- 🟠 PARCOURS & TÉMOIGNAGES -->
+        <div class="section-title">
+            <h2 class="text-theme">🟠 Parcours & Témoignages</h2>
+        </div>
+        <div class="grid" style="margin-bottom: 4rem;">
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>🎬 Success Stories</h3>
+                    <p>Ils étaient à votre place il y a quelques années. Découvrez leurs parcours.</p>
+                    <a href="/article-alumni-portraits.html" class="read-more text-theme">Lire les portraits →</a>
+                </div>
+            </div>
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>🤝 Devenir Mentor</h3>
+                    <p>Partagez vos conseils avec un étudiant de votre ancienne école.</p>
+                    <ul style="list-style:none; margin-top:1rem; font-size:0.9rem;">
+                        <li style="margin-bottom:0.5rem">👉 <a href="/article-alumni-devenir-mentor.html"
+                                class="text-theme">Pourquoi être mentor ?</a></li>
+                        <li>👉 <a href="/formulaire-mentorat.html" class="text-theme">M'inscrire au programme</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>🎤 Intervenir à l'école</h3>
+                    <p>Donner un cours, animer une conférence ou participer à un jury.</p>
+                    <a href="/formulaire-intervention.html" class="read-more text-theme">Proposer mon intervention
+                        →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🟠 RESSOURCES & NETWORKING -->
+        <div class="section-title">
+            <h2 class="text-theme">🟠 Ressources & Networking</h2>
+        </div>
+        <div class="grid">
+            <!-- Carrière -->
+            <a href="/article-alumni-reseautage-efficace.html" class="card">
+                <div class="card-image" style="background-image: url('/images/alumni_career.png');">
+                </div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Carrière</span>
+                    <h3>Booster sa Carrière</h3>
+                    <p>Négociation salariale, reconversion, expatriation... Les bons réflexes.</p>
+                </div>
+            </a>
+            <!-- Annuaire -->
+            <a href="/annuaire-anciens.html" class="card">
+                <div class="card-image" style="background-image: url('/images/alumni_yearbook.png');">
+                </div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Réseau</span>
+                    <h3>L'Annuaire des Anciens</h3>
+                    <p>Retrouvez vos camarades de promo et connectez-vous.</p>
+                </div>
+            </a>
+            <!-- Startup -->
+            <a href="/article-alumni-entreprendre.html" class="card">
+                <div class="card-image" style="background-image: url('/images/alumni_startup.png');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Entrepreneuriat</span>
+                    <h3>Club Entrepreneurs</h3>
+                    <p>Vous lancez votre boîte ? Rejoignez le club et trouvez des associés.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- 🧠 ALUMNI QUIZ ZONE -->
+        <section style="margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2 class="text-theme">🧠 Espace Tests & Quiz</h2>
+                <span class="view-all">Bilan & Souvenirs</span>
+            </div>
+            <div class="grid">
+                <!-- Quiz Esprit -->
+                <a href="/quiz-alumni-esprit-promo.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Nostalgie</span>
+                        <h3>Avez-vous gardé l'esprit de promo ?</h3>
+                        <p>La flamme de votre école brûle-t-elle encore en vous ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Mentor -->
+                <a href="/quiz-alumni-type-mentor.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Transmission</span>
+                        <h3>Quel Mentor êtes-vous ?</h3>
+                        <p>Plutôt connecteur, expert technique ou coach de vie ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Carrière -->
+                <a href="/quiz-alumni-reconversion.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Carrière</span>
+                        <h3>Est-il temps de changer de vie ?</h3>
+                        <p>Faites le point sur votre situation professionnelle actuelle.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 🟠 FUN & SOUVENIRS (BDE) -->
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2 class="text-theme">🟠 Fun & Souvenirs</h2>
+        </div>
+        <div class="categories-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">📸</span><span>Photos de Promo</span>
+            </a>
+            <a href="/article-alumni-retrouvailles.html" class="category-item border-theme">
+                <span class="category-icon">🎉</span><span>Organiser une Réunion</span>
+            </a>
+            <a href="/boutique-goodies.html" class="category-item border-theme">
+                <span class="category-icon">👕</span><span>Boutique Goodies</span>
+            </a>
+        </div>
+
+        <!-- Agenda -->
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>Agenda Alumni</h2>
+            <a href="/evenement.html" class="view-all">Voir tout l'agenda</a>
+        </div>
+        <div class="event-list-compact">
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">15</span>
+                    <span class="month">Juin</span>
+                </div>
+                <div class="event-details">
+                    <h4>Afterwork des Anciens - Paris</h4>
+                    <p>Le rendez-vous mensuel pour échanger et networker.</p>
+                </div>
+                <a href="/evenement-alumni-paris.html" class="event-action">S'inscrire →</a>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">05</span>
+                    <span class="month">Juil</span>
+                </div>
+                <div class="event-details">
+                    <h4>Gala annuel</h4>
+                    <p>La soirée de l'année à ne pas manquer !</p>
+                </div>
+                <a href="/billetterie-gala.html" class="event-action">Réserver →</a>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Restons connectés</h2>
+            <p>Mettez à jour vos coordonnées pour recevoir les offres d'emploi et les invitations.</p>
+            <a href="/profil.html" class="btn-white">Mettre à jour mon profil</a>
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

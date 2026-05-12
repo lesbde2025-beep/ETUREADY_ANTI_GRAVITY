@@ -1,0 +1,79 @@
+[
+  {
+    "id": "evenement-afterwork-jeudi",
+    "sourceFile": "evenement-afterwork-jeudi.html",
+    "type": "deal",
+    "title": "Afterwork du Jeudi",
+    "tag": "Vie Étudiante",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  },
+  {
+    "id": "evenement-alumni-paris",
+    "sourceFile": "evenement-alumni-paris.html",
+    "type": "deal",
+    "title": "Afterwork Alumni Paris",
+    "tag": "Networking",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  },
+  {
+    "id": "evenement-conseil-vie-etudiante",
+    "sourceFile": "evenement-conseil-vie-etudiante.html",
+    "type": "deal",
+    "title": "Conseil de la vie étudiante",
+    "tag": "Institutionnel",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  },
+  {
+    "id": "evenement-lan-party",
+    "sourceFile": "evenement-lan-party.html",
+    "type": "deal",
+    "title": "Grande LAN Party du Campus",
+    "tag": "Gaming",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  },
+  {
+    "id": "evenement-nuit-bde",
+    "sourceFile": "evenement-nuit-bde.html",
+    "type": "deal",
+    "title": "La Nuit des BDE",
+    "tag": "Soirée",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  },
+  {
+    "id": "evenement-salon-emploi",
+    "sourceFile": "evenement-salon-emploi.html",
+    "type": "deal",
+    "title": "Salon Stages & Emplois",
+    "tag": "Carrière",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  },
+  {
+    "id": "evenement-speed-friendship",
+    "sourceFile": "evenement-speed-friendship.html",
+    "type": "deal",
+    "title": "Speed Friendship : Rencontrez du monde !",
+    "tag": "Social",
+    "image": "",
+    "date": "",
+    "author": "EtuReady",
+    "content": ""
+  }
+]

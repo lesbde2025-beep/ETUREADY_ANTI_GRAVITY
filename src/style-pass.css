@@ -1,0 +1,652 @@
+/* SmartStud - Pass EtuReady Premium Style */
+:root {
+    --pass-bg-dark: #000000;
+    --pass-card-bg: #111111;
+    --pass-accent: #00DC82;
+    --pass-glow: #4ade80;
+    --pass-success: #00DC82;
+    --pass-gold: #f59e0b;
+}
+
+/* Base Layout Overrides for Pass Page */
+body.pass-page {
+    background: var(--bg-body);
+    /* Keep main site bg, but sections will pop */
+    font-family: 'Space Grotesk', var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Force left alignment for the Pass page container */
+.pass-page .container {
+    max-width: 100% !important;
+    padding-left: 2vw;
+    /* Adjust this to control how far left */
+    padding-right: 5vw;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Main Grid Layout inside Container */
+/* Main Grid Layout inside Container */
+.pass-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Main Content + Slim Sidebar */
+    gap: 1rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem 0;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 900px) {
+    .pass-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Hero Section (The "Battle Pass" Header) --- */
+.pass-hero {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #020617 0%, #064e3b 50%, #00DC82 100%);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    /* Compact Padding */
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgba(0, 220, 130, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+}
+
+@media (max-width: 768px) {
+    .pass-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .pass-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .pass-avatar-container {
+        margin: 0 auto;
+    }
+}
+
+/* Animated Background Shapes */
+.pass-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    animation: rotateBg 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateBg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.pass-avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.pass-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.pass-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.level-badge-float {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: var(--theme-yellow);
+    color: #000;
+    font-weight: 900;
+    padding: 0.5rem 0.8rem;
+    border-radius: 99px;
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.pass-stats-main {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.pass-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+}
+
+.xp-bar-container {
+    background: rgba(0, 0, 0, 0.3);
+    height: 16px;
+    border-radius: 99px;
+    margin: 1rem 0 0.5rem;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.xp-bar-fill {
+    background: linear-gradient(90deg, #ffb703, #fb8500);
+    height: 100%;
+    width: 0%;
+    /* JS will animate */
+    border-radius: 99px;
+    box-shadow: 0 0 15px rgba(251, 133, 0, 0.6);
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+}
+
+.xp-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shine 2s infinite;
+}
+
+.pass-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Section Cards --- */
+.pass-section {
+    background: white;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    margin-bottom: 1.5rem;
+}
+
+.pass-h2 {
+    font-family: 'Space Grotesk';
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- Roadmap / Timeline --- */
+.roadmap-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme-purple) #f1f5f9;
+}
+
+.roadmap-level {
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+.roadmap-level.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.roadmap-level.locked {
+    filter: grayscale(1);
+}
+
+.roadmap-icon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    border: 3px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background-size: cover;
+    box-shadow: var(--shadow-sm);
+    z-index: 2;
+}
+
+.roadmap-level.active .roadmap-icon {
+    border-color: var(--theme-purple);
+    box-shadow: 0 0 15px rgba(114, 9, 183, 0.3);
+}
+
+.roadmap-line {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 100%;
+    height: 4px;
+    background: var(--border-light);
+    z-index: 1;
+}
+
+.roadmap-level:last-child .roadmap-line {
+    display: none;
+}
+
+.roadmap-level.completed .roadmap-line {
+    background: var(--theme-purple);
+}
+
+/* --- Quests --- */
+.quest-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+    background: #fff;
+}
+
+.quest-item:hover {
+    border-color: var(--theme-purple);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
+}
+
+.quest-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.quest-check.checked {
+    background: var(--theme-green);
+    border-color: var(--theme-green);
+    color: white;
+}
+
+.quest-info {
+    flex: 1;
+}
+
+.quest-xp {
+    background: #f3e8ff;
+    color: var(--theme-purple);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* --- Sidebar Items --- */
+.status-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.status-gauge {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    color: var(--theme-green);
+}
+
+.badge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.badge-item {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--border-light);
+    position: relative;
+    cursor: pointer;
+}
+
+.badge-item:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.badge-item.locked {
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+/* --- Referral Golden Ticket --- */
+.golden-ticket {
+    background: linear-gradient(45deg, #FFD700, #FDB931, #FFD700);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    color: #5c4000;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #FFE57F;
+}
+
+.golden-ticket::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transform: skewX(-25deg);
+    animation: shine-ticket 3s infinite;
+}
+
+@keyframes shine-ticket {
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 200%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* --- Leaderboard --- */
+.leaderboard-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.leaderboard-rank {
+    font-weight: 800;
+    width: 20px;
+    color: var(--text-muted);
+}
+
+.leaderboard-rank.top-1 {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.leaderboard-rank.top-2 {
+    color: #C0C0C0;
+    font-size: 1.1rem;
+}
+
+.leaderboard-rank.top-3 {
+    color: #CD7F32;
+    font-size: 1.1rem;
+}
+
+.leaderboard-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eee;
+}
+
+/* --- ENRICHMENT FEATURES --- */
+
+/* 1. Daily Login Streak */
+.daily-streak-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.streak-day {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.streak-day.active {
+    opacity: 1;
+    border-color: var(--theme-purple);
+    background: #fdf4ff;
+    transform: scale(1.05);
+    box-shadow: var(--shadow-sm);
+}
+
+.streak-day.future {
+    opacity: 0.4;
+    background: #e2e8f0;
+}
+
+.streak-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.streak-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 2. Global Challenge */
+.global-challenge-banner {
+    background: linear-gradient(90deg, #0f172a 0%, #334155 100%);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.global-challenge-banner::after {
+    content: '🌍';
+    position: absolute;
+    right: -2rem;
+    bottom: -2rem;
+    font-size: 10rem;
+    opacity: 0.1;
+    transform: rotate(-15deg);
+}
+
+.challenge-progress-bg {
+    background: rgba(255, 255, 255, 0.2);
+    height: 10px;
+    border-radius: 99px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.challenge-progress-fill {
+    background: var(--theme-green);
+    height: 100%;
+    width: 65%;
+    border-radius: 99px;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* 3. XP Shop */
+.xp-shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.shop-item {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--pass-gold);
+}
+
+.shop-image {
+    height: 120px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.shop-details {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-price {
+    display: inline-block;
+    background: #fffbeb;
+    color: #b45309;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* 4. Friend Activity Feed */
+.activity-feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 3px solid var(--theme-blue);
+}
+
+.user-avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+/* 5. FAQ */
+.pass-faq {
+    background: #f1f5f9;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--text-main);
+}
+
+.faq-answer {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}

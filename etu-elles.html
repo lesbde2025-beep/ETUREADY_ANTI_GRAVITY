@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EtuElles - Services et Communauté - EtuReady</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .elles-hero {
+            background: linear-gradient(135deg, #f72585 0%, #7209b7 100%);
+            color: white;
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .elles-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .elles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .safety-card {
+            background: #fff0f5;
+            border: 1px solid #f72585;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <div class="elles-hero">
+        <div class="container">
+            <h1>EtuElles</h1>
+            <p>Le hub dédié à l'empowerment, la sécurité et l'entraide pour toutes les étudiantes.</p>
+            <div class="ad-space-banner"
+                style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white; margin-top: 2rem;">
+                Publicité : Découvrez nos partenaires engagés pour l'égalité
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- Safe Tchat Section -->
+        <section class="glass-panel"
+            style="padding: 3rem; border-radius: 20px; margin-bottom: 4rem; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="color: var(--secondary-color); font-size: 2.5rem; margin-bottom: 1rem;">💬 Safe Tchat &
+                    Support</h2>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">Besoin de parler ?
+                    Notre équipe est à ton écoute 24h/24 dans un espace totalement anonyme et sécurisé. Que ce soit pour
+                    un conseil ou une urgence, tu n'es pas seule.</p>
+                <button class="hero-cta" style="background: var(--secondary-color);">Lancer le tchat anonyme</button>
+            </div>
+            <div
+                style="flex: 1; min-width: 300px; background: white; border-radius: 12px; padding: 1rem; box-shadow: var(--shadow-xl);">
+                <div
+                    style="border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="width: 10px; height: 10px; background: #10b981; border-radius: 50%;"></span>
+                    <span style="font-weight: 700;">Support EtuElles en ligne</span>
+                </div>
+                <div style="height: 200px; display: flex; flex-direction: column; gap: 1rem;">
+                    <div
+                        style="background: #f1f5f9; padding: 0.8rem; border-radius: 0 12px 12px 12px; align-self: flex-start; max-width: 80%; font-size: 0.9rem;">
+                        Bonjour ! Comment puis-je t'aider aujourd'hui ?</div>
+                    <div
+                        style="background: var(--secondary-color); color: white; padding: 0.8rem; border-radius: 12px 0 12px 12px; align-self: flex-end; max-width: 80%; font-size: 0.9rem;">
+                        J'aimerais avoir des infos sur le covoiturage safe...</div>
+                </div>
+                <div style="margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+                    <input type="text" placeholder="Ecris ton message..."
+                        style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-light); border-radius: 6px;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Access Control -->
+        <div
+            style="background: linear-gradient(90deg, #fdf2f8, #fdf4ff); border: 2px solid #f72585; padding: 2rem; border-radius: 16px; margin-bottom: 4rem; text-align: center; box-shadow: var(--shadow-glow);">
+            <h3
+                style="color: #c2185b; display: flex; align-items: center; justify-content: center; gap: 0.7rem; margin-bottom: 0.7rem; font-size: 1.5rem;">
+                🔒 Espace Sécurisé & Vérifié
+            </h3>
+            <p style="font-size: 1.1rem;">
+                L'accès à ces services est <strong>exclusivement réservé aux étudiantes</strong> munies du
+                <a href="/pass-etuready.html" style="color: #f72585; text-decoration: underline; font-weight: 800;">Pass
+                    EtuReady 💎</a>.
+                <br>Une vérification d'identité (carte étudiante) est requise pour garantir un environnement serein.
+            </p>
+        </div>
+
+        <div class="section-title">
+            <h2>🏠 Logement & Colocation Filles</h2>
+            <div style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">Annonces vérifiées par
+                modération</div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=600');">
+                </div>
+                <div class="card-content">
+                    <span class="tag" style="background: #fdf2f8; color: #db2777;">Logement</span>
+                    <h3>Colocations 100% Féminines</h3>
+                    <p>Trouve ta future coloc parmi des annonces postées uniquement par des étudiantes. Profils vérifiés
+                        et visites sécurisées.</p>
+                    <button class="btn-theme-outline"
+                        style="width: 100%; margin-top: 1rem; border-color: #db2777; color: #db2777;">Explorer les
+                        annonces</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?auto=format&fit=crop&q=80&w=600');">
+                </div>
+                <div class="card-content">
+                    <span class="tag" style="background: #fdf2f8; color: #db2777;">Solidarité</span>
+                    <h3>Hébergement d'Urgence</h3>
+                    <p>En cas de rupture de bail ou de situation difficile, notre réseau d'habitantes solidaires peut
+                        t'accueillir temporairement.</p>
+                    <button class="btn-theme-outline"
+                        style="width: 100%; margin-top: 1rem; border-color: #db2777; color: #db2777;">Signaler une
+                        urgence</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-space-banner">
+            Espace Publicitaire : Trouvez votre prochain job étudiant avec nos partenaires
+        </div>
+
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>💼 Jobs & Stages Étudiantes</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600');">
+                </div>
+                <div class="card-content">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <span class="tag" style="background: #eff6ff; color: #2563eb;">Stage</span>
+                        <span
+                            style="background: #f0fdf4; color: #16a34a; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">Nouveau</span>
+                    </div>
+                    <h3>Stage Biz Dev - Startup Tech</h3>
+                    <p>Entreprise engagée pour la mixité. Mentorat assuré par la CEO. Paris / Remote.</p>
+                    <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">Publié il y a 2h</span>
+                        <button class="read-more">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1484712401471-05c7205fc89c?auto=format&fit=crop&q=80&w=600');">
+                </div>
+                <div class="card-content">
+                    <span class="tag" style="background: #fff7ed; color: #ea580c;">Job Étudiant</span>
+                    <h3>Baby-Sitting & Aide aux devoirs</h3>
+                    <p>Familles répertoriées et recommandées par le réseau. Horaires flexibles.</p>
+                    <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">15€/h - Lyon</span>
+                        <button class="read-more">Répondre</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: 4rem;">
+            <div style="flex: 1; min-width: 60%;">
+                <div class="section-title">
+                    <h2>🛡️ Mobilité & Sécurité</h2>
+                </div>
+
+        <div class="elles-grid">
+            <div class="safety-card" style="transition: transform 0.3s; cursor: pointer;">
+                <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🚗</div>
+                <h3>Covoiturage Safe</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Partage tes trajets vers le campus ou en
+                    soirée avec d'autres étudiantes. 100% entre filles.</p>
+                <button class="hero-cta" style="background: #f72585; width: 100%;">Réserver un trajet</button>
+            </div>
+            <div class="safety-card"
+                style="background: #fff; border-color: #9c27b0; transition: transform 0.3s; cursor: pointer;">
+                <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🛡️</div>
+                <h3>Accompagnement Soirée</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Ne rentre jamais seule. Trouve une
+                    "partner sub" pour faire le chemin ensemble après minuit.</p>
+                <button class="hero-cta" style="background: #9c27b0; width: 100%;">Trouver une partner</button>
+            </div>
+            <div class="safety-card"
+                style="background: #fff; border-color: #673ab7; transition: transform 0.3s; cursor: pointer;">
+                <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">👯‍♀️</div>
+                <h3>Club de Sorties</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Sorties culturelles, sportives ou
+                    afterworks réservés aux membres du club EtuElles.</p>
+                <button class="hero-cta" style="background: #673ab7; width: 100%;">Voir l'agenda</button>
+            </div>
+        </div>
+            </div>
+            
+            <!-- Sidebar Ad Placeholder -->
+            <div style="width: 300px; flex-shrink: 0;">
+                <ad-sidebar sponsor="Apple Education" title="Back to School 🍏" copy="Profitez du tarif étudiant sur l'achat d'un nouveau Mac ou iPad et recevez 150€ en carte cadeau Apple." cta="Voir l'offre" icon="💻"></ad-sidebar>
+            </div>
+        </div>
+
+        <!-- In-Content Ad Placeholder -->
+        <ad-in-content sponsor="SNCF Connect" title="Carte Avantage Jeune à 49€" copy="Voyagez à travers la France et l'Europe avec -30% toute l'année." cta="Acheter ma carte"></ad-in-content>
+
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>🎓 Masterclasses & Mentorat</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600');">
+                </div>
+                <div class="card-content">
+                    <span class="tag" style="background: #f5f3ff; color: #7c3aed;">Atelier</span>
+                    <h3>Prendre sa place en réunion</h3>
+                    <p>Une masterclass animée par des leaders d'opinion pour booster ta confiance et ta prise de parole.
+                    </p>
+                    <button class="btn-theme" style="width: 100%; margin-top: 1rem; background: #7c3aed;">S'inscrire
+                        (Gratuit)</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1581091226815-45c4842a7af1?auto=format&fit=crop&q=80&w=600');">
+                </div>
+                <div class="card-content">
+                    <span class="tag" style="background: #fdf2f8; color: #db2777;">Mentorat</span>
+                    <h3>Programme Women in STEM</h3>
+                    <p>Sois accompagnée par une marraine expérimentée pour ton orientation ou ta première embauche.</p>
+                    <button class="btn-theme" style="width: 100%; margin-top: 1rem; background: #db2777;">Devenir
+                        Mentorée</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>🩺 Santé & Bien-être</h2>
+        </div>
+        <div class="grid">
+            <div class="card" style="background: #fdf2f8; border-color: #fce7f3;">
+                <div class="card-content">
+                    <h4 style="color: #db2777; margin-bottom: 1rem;">Protections Hygiéniques Libres</h4>
+                    <p>Rappel : Des distributeurs gratuits sont disponibles au RDC du bâtiment A et à la cafétéria.</p>
+                    <a href="javascript:void(0)" style="color: #db2777; font-weight: 700; font-size: 0.9rem;">📍 Carte des points de
+                        distribution</a>
+                </div>
+            </div>
+            <div class="card" style="background: #f0fdfa; border-color: #ccfbf1;">
+                <div class="card-content">
+                    <h4 style="color: #0d9488; margin-bottom: 1rem;">Consultations Spécialisées</h4>
+                    <p>Prends rendez-vous avec des gynécologues et psychologues à l'écoute et formées aux problématiques
+                        étudiantes.</p>
+                    <button class="btn-theme-outline"
+                        style="width: 100%; margin-top: 1rem; border-color: #0d9488; color: #0d9488;">Prendre
+                        RDV</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-space-banner" style="margin-top: 4rem;">
+            Publicité : -20% sur la gamme soins chez notre partenaire SantéPlus
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

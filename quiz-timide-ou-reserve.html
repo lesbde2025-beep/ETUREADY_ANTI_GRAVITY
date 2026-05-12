@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz : Grand timide ou juste réservé ? - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .question {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            margin: 0.8rem 0;
+            background: #ffffff;
+            border: 2px solid #eef2ff;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+            background: #f8fafc;
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6, var(--primary-color));
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .question-counter {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Result Styles */
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .result-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .result-desc {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #334155;
+            margin-bottom: 2rem;
+        }
+
+        .radar-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 200px;
+            margin: 3rem 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .col-bar {
+            width: 60px;
+            background: #e2e8f0;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: height 1s ease;
+        }
+
+        .col-bar.fill {
+            background: var(--primary-color);
+        }
+
+        .col-label {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 0.85rem;
+            width: 100px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .result-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="container theme-blue" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="quiz-container">
+            <div class="progress-container">
+                <div class="question-counter">Question <span id="current-q-num">1</span>/<span id="total-q-num">8</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+
+            <h1 style="text-align:center; color: var(--primary-color); margin-bottom:2.5rem; font-size: 1.8rem;">Analyse
+                ta personnalité sociale 🧠</h1>
+
+            <div id="quiz-area">
+                <!-- Questions injected here -->
+            </div>
+
+            <div id="result-area" style="display: none;">
+                <!-- Result injected here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Configuration: Confidence axes
+        // comfort: 0 (anxious) -> 10 (very comfortable)
+        // energy: 0 (introvert/solitary) -> 10 (extrovert/needs people)
+
+        const questions = [
+            {
+                text: "Tu dois présenter un projet devant toute la promo dans 10 minutes...",
+                options: [
+                    { text: "J'ai la boule au ventre, je relis mes notes 50 fois.", scores: { comfort: -2, energy: 0 } },
+                    { text: "Un peu de stress, mais j'ai hâte de montrer mon travail.", scores: { comfort: 1, energy: 1 } },
+                    { text: "Je suis serein(e), c'est un exercice comme un autre.", scores: { comfort: 2, energy: 0 } },
+                    { text: "J'adore ça ! Donnez-moi un micro !", scores: { comfort: 3, energy: 3 } }
+                ]
+            },
+            {
+                text: "Après une journée de cours intense et bruyante, tu préfères :",
+                options: [
+                    { text: "Rentrer direct, me mettre sous la couette et ne parler à personne.", scores: { comfort: 0, energy: -3 } },
+                    { text: "Aller boire un verre avec un ou deux amis proches.", scores: { comfort: 1, energy: -1 } },
+                    { text: "Rejoindre une grosse soirée pour décompresser.", scores: { comfort: 1, energy: 3 } },
+                    { text: "Faire du sport ou une activité en groupe.", scores: { comfort: 2, energy: 2 } }
+                ]
+            },
+            {
+                text: "On te présente un groupe de nouvelles personnes. Ta réaction ?",
+                options: [
+                    { text: "Je reste en retrait et j'observe avant de parler.", scores: { comfort: 0, energy: -1 } },
+                    { text: "Je stresse de ne pas savoir quoi dire.", scores: { comfort: -2, energy: 0 } },
+                    { text: "Je pose des questions pour apprendre à les connaître.", scores: { comfort: 2, energy: 1 } },
+                    { text: "Je raconte une blague pour briser la glace.", scores: { comfort: 2, energy: 2 } }
+                ]
+            },
+            {
+                text: "Si tu entends le mot 'Réseautage' ou 'Networking', tu penses :",
+                options: [
+                    { text: "Cauchemar. Faux sourires et discussions forcées.", scores: { comfort: -2, energy: -1 } },
+                    { text: "C'est utile, mais ça me demande un gros effort.", scores: { comfort: -1, energy: 0 } },
+                    { text: "Intéressant, une bonne occasion de saisir des opportunités.", scores: { comfort: 2, energy: 0 } },
+                    { text: "Super ! J'adore rencontrer des pros.", scores: { comfort: 2, energy: 2 } }
+                ]
+            },
+            {
+                text: "Tu es amoureux(se) de quelqu'un dans ta classe. Que fais-tu ?",
+                options: [
+                    { text: "Rien. Impossible de lui parler, je deviens rouge.", scores: { comfort: -3, energy: 0 } },
+                    { text: "J'essaie de me rapprocher doucement, par message d'abord.", scores: { comfort: -1, energy: 0 } },
+                    { text: "Je vais le/la voir et je propose un café.", scores: { comfort: 2, energy: 1 } },
+                    { text: "Je le crie sur les toits (ou presque).", scores: { comfort: 3, energy: 3 } }
+                ]
+            },
+            {
+                text: "Quand tu es seul(e) pendant un long moment :",
+                options: [
+                    { text: "Je m'ennuie à mourir, j'ai besoin de voir des gens.", scores: { comfort: 0, energy: 3 } },
+                    { text: "Ça va, mais je checke souvent mon téléphone.", scores: { comfort: 0, energy: 1 } },
+                    { text: "C'est le bonheur absolu. Je recharge mes batteries.", scores: { comfort: 1, energy: -3 } },
+                    { text: "J'en profite pour avancer sur mes projets persos.", scores: { comfort: 2, energy: -1 } }
+                ]
+            },
+            {
+                text: "Dans un débat animé, tu es plutôt :",
+                options: [
+                    { text: "Celui qui écoute et analyse sans trop parler.", scores: { comfort: 1, energy: -1 } },
+                    { text: "Celui qui n'ose pas donner son avis de peur d'être jugé.", scores: { comfort: -2, energy: 0 } },
+                    { text: "Celui qui défend ses idées avec calme.", scores: { comfort: 3, energy: 0 } },
+                    { text: "Celui qui parle le plus fort et coupe la parole.", scores: { comfort: 2, energy: 3 } }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let userScores = { comfort: 10, energy: 10 }; // Start with a base to avoid easy negatives
+
+        const quizArea = document.getElementById('quiz-area');
+        const resultArea = document.getElementById('result-area');
+        const progressBar = document.getElementById('progress');
+        const currentQNum = document.getElementById('current-q-num');
+        const totalQNum = document.getElementById('total-q-num');
+
+        totalQNum.textContent = questions.length;
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            currentQNum.textContent = currentQuestion + 1;
+            progressBar.style.width = `${((currentQuestion) / questions.length) * 100}%`;
+
+            let html = `
+                <div class="question active">
+                    <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: #1e293b;">${q.text}</h2>
+                    <div class="options">
+            `;
+
+            q.options.forEach((opt, index) => {
+                html += `<button class="btn-quiz" onclick="selectOption(${index})">${opt.text}</button>`;
+            });
+
+            html += `</div></div>`;
+            quizArea.innerHTML = html;
+        }
+
+        window.selectOption = function (optIndex) {
+            const scores = questions[currentQuestion].options[optIndex].scores;
+
+            userScores.comfort += scores.comfort;
+            userScores.energy += scores.energy;
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        };
+
+        function showResults() {
+            quizArea.style.display = 'none';
+            resultArea.style.display = 'block';
+            progressBar.style.width = '100%';
+            document.querySelector('.question-counter').style.display = 'none';
+
+            // Archetype Logic
+            // Comfort High (> 12), Energy High (> 12) => Charismatic Leader
+            // Comfort High (> 12), Energy Low (< 12) => Quiet Strength / Observant
+            // Comfort Low (< 12), Energy High (> 12) => Socially Frustrated / Needs reassurance
+            // Comfort Low (< 12), Energy Low (< 12) => Shy / Anxious
+
+            const comfortLevel = userScores.comfort;
+            const energyLevel = userScores.energy;
+
+            const threshold = 12; // Base 10 + avg variations
+
+            let profileKey = '';
+            if (comfortLevel >= threshold && energyLevel >= threshold) profileKey = 'leader';
+            else if (comfortLevel >= threshold && energyLevel < threshold) profileKey = 'observer';
+            else if (comfortLevel < threshold && energyLevel >= threshold) profileKey = 'frustrated';
+            else profileKey = 'shy';
+
+            const profiles = {
+                leader: {
+                    title: "L'Extraverti Confiant 🦁",
+                    desc: "Tu n'es ni timide ni réservé ! Tu es à l'aise en société et tu puises ton énergie dans les interactions. Attention juste à laisser de la place aux autres.",
+                    tag: "Aisance Sociale : Élevée"
+                },
+                observer: {
+                    title: "La Force Tranquille 🦉",
+                    desc: "Tu es réservé par choix, pas par peur. Tu es à l'aise avec qui tu es, mais tu n'as pas besoin d'être le centre de l'attention. Tu parles peu, mais tu parles bien.",
+                    tag: "Aisance : Élevée | Besoin social : Modéré"
+                },
+                frustrated: {
+                    title: "L'Enthousiaste Hésitant 🦜",
+                    desc: "Tu as envie d'aller vers les autres, tu aimes les gens, mais la peur du jugement te freine parfois. Tu n'es pas solitaire, juste un peu anxieux. Fonce, les gens t'apprécieront !",
+                    tag: "Besoin social : Élevé | Confiace : À travailler"
+                },
+                shy: {
+                    title: "Le Grand Timide 🫣",
+                    desc: "Les interactions sociales sont une source de stress pour toi. Tu préfères ta bulle. C'est ok, mais ne laisse pas cette peur t'empêcher de saisir des opportunités.",
+                    tag: "Zone de confort : Solitude"
+                }
+            };
+
+            const profile = profiles[profileKey];
+
+            // Normalize for visual bars (0 to 100%, max theoretical around 25)
+            const pComfort = Math.min(Math.max((comfortLevel / 25) * 100, 10), 100);
+            const pEnergy = Math.min(Math.max((energyLevel / 25) * 100, 10), 100);
+
+            let html = `
+                <div class="result-header">
+                    <span class="result-tag">${profile.tag}</span>
+                    <h2 class="result-title">${profile.title}</h2>
+                    <p class="result-desc">${profile.desc}</p>
+                </div>
+
+                <div class="radar-chart">
+                    <div class="col">
+                         <div class="col-bar fill" style="height: ${pComfort}px;">
+                            <span class="col-label">Confiance en soi</span>
+                         </div>
+                    </div>
+                    <div class="col">
+                         <div class="col-bar fill" style="height: ${pEnergy}px; background-color: #8b5cf6;">
+                            <span class="col-label">Besoin Social</span>
+                         </div>
+                    </div>
+                </div>
+
+                 <div style="background: #eef2ff; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>💡 Conseil Personnalisé :</strong><br>
+                    ${getAdvice(profileKey)}
+                </div>
+
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <button class="btn-theme" onclick="location.reload()">Recommencer</button>
+                    <a href="/etudiant.html" class="btn-theme-outline" style="margin-left: 1rem;">Retour</a>
+                </div>
+            `;
+
+            resultArea.innerHTML = html;
+        }
+
+        function getAdvice(key) {
+            if (key === 'leader') return "Utilise ton aisance pour aider les plus réservés à s'intégrer, sans les brusquer.";
+            if (key === 'observer') return "Continue à cultiver ton jardin secret, c'est ta force. N'hésite pas parfois à partager tes analyses percutantes.";
+            if (key === 'frustrated') return "La clé pour toi : la préparation. Prépare tes interventions, tes sujets de conversation. L'action tue la peur.";
+            if (key === 'shy') return "Commence petit. Un 'bonjour' souriant à la boulangère, demander l'heure... Chaque petite victoire renforcera ta confiance.";
+        }
+
+        // Start
+        loadQuestion();
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

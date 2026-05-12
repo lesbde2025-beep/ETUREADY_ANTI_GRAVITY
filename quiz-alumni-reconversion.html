@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Alumni : Est-il temps de changer de vie ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: #fb5607;
+            background: #fff3e0;
+        }
+    </style>
+</head>
+
+<body class="theme-orange">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #fb5607; margin-bottom:2rem;">Bilan Carrière : Est-il temps de changer
+                ? 🧭</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Le matin en allant au travail, vous vous dites...", o: [
+                    { t: "Chouette, j'ai des trucs intéressants à faire.", s: 0 },
+                    { t: "Pfff, encore une journée.", s: 10 },
+                    { t: "J'ai la boule au ventre.", s: 20 }
+                ]
+            },
+            {
+                t: "Vous vous voyez où dans 5 ans dans cette boîte ?", o: [
+                    { t: "À la place de mon chef.", s: 0 },
+                    { t: "Au même endroit (hélas).", s: 10 },
+                    { t: "Nulle part, je veux partir.", s: 20 }
+                ]
+            },
+            {
+                t: "Si vous gagniez au loto aujourd'hui...", o: [
+                    { t: "Je continuerais mon job (peut-être à mi-temps).", s: 0 },
+                    { t: "Je démissionnerais pour faire autre chose.", s: 20 },
+                    { t: "Je prendrais juste des vacances.", s: 10 }
+                ]
+            }
+        ];
+        let c = 0, s = 0;
+        function l() {
+            if (c >= 3) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let t = "", m = "";
+                if (s < 20) { t = "Tout va bien ✅"; m = "Vous semblez épanoui(e). Profitez-en pour consolider vos acquis."; }
+                else if (s < 40) { t = "Zone Grise ☁️"; m = "Quelque chose ne va pas, mais ce n'est pas encore la crise. C'est le moment de réfléchir à vos envies."; }
+                else { t = "Alerte Rouge 🚨"; m = "Il est temps de bouger ! Ne restez pas dans une situation qui vous pèse. Consultez nos offres d'emploi."; }
+                d.innerHTML = `<h2 style="color:#fb5607;">${t}</h2><p style="font-size:1.2rem; margin:2rem 0;">${m}</p><a href="/alumni.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='s+=${x.s};c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annuaire BDE - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <site-header></site-header>
+    <!-- HERO SECTION (New) -->
+    <header class="hero-bde"
+        style="background: #111827; background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)), url('https://placehold.co/1920x600/1e293b/ffffff?text=Campus+Life'); background-size: cover; background-position: center; padding: 6rem 0; color: white; text-align: center; position: relative;">
+        <!-- Removed 'reveal' class to prevent visibility issues on load -->
+        <div class="container" style="position: relative; z-index: 10;">
+            <span class="tag"
+                style="background: rgba(255,165,0,0.2); border: 1px solid rgba(255,165,0,0.5); color: #ffca28; padding: 0.5rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; display: inline-block; font-weight: 600;">
+                🚀 Vie Associative
+            </span>
+            <h1
+                style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.6);">
+                L'Annuaire des <span style="color: #fbbf24;">Assos Étudiantes</span>
+            </h1>
+            <p
+                style="font-size: 1.25rem; font-weight: 500; max-width: 700px; margin: 0 auto 2.5rem auto; color: rgba(255,255,255,0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                Découvre les BDE, BDS, BDA et associations de ton campus. Rejoins la communauté et participe aux
+                meilleurs événements.
+            </p>
+
+            <!-- Search -->
+            <div class="bde-search-box"
+                style="background: white; padding: 0.8rem; border-radius: 50px; display: inline-flex; width: 100%; max-width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <span style="display: flex; align-items: center; padding-left: 1.5rem; font-size: 1.5rem;">🔎</span>
+                <input type="text" id="bdeSearchInput" placeholder="Chercher un BDE, une école, une ville..."
+                    style="flex: 1; border: none; padding: 0 1rem; font-size: 1.1rem; outline: none; background: transparent; color: #333;">
+                <button class="btn-theme"
+                    style="border-radius: 50px; padding: 0.8rem 2rem; background: linear-gradient(135deg, #ffca28 0%, #ff6f00 100%); border: none; font-weight: 700;">Trouver</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🗺️ STATIC MAP SECTION (Replaced) -->
+    <div class="container reveal" style="margin-top: -3rem; position: relative; z-index: 10;">
+        <div class="map-card"
+            style="background: white; border-radius: 24px; padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;">
+            <h3 style="margin-bottom: 0.5rem; color: #333;">Explorer par Région</h3>
+            <p style="color: #666; margin-bottom: 2rem; font-size: 0.95rem;">Retrouvez les associations de votre région
+            </p>
+
+            <div class="directory-map" style="width: 100%; max-width: 600px; position: relative; text-align: center;">
+                <img src="/images/carte-france.jpg" alt="Carte des Régions de France" usemap="#image-map"
+                    style="width: 100%; height: auto; border-radius: 8px;">
+
+                <map name="image-map">
+                    <!-- Approx Coordinates for Regions (scaled to 600x600 equivalent) -->
+                    <area target="" alt="Hauts-de-France" title="Hauts-de-France" href="javascript:void(0)" coords="318,36,368,96"
+                        shape="rect" data-region="Hauts-de-France">
+                    <area target="" alt="Normandie" title="Normandie" href="javascript:void(0)" coords="185,83,265,133" shape="rect"
+                        data-region="Normandie">
+                    <area target="" alt="Grand Est" title="Grand Est" href="javascript:void(0)" coords="404,115,484,179" shape="rect"
+                        data-region="Grand Est">
+                    <area target="" alt="Île-de-France" title="Île-de-France" href="javascript:void(0)" coords="314,136,347,163"
+                        shape="rect" data-region="Île-de-France">
+                    <area target="" alt="Bretagne" title="Bretagne" href="javascript:void(0)" coords="38,154,143,211" shape="rect"
+                        data-region="Bretagne">
+                    <area target="" alt="Pays de la Loire" title="Pays de la Loire" href="javascript:void(0)" coords="154,185,212,242"
+                        shape="rect" data-region="Pays de la Loire">
+                    <area target="" alt="Centre-Val de Loire" title="Centre-Val de Loire" href="javascript:void(0)"
+                        coords="242,197,322,258" shape="rect" data-region="Centre-Val de Loire">
+                    <area target="" alt="Bourgogne-Franche-Comté" title="Bourgogne-Franche-Comté" href="javascript:void(0)"
+                        coords="364,209,436,268" shape="rect" data-region="Bourgogne-Franche-Comté">
+                    <area target="" alt="Nouvelle-Aquitaine" title="Nouvelle-Aquitaine" href="javascript:void(0)"
+                        coords="160,307,260,422" shape="rect" data-region="Nouvelle-Aquitaine">
+                    <area target="" alt="Auvergne-Rhône-Alpes" title="Auvergne-Rhône-Alpes" href="javascript:void(0)"
+                        coords="354,321,438,401" shape="rect" data-region="Auvergne-Rhône-Alpes">
+                    <area target="" alt="Occitanie" title="Occitanie" href="javascript:void(0)" coords="277,440,360,490" shape="rect"
+                        data-region="Occitanie">
+                    <area target="" alt="PACA" title="PACA" href="javascript:void(0)" coords="445,435,510,480" shape="rect"
+                        data-region="PACA">
+                    <area target="" alt="Corse" title="Corse" href="javascript:void(0)" coords="533,500,560,550" shape="rect"
+                        data-region="Corse">
+                </map>
+            </div>
+        </div>
+    </div>
+
+    <main class="container" style="margin-top: 5rem;">
+
+        <!-- 🏆 BDE SPOTLIGHT (New) -->
+        <section class="reveal" style="margin-bottom: 5rem;">
+            <div class="section-title">
+                <h2>🏆 L'Asso de la Semaine</h2>
+            </div>
+            <div class="bde-spotlight-card"
+                style="background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); display: flex; border: 1px solid var(--border-light); position: relative;">
+
+                <!-- Cover Image -->
+                <div class="bsc-cover" style="flex: 1.5; min-height: 350px; position: relative; overflow: hidden;">
+                    <img src="https://placehold.co/800x600/ff6f00/ffffff?text=Event+BDE" alt="Cover"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                        <h2 style="color: white; margin: 0; font-size: 2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            BDE Sorbonne</h2>
+                        <p style="color: rgba(255,255,255,0.9); margin: 0;">Paris • Université Paris 1</p>
+                    </div>
+                </div>
+
+                <!-- Info Side -->
+                <div class="bsc-info"
+                    style="flex: 1; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; background: #fffdf5;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <img src="https://placehold.co/100x100/333/fff?text=S" alt="Logo"
+                                style="width: 60px; height: 60px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            <div>
+                                <span class="tag"
+                                    style="background: #ffecb3; color: #ff6f00; font-size: 0.8rem; padding: 0.3rem 0.8rem;">Association</span>
+                                <span class="tag"
+                                    style="background: #e3f2fd; color: #1565c0; font-size: 0.8rem; padding: 0.3rem 0.8rem; margin-left: 0.5rem;">Certifié
+                                    ✅</span>
+                            </div>
+                        </div>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 2rem;">
+                            Le BDE Sorbonne est le cœur battant de la vie étudiante. Nous organisons des afterworks, des
+                            voyages et le légendaire Gala d'Hiver. Rejoins-nous !
+                        </p>
+                        <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+                            <div style="text-align: center;">
+                                <strong style="display: block; font-size: 1.5rem; color: #333;">2.5k</strong>
+                                <span style="font-size: 0.85rem; color: #777;">Membres</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <strong style="display: block; font-size: 1.5rem; color: #333;">15</strong>
+                                <span style="font-size: 0.85rem; color: #777;">Événements/an</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn-theme" style="flex: 1; background: #ff6f00; border: none;">Suivre</button>
+                        <button class="btn-theme-outline"
+                            style="flex: 1; border-color: #ff6f00; color: #ff6f00;">Contacter</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📂 FILTERS & DIRECTORY -->
+        <div class="bde-controls reveal"
+            style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; margin-bottom: 2rem; background: white; padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+
+            <div class="filter-group" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 5px;">
+                <button class="filter-pill active" data-filter="all">Tout</button>
+                <button class="filter-pill" data-filter="BDE">🎉 BDE</button>
+                <button class="filter-pill" data-filter="BDS">🏅 BDS (Sport)</button>
+                <button class="filter-pill" data-filter="BDA">🎭 BDA (Arts)</button>
+                <button class="filter-pill" data-filter="Junior">💼 Junior Entreprise</button>
+                <button class="filter-pill" data-filter="Humanitaire">🤝 Humanitaire</button>
+            </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div id="bdeGrid" class="grid reveal"
+            style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+            <!-- JS will inject cards here -->
+        </div>
+
+        <!-- 📢 CTA FOR BDEs -->
+        <section class="reveal"
+            style="text-align: center; margin-bottom: 5rem; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 4rem 2rem; border-radius: 24px; color: white;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ton BDE n'est pas encore inscrit ?</h2>
+            <p style="font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto 2rem auto;">
+                Rejoins la plateforme N°1 des assos étudiantes. Gère ta billetterie, tes membres et ta visibilité en un
+                clic.
+            </p>
+            <button class="btn-theme"
+                style="background: white; color: #0f172a; font-weight: 700; padding: 1rem 2.5rem;">Inscrire mon Asso
+                Gratuitement</button>
+        </section>
+
+    </main>
+
+    <site-footer></site-footer>
+
+    <script>
+        // Extended Data with Categories
+        const associationsData = [
+            { name: "BDE Sorbonne", school: "Sorbonne Université", region: "Île-de-France", type: "university", tags: ["Culture", "Soirées"] },
+            { name: "BDE HEC", school: "HEC Paris", region: "Île-de-France", type: "business", tags: ["Business", "Networking"] },
+            { name: "BDE Sciences Po", school: "Sciences Po Paris", region: "Île-de-France", type: "university", tags: ["Politique", "Débats"] },
+            { name: "BDE EDHEC", school: "EDHEC Lille", region: "Hauts-de-France", type: "business", tags: ["Sport", "Humanitaire"] },
+            { name: "BDE IÉSEG", school: "IÉSEG Lille", region: "Hauts-de-France", type: "business", tags: ["International", "Events"] },
+            { name: "BDE EM Lyon", school: "EM Lyon", region: "Auvergne-Rhône-Alpes", type: "business", tags: ["Entrepreneuriat"] },
+            { name: "BDE INSA Lyon", school: "INSA Lyon", region: "Auvergne-Rhône-Alpes", type: "engineering", tags: ["Tech", "Robotique"] },
+            { name: "BDE SKEMA", school: "SKEMA Sophia", region: "PACA", type: "business", tags: ["Soleil", "Voile"] },
+            { name: "BDE KEDGE", school: "KEDGE Marseille", region: "PACA", type: "business", tags: ["RSE", "Social"] },
+            { name: "BDE KEDGE", school: "KEDGE Bordeaux", region: "Nouvelle-Aquitaine", type: "business", tags: ["Vins", "Gastronomie"] },
+            { name: "BDE Sciences Po Bx", school: "Sciences Po Bordeaux", region: "Nouvelle-Aquitaine", type: "university", tags: ["Conférences"] },
+            { name: "BDE TBS", school: "TBS Education", region: "Occitanie", type: "business", tags: ["Aérospatial"] },
+            { name: "BDE ISAE-SUPAERO", school: "ISAE-SUPAERO", region: "Occitanie", type: "engineering", tags: ["Espace", "Aviation"] },
+            { name: "BDE NEOMA", school: "NEOMA Reims", region: "Grand Est", type: "business", tags: ["Champagne", "Luxe"] },
+            { name: "BDE EM Strasbourg", school: "EM Strasbourg", region: "Grand Est", type: "business", tags: ["Europe"] },
+            { name: "BDE Audencia", school: "Audencia Nantes", region: "Pays de la Loire", type: "business", tags: ["Art", "Culture"] },
+            { name: "BDE Centrale Nantes", school: "Centrale Nantes", region: "Pays de la Loire", type: "engineering", tags: ["Innovation"] },
+            { name: "BDE Rennes SB", school: "Rennes SB", region: "Bretagne", type: "business", tags: ["International"] },
+            { name: "BDE INSA Rennes", school: "INSA Rennes", region: "Bretagne", type: "engineering", tags: ["Musique", "Rock"] }
+        ];
+
+        // State
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentRegion = null;
+
+        // Elements
+        const listContainer = document.getElementById('directory-list');
+        const searchInput = document.getElementById('directory-search-input');
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const regions = document.querySelectorAll('.directory-map area');
+        const tooltip = document.getElementById('map-tooltip');
+        const mapContainer = document.querySelector('.directory-map');
+
+        // Functions
+        function renderList() {
+            listContainer.innerHTML = '';
+
+            const filteredData = associationsData.filter(asso => {
+                const matchType = currentFilter === 'all' || asso.type === currentFilter;
+                const matchSearch = asso.name.toLowerCase().includes(currentSearch) || asso.school.toLowerCase().includes(currentSearch);
+                const matchRegion = currentRegion ? asso.region === currentRegion : true;
+                return matchType && matchSearch && matchRegion;
+            });
+
+            if (filteredData.length === 0) {
+                listContainer.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: #666;">
+                        <p>Aucune association trouvée.</p>
+                        <button onclick="resetFilters()" style="color: var(--primary-color); text-decoration: underline; background: none; border: none; cursor: pointer;">Réinitialiser les filtres</button>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredData.forEach(asso => {
+                const card = document.createElement('div');
+                card.className = 'asso-card';
+                card.innerHTML = `
+                    <div class="asso-logo">🎓</div>
+                    <div class="asso-info">
+                        <h3>${asso.name}</h3>
+                        <p>${asso.school} • ${asso.region}</p>
+                        <div class="asso-tags">
+                            ${asso.tags.map(tag => `<span class="asso-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div style="color: #ccc;">›</div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        function resetFilters() {
+            currentFilter = 'all';
+            currentSearch = '';
+            currentRegion = null;
+            searchInput.value = '';
+
+            // Reset UI
+            filterChips.forEach(c => c.classList.remove('active'));
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            regions.forEach(r => r.classList.remove('active'));
+
+            renderList();
+        }
+
+        // Event Listeners
+
+        // Search
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            renderList();
+        });
+
+        // Filters
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                currentFilter = chip.getAttribute('data-filter');
+                renderList();
+            });
+        });
+
+        // Map Regions
+        regions.forEach(region => {
+            region.addEventListener('click', (e) => {
+                e.preventDefault();
+                // If clicking the same region, toggle it off
+                if (currentRegion === region.getAttribute('data-region')) {
+                    currentRegion = null;
+                    region.classList.remove('active');
+                } else {
+                    // Reset all
+                    regions.forEach(r => r.classList.remove('active'));
+                    // Activate new
+                    region.classList.add('active');
+                    currentRegion = region.getAttribute('data-region');
+                }
+                renderList();
+            });
+
+            // Hover Tooltip
+            region.addEventListener('mousemove', (e) => {
+                tooltip.textContent = region.getAttribute('data-region');
+                tooltip.style.display = 'block';
+                const rect = mapContainer.getBoundingClientRect();
+                // Position relative to map container
+                let left = e.clientX - rect.left + 15;
+                let top = e.clientY - rect.top - 30;
+
+                // Boundary checks
+                if (left + tooltip.offsetWidth > rect.width) left -= (tooltip.offsetWidth + 20);
+                if (top < 0) top = 10;
+
+                tooltip.style.left = left + 'px';
+                tooltip.style.top = top + 'px';
+            });
+
+            region.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+        });
+
+        // Initial Render
+        renderList();
+
+        // Tab Switcher
+        function switchBdeTab(tab) {
+            // Update buttons
+            document.querySelectorAll('.directory-tabs .filter-chip').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+
+            // Toggle Views
+            const annuaireHeader = document.getElementById('header-annuaire');
+            const annuaireList = document.getElementById('directory-list');
+            const salonView = document.getElementById('salon-view');
+
+            if (tab === 'salon') {
+                annuaireHeader.style.display = 'none';
+                annuaireList.style.display = 'none';
+                salonView.style.display = 'block';
+            } else {
+                annuaireHeader.style.display = 'block';
+                annuaireList.style.display = 'grid'; // Restore grid
+                salonView.style.display = 'none';
+            }
+        }
+
+        // Make global for existing reset
+        window.switchBdeTab = switchBdeTab;
+        window.resetFilters = resetFilters;
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace Enseignants - EtuReady</title>
+    <meta name="description" content="Ressources et actualités pour les enseignants." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="theme-purple">
+    <site-header></site-header>
+
+    <section class="hero"
+        style="background: linear-gradient(rgba(114, 9, 183, 0.9), rgba(67, 97, 238, 0.8)), url('/images/teacher_hero.png'); background-size: cover; background-position: center;">
+        <div class="container" style="color: white;">
+            <h1>Espace Enseignants</h1>
+            <p>Pédagogie, carrière et vie quotidienne : votre salle des profs 2.0.</p>
+        </div>
+    </section>
+    <main class="container">
+        <!-- Intro Section -->
+        <div class="section-intro">
+            <p>Bienvenue sur l'espace dédié aux enseignants. Accédez à des ressources pédagogiques innovantes, gérez
+                votre carrière et trouvez des bons plans pour votre quotidien.</p>
+        </div>
+
+        <!-- • MÉTIER & PÉDAGOGIE -->
+        <div class="section-title">
+            <h2 class="text-theme">• Métier & Pédagogie</h2>
+        </div>
+        <div class="grid" style="margin-bottom: 4rem;">
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>• Enseigner & Innover</h3>
+                    <p>Stratégies pédagogiques, classe inversée, IA...</p>
+                    <ul style="list-style:none; margin-top:1rem; font-size:0.9rem;">
+                        <li style="margin-bottom:0.5rem">• <a href="/article-enseignants-ia-education.html"
+                                class="text-theme">L'IA en classe</a></li>
+                        <li>• <a href="/article-enseignants-gamification.html" class="text-theme">Gamification</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>• Comprendre les étudiants</h3>
+                    <p>Psychologie étudiante, gestion de classe et élèves DYS.</p>
+                    <ul style="list-style:none; margin-top:1rem; font-size:0.9rem;">
+                        <li style="margin-bottom:0.5rem">• <a href="/article-enseignants-eleves-dys.html"
+                                class="text-theme">Accompagner les DYS</a></li>
+                        <li>• <a href="/article-enseignants-gestion-classe-difficile.html" class="text-theme">Gérer
+                                une
+                                classe difficile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card border-theme">
+                <div class="card-content">
+                    <h3>• Matériel & Outils</h3>
+                    <p>Tablette ou PC ➜ Les meilleurs outils pour enseigner.</p>
+                    <a href="/article-enseignants-outils-numeriques.html" class="read-more text-theme">Top 10 outils
+                        numériques ?</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- • ENSEIGNANTS QUIZ -->
+        <section style="margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2 class="text-theme">🧩 Espace Tests & Quiz</h2>
+                <span class="view-all">Pédagogie Ludique</span>
+            </div>
+            <div class="grid">
+                <!-- Quiz Style -->
+                <a href="/quiz-enseignants-style-pedago.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Pédagogie</span>
+                        <h3>Quel type de pédagogue êtes-vous ?</h3>
+                        <p>Plutôt méthode traditionnelle ou classe inversée ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Gen Z -->
+                <a href="/quiz-enseignants-gen-z.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Société</span>
+                        <h3>Vos cours sont-ils "Gen Z Friendly" ?</h3>
+                        <p>Savez-vous capter l'attention de la nouvelle génération ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz IA -->
+                <a href="/quiz-enseignants-detecter-ia.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Tech</span>
+                        <h3>Savez-vous repérer ChatGPT ?</h3>
+                        <p>Testez votre capacité à détecter l'IA dans les copies.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- • CARRIÈRE & RH -->
+        <div class="section-title">
+            <h2 class="text-theme">• Carrière & Responsabilités</h2>
+        </div>
+        <div class="categories-grid"
+            style="margin-bottom: 4rem; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">•</span><span>Droit & Responsabilité</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">•</span><span>Évolution Carrière</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">•</span><span>Syndicats</span>
+            </a>
+            <a href="/article-detail.html" class="category-item border-theme">
+                <span class="category-icon">•</span><span>Postes Privé/Public</span>
+            </a>
+            <a href="/article-enseignants-burnout.html" class="category-item border-theme">
+                <span class="category-icon">•</span><span>Santé au Travail</span>
+            </a>
+        </div>
+
+
+        <!-- • MODE DE VIE -->
+        <div class="section-title">
+            <h2 class="text-theme">• Mode de Vie Enseignant</h2>
+        </div>
+        <div class="grid">
+            <!-- Famille -->
+            <a href="/article-detail.html" class="card">
+                <div class="card-image"
+                    style="background-image: url('https://placehold.co/600x400/7209b7/ffffff?text=Enfants');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Famille</span>
+                    <h3>Enfants & Organisation</h3>
+                    <p>Crèche, garderie, avantages pour les enfants d'enseignants.</p>
+                </div>
+            </a>
+            <!-- Logement/Fiscalité -->
+            <a href="/article-detail.html" class="card">
+                <div class="card-image"
+                    style="background-image: url('https://placehold.co/600x400/7209b7/ffffff?text=Maison');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Quotidien</span>
+                    <h3>Logement & Fiscalité</h3>
+                    <p>Aides au déménagement, frais réels, et optimisation fiscale.</p>
+                </div>
+            </a>
+            <!-- Culture/Sport -->
+            <a href="/article-detail.html" class="card">
+                <div class="card-image"
+                    style="background-image: url('https://placehold.co/600x400/7209b7/ffffff?text=Culture');"></div>
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Loisirs</span>
+                    <h3>Culture, Sport & Voyages</h3>
+                    <p>Bons plans culture, SRIAS, et vacances des profs.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>Paroles d'Enseignants</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"EtuReady facilite grandement la communication avec les étudiants. Les
+                    projets tutorés sont mieux organisés et plus visibles."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=J" alt="Jean" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Jean Dupont</h4>
+                        <span>Professeur de Marketing</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"L'accès centralisé aux ressources pédagogiques est un vrai gain de
+                    temps.
+                    Je peux partager mes supports de cours en un clic."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=C" alt="Claire" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Claire Fontaine</h4>
+                        <span>Enseignante Chercheuse</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"J'apprécie la dynamique que crée la plateforme. Les étudiants sont plus
+                    impliqués dans la vie de l'école."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=M" alt="Marc" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Marc Weber</h4>
+                        <span>Directeur des études</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Section -->
+        <div class="section-title">
+            <h2>Agenda Enseignants</h2>
+            <a href="/evenement.html" class="view-all">Voir tout l'agenda</a>
+        </div>
+        <div class="event-list-compact">
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">15</span>
+                    <span class="month">Déc</span>
+                </div>
+                <div class="event-details">
+                    <h4>Conseil de la vie étudiante</h4>
+                    <p>Réunion trimestrielle sur l'aménagement du campus.</p>
+                </div>
+                <a href="javascript:void(0)" class="event-action">Voir l'ordre du jour ?</a>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">10</span>
+                    <span class="month">Jan</span>
+                </div>
+                <div class="event-details">
+                    <h4>Formation : Nouveaux outils numériques</h4>
+                    <p>Atelier pratique sur l'utilisation de l'IA en cours.</p>
+                </div>
+                <a href="javascript:void(0)" class="event-action">S'inscrire ?</a>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Vous avez un projet ?</h2>
+            <p>Proposez de nouvelles initiatives pédagogiques ou des partenariats pour vos étudiants.</p>
+            <a href="javascript:void(0)" class="btn-white">Soumettre un projet</a>
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
+```

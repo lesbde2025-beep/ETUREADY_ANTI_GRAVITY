@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace Parents - EtuReady</title>
+    <meta name="description" content="Guides et informations pour les parents d'étudiants." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="theme-yellow">
+    <!-- New Header Structure (L'Etudiant Style) -->
+    <site-header></site-header>
+
+    <header class="hero" style="background: linear-gradient(135deg, #ffb703 0%, #fb8500 100%); position: relative; overflow: hidden; padding: 6rem 0 5rem; border-bottom-left-radius: 48px; border-bottom-right-radius: 48px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+        <!-- Decorative Blobs -->
+        <div class="blob blob-1" style="background: white; opacity: 0.1;"></div>
+        <div class="blob blob-2" style="background: white; opacity: 0.15;"></div>
+        
+        <div class="container hero-grid" style="position: relative; z-index: 1;">
+            <div class="hero-content">
+              <span class="tag reveal" style="background: rgba(255,255,255,0.2); color: white;">👪 L'espace de confiance</span>
+              <h1 class="reveal" style="animation-delay: 0.1s; color: white;">Espace Parents</h1>
+              <p class="reveal" style="font-weight: 500; font-size: 1.25rem; color: rgba(255,255,255,0.9); animation-delay: 0.2s;">Conseils, outils et clés pour mieux accompagner vos enfants dans leurs études et leur quotidien.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <div class="section-intro reveal">
+            <p>Bienvenue dans l'espace dédié aux parents. "Parents & Étudiants : avancer ensemble". Retrouvez ici toutes
+                les ressources pour comprendre leur monde.</p>
+        </div>
+
+        <!-- 🟡 IMPLICATION -->
+        <div class="section-title reveal">
+            <h2 class="text-theme">🟡 Implication & Communication</h2>
+        </div>
+        <div class="grid reveal" style="animation-delay: 0.1s; margin-bottom: 4rem;">
+            <a href="/article-detail.html" class="card" style="background: rgba(255,183,3,0.05); border: 1px solid rgba(255,183,3,0.2);">
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Vie Quotidienne</span>
+                    <h3>Soutenir sans étouffer</h3>
+                    <p>Trouvez le bon équilibre pour aider votre enfant étudiant à s'autonomiser.</p>
+                    <span class="btn-text text-theme">Lire le guide →</span>
+                </div>
+            </a>
+            <a href="/article-detail.html" class="card" style="background: rgba(255,183,3,0.05); border: 1px solid rgba(255,183,3,0.2);">
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Orientation</span>
+                    <h3>Les étapes de Parcoursup</h3>
+                    <p>Comprendre le calendrier et les choix d'orientation post-bac.</p>
+                    <span class="btn-text text-theme">Consulter le dossier →</span>
+                </div>
+            </a>
+            <a href="/article-detail.html" class="card" style="background: rgba(255,183,3,0.05); border: 1px solid rgba(255,183,3,0.2);">
+                <div class="card-content">
+                    <span class="tag bg-theme-light text-theme">Santé mentale</span>
+                    <h3>Gérer le stress des examens</h3>
+                    <p>Comment l'aider à traverser la période des partiels sereinement ?</p>
+                    <span class="btn-text text-theme">Voir les conseils →</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- 🧠 PARENTS QUIZ ZONE -->
+        <section class="reveal" style="margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2 class="text-theme">🧠 Parents Quiz Zone</h2>
+                <span class="view-all">Testez vos connaissances</span>
+            </div>
+            <div class="grid">
+                <!-- Quiz Style -->
+                <a href="/quiz-parents-style-educatif.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Psychologie</span>
+                        <h3>Quel parent d'étudiant êtes-vous ?</h3>
+                        <p>Poule, Cool ou Coach ? Découvrez votre style.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Langage -->
+                <a href="/quiz-parents-langage-jeune.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Culture</span>
+                        <h3>Comprenez-vous le langage "Jeune" ?</h3>
+                        <p>Quoicoubeh, Banger... Testez votre vocabulaire !</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Budget -->
+                <a href="/quiz-parents-audit-budget.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Finance</span>
+                        <h3>Êtes-vous prêt pour le budget ?</h3>
+                        <p>Loyer, APL, courses... Avez-vous tout anticipé ?</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- In-Content Ad Placeholder -->
+        <ad-in-content sponsor="SNCF Connect" title="Carte Avantage Jeune à -30%" copy="Offrez-lui la liberté de voyager et de revenir vous voir le week-end au meilleur prix." cta="Je l'achète"></ad-in-content>
+
+        <div class="section-title reveal" style="margin-top:4rem;">
+            <h2>Ils nous font confiance</h2>
+        </div>
+        <div class="testimonials-grid reveal">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Grâce aux guides EtuReady, nous avons trouvé un logement pour notre fils
+                    en une semaine. Les explications sur les APL étaient très claires."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=M" alt="Marie" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Marie Dubois</h4>
+                        <span>Mère de Thomas (1ère année)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"L'article sur le budget nous a beaucoup aidés à anticiper les dépenses de
+                    la rentrée. Un outil indispensable pour les parents !"</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=P" alt="Pierre" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Pierre Martin</h4>
+                        <span>Père de Léa (3ème année)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Je me sens plus rassurée de pouvoir suivre les actualités de l'école et de
+                    comprendre l'environnement de ma fille."</p>
+                <div class="testimonial-author">
+                    <img src="https://placehold.co/50x50?text=S" alt="Sophie" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sophie Bernard</h4>
+                        <span>Mère de Chloé (Master 1)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Section -->
+        <div class="section-title">
+            <h2>Agenda Parents</h2>
+            <a href="/evenement.html" class="view-all">Voir tout l'agenda</a>
+        </div>
+        <div class="event-list-compact">
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">10</span>
+                    <span class="month">Sep</span>
+                </div>
+                <div class="event-details">
+                    <h4>Webinar : Financer les études supérieures</h4>
+                    <p>Toutes les solutions de financement décryptées par nos experts.</p>
+                </div>
+                <a href="javascript:void(0)" class="event-action">S'inscrire →</a>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">24</span>
+                    <span class="month">Sep</span>
+                </div>
+                <div class="event-details">
+                    <h4>Café des Parents - Rentrée 2025</h4>
+                    <p>Rencontrez d'autres parents et échangez sur vos expériences.</p>
+                </div>
+                <a href="javascript:void(0)" class="event-action">S'inscrire →</a>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section reveal">
+            <h2>Une question ?</h2>
+            <p>Notre équipe est là pour vous répondre et vous orienter vers les bonnes ressources.</p>
+            <a href="javascript:void(0)" class="btn-white">Contacter le support parents</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Banner Ad Placeholder -->
+    <ad-footer-banner sponsor="Mutuelle des Étudiants" title="Une santé couverte, des parents rassurés" copy="Découvrez nos offres de mutuelles spécialement conçues pour le budget et les besoins des étudiants." cta="Obtenir un devis"></ad-footer-banner>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

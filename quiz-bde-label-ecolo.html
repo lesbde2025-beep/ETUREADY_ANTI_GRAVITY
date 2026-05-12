@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz BDE : Label Écolo - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+    <main class="container theme-green" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #10b981; margin-bottom:2rem;">Audit Écologique de ton Asso 🌱</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const questions = [
+            {
+                text: "Vos soirées, c'est plutôt...", options: [
+                    { text: "Gobelets jetables en plastique partout.", score: 0 },
+                    { text: "Écocups consignés obligatoires.", score: 20 },
+                    { text: "On n'a plus de soirées.", score: 5 } // Joke option
+                ]
+            },
+            {
+                text: "Pour le WEI, vous partez comment ?", options: [
+                    { text: "Avion (c'était moins cher).", score: 0 },
+                    { text: "Bus ou Covoiturage.", score: 10 },
+                    { text: "Train.", score: 20 }
+                ]
+            },
+            {
+                text: "Les Goodies de rentrée ?", options: [
+                    { text: "Tote-bag en coton bio + Gourde.", score: 20 },
+                    { text: "Lunettes en plastique + T-shirt importé.", score: 0 },
+                    { text: "Rien, on dématérialise.", score: 15 }
+                ]
+            },
+            {
+                text: "La nourriture lors des events ?", options: [
+                    { text: "Buffet local et option végé majoritaire.", score: 20 },
+                    { text: "Pizzas surgelées et beaucoup de viande.", score: 0 },
+                    { text: "On fait attention au gaspillage.", score: 10 }
+                ]
+            },
+            {
+                text: "La communication ?", options: [
+                    { text: "10 000 flyers imprimés pour le campus.", score: 0 },
+                    { text: "100% digital (Réseaux sociaux).", score: 20 },
+                    { text: "Quelques affiches en papier recyclé.", score: 15 }
+                ]
+            }
+        ];
+
+        let c = 0, s = 0;
+        function load() {
+            if (c >= 5) return res();
+            let h = `<h3>${questions[c].text}</h3>`;
+            questions[c].options.forEach(o => h += `<button class="btn-quiz" onclick="s+=${o.score};c++;load()">${o.text}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        function res() {
+            document.getElementById('quiz-area').style.display = 'none';
+            let d = document.getElementById('result-area');
+            d.style.display = 'block';
+            let t = "", m = "";
+            if (s < 40) { t = "Pollueur Inconscient 🛢️"; m = "Aïe. Il y a du boulot. Le plastique c'est pas fantastique chez vous."; }
+            else if (s < 80) { t = "En bonne voie 🌿"; m = "Pas mal ! Vous avez les bases, mais il reste des efforts (transport, goodies)."; }
+            else { t = "Green Master 🌍"; m = "Bravo ! Votre asso est un modèle d'écologie. Demandez votre label !"; }
+            d.innerHTML = `<h2 style="color:#10b981; font-size:2.5rem;">${s}% - ${t}</h2><p style="font-size:1.2rem; margin:2rem 0;">${m}</p><a href="/bde.html" class="btn-theme">Retour</a>`;
+        }
+        load();
+    </script>
+</body>
+
+</html>

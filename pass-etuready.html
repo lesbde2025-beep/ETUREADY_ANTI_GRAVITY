@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Le Pass EtuReady - Le pass étudiant intelligent</title>
+    <meta name="description" content="Découvrez le Pass EtuReady : rentabilisez votre abonnement dès le mois suivant." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        /* Specific Landing Page Styles to ensure marketing look */
+        .pass-hero {
+            background: linear-gradient(135deg, #f12711 0%, #f5af19 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0 3rem;
+            border-bottom-left-radius: 48px;
+            border-bottom-right-radius: 48px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .pass-hero-title {
+            color: white;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            max-width: 1000px;
+            margin: 0 auto 1.5rem;
+            letter-spacing: -0.04em;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pass-hero-title span {
+            background: linear-gradient(to right, #ffe066, #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .pass-hero-content {
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pass-hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .pass-hero-content { text-align: center; }
+            .pass-hero-title { font-size: 3rem; }
+            .pass-hero-visual { margin-top: 2rem; }
+        }
+
+        .pass-hero-subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.35rem;
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.5;
+        }
+
+        .pass-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 5px solid transparent;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .mission-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-surface);
+            border-radius: 16px;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .mission-item:hover {
+            transform: translateX(5px);
+            background: var(--bg-card);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .mission-icon {
+            font-size: 1.5rem;
+            background: var(--bg-card);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .faq-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .faq-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .cta-max {
+            background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+            padding: 5rem 2rem;
+            border-radius: 32px;
+            text-align: center;
+            color: white;
+            margin: 6rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .pass-hero-title { font-size: 2.5rem; }
+            .pass-badge { font-size: 0.9rem; }
+            .mission-item { flex-direction: column; text-align: center; align-items: center; }
+        }
+        .pass-hero-visual {
+            margin: -3.5rem 0 1.5rem;
+            perspective: 1000px;
+        }
+        
+        .pass-hero-visual img {
+            transition: transform 0.5s ease;
+        }
+        
+        .pass-hero-visual:hover img {
+            transform: scale(1.05) rotateY(10deg);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <!-- 1. HERO SECTION -->
+    <header class="pass-hero">
+        <div class="blob blob-1" style="background: white; opacity: 0.15;"></div>
+        <div class="blob blob-2" style="background: white; opacity: 0.1;"></div>
+
+        <div class="container hero-grid" style="position: relative; z-index: 10;">
+            <div class="pass-hero-content">
+                <span class="tag reveal" style="background: rgba(255,255,255,0.25); color: white; display: inline-block; margin-bottom: 0.75rem; padding: 0.5rem 1rem;">🔥 Le bon plan étudiant</span>
+                
+                <h1 class="pass-hero-title reveal" style="animation-delay: 0.1s;">
+                    Le pass étudiant qui peut se rentabiliser <br>
+                    <span style="color: #ffe066;">dès le mois suivant</span>
+                </h1>
+
+                <p class="pass-hero-subtitle reveal" style="animation-delay: 0.3s; font-size: 1.5rem; font-weight: 600; text-align: inherit; margin-left: 0;">
+                    Tu paies 3,99 € le premier mois. Si tu joues le jeu et atteins tes objectifs sur la plateforme, ton prochain mois est <span style="text-decoration: underline; text-decoration-color: #ffe066; text-underline-offset: 4px;">complètement offert</span>.
+                </p>
+                
+                <div class="hero-actions reveal" style="animation-delay: 0.4s; justify-content: flex-start; display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <a href="#join" class="btn-primary" style="background: white; color: #f12711; font-size: 1.1rem; padding: 1rem 2.5rem; font-weight: 800; border-radius: 100px;">Je prends mon Pass</a>
+                    <a href="#avantages" class="btn-secondary" style="background: rgba(0,0,0,0.2); color: white; border: none; font-size: 1.1rem; padding: 1rem 2.5rem; border-radius: 100px;">Voir les avantages</a>
+                </div>
+                
+                <div class="badges reveal" style="animation-delay: 0.5s; margin-top: 3rem; display: flex; justify-content: flex-start; gap: 1.5rem; flex-wrap: wrap;">
+                    <div class="pass-badge">💰 1er mois : 3,99 €</div>
+                    <div class="pass-badge">🎁 Mois gratuit si objectifs complétés</div>
+                    <div class="pass-badge">✨ Sans engagement</div>
+                </div>
+            </div>
+
+            <div class="pass-hero-visual reveal" style="animation-delay: 0.2s;">
+                <div class="premium-badge-circle" style="width: 450px; height: 450px; background: #1d4ed8; animation: float 6s ease-in-out infinite; border-radius: 50%; box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 2px 20px rgba(255,255,255,0.4); border: 12px solid rgba(255,255,255,0.15); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <!-- Animated Gradient Background -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, #1d4ed8 0%, #a78bfa 30%, #ec4899 50%, #1d4ed8 80%); background-size: 200% auto; animation: shineHoverSweep 3s linear infinite;"></div>
+                    
+                    <!-- Glass Shine Effect -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 60%); pointer-events: none; z-index: 1;"></div>
+                    
+                    <!-- Content -->
+                    <div style="text-align: center; color: white; font-family: 'Inter', sans-serif; position: relative; z-index: 2;">
+                        <div style="font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: -0.5rem; opacity: 0.9;">Le Pass</div>
+                        <div style="font-size: 4.5rem; font-weight: 900; letter-spacing: -3px; text-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                            Etu<span style="color: #ffe066;">Ready</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Particle Effect Overlay -->
+                    <div style="position: absolute; width: 150%; height: 150%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: float 10s linear infinite reverse; opacity: 0.2; z-index: 1;"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- 2. COMMENT ÇA MARCHE -->
+        <section class="reveal" style="margin-bottom: 6rem;">
+            <div class="section-title text-center" style="margin-bottom: 3rem;">
+                <span class="tag bg-theme-light text-theme">Méthode claire</span>
+                <h2 style="font-size: 2.5rem;">Comment ça marche ?</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 1rem;">Un fonctionnement transparent en 4 étapes simples.</p>
+            </div>
+            
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+                <div class="step-card" style="border-top-color: #3b82f6;">
+                    <div class="step-icon">💳</div>
+                    <h3>1. Tu t'abonnes</h3>
+                    <p style="color: var(--text-muted);">Inscris-toi dès maintenant pour 3,99 € le premier mois, sans aucun engagement caché.</p>
+                </div>
+                <div class="step-card" style="border-top-color: #eab308;">
+                    <div class="step-icon">🎁</div>
+                    <h3>2. Tu profites</h3>
+                    <p style="color: var(--text-muted);">Accède immédiatement à 100% de tes avantages, promos et coupe-files.</p>
+                </div>
+                <div class="step-card" style="border-top-color: #ec4899;">
+                    <div class="step-icon">🎯</div>
+                    <h3>3. Tu participes</h3>
+                    <p style="color: var(--text-muted);">Réalise les petits objectifs mensuels de la plateforme (réagir, sonder, partager).</p>
+                </div>
+                <div class="step-card" style="border-top-color: #10b981;">
+                    <div class="step-icon">🎉</div>
+                    <h3>4. Mois offert !</h3>
+                    <p style="color: var(--text-muted);">Mission accomplie ? Ton abonnement du mois suivant bascule automatiquement à 0 €.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LES AVANTAGES -->
+        <section id="avantages" class="reveal" style="margin-bottom: 6rem;">
+            <div class="section-title text-center" style="margin-bottom: 3rem;">
+                <span class="tag bg-theme-light text-theme">Exclusivités</span>
+                <h2 style="font-size: 2.5rem;">Les avantages du Pass EtuReady</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 1rem;">Une suite de privilèges calibrés pour ta vie étudiante.</p>
+            </div>
+            
+            <div class="grid">
+                <!-- Promo -->
+                <div class="card" style="display: flex; gap: 1rem; align-items: flex-start; padding: 2rem;">
+                    <div class="mission-icon" style="color: #ef4444; background: #fee2e2;">🏷️</div>
+                    <div>
+                        <h3>Promos exclusives partenaires</h3>
+                        <p style="color: var(--text-muted);">Des réductions massives chez nos partenaires locaux, snacks, et marques nationales.</p>
+                    </div>
+                </div>
+                <!-- Coupe file -->
+                <div class="card" style="display: flex; gap: 1rem; align-items: flex-start; padding: 2rem;">
+                    <div class="mission-icon" style="color: #f59e0b; background: #fef3c7;">🎟️</div>
+                    <div>
+                        <h3>Coupe-file & Soirées VIP</h3>
+                        <p style="color: var(--text-muted);">Accès prioritaire sans attente sur certaines soirées associatives définies sur ton campus.</p>
+                    </div>
+                </div>
+                <!-- Event -->
+                <div class="card" style="display: flex; gap: 1rem; align-items: flex-start; padding: 2rem;">
+                    <div class="mission-icon" style="color: #4f46e5; background: #e0e7ff;">🌟</div>
+                    <div>
+                        <h3>L'Événement Annuel Paris</h3>
+                        <p style="color: var(--text-muted);">Une invitation prestige à notre gros événement parisien avec de nombreux cadeaux distribués sur place.</p>
+                    </div>
+                </div>
+                <!-- Avant-première -->
+                <div class="card" style="display: flex; gap: 1rem; align-items: flex-start; padding: 2rem;">
+                    <div class="mission-icon" style="color: #10b981; background: #dcfce7;">⚡</div>
+                    <div>
+                        <h3>Bons plans en avant-première</h3>
+                        <p style="color: var(--text-muted);">Réception des meilleurs bons plans (stages, logements, billets) avant les autres, avant épuisement.</p>
+                    </div>
+                </div>
+                <!-- BDE -->
+                <div class="card" style="display: flex; gap: 1rem; align-items: flex-start; padding: 2rem;">
+                    <div class="mission-icon" style="color: #c026d3; background: #fae8ff;">🎓</div>
+                    <div>
+                        <h3>Mise en avant de ton BDE</h3>
+                        <p style="color: var(--text-muted);">Coup de projecteur et visibilité premium sur votre BDE s'il est membre de la plateforme.</p>
+                    </div>
+                </div>
+                <!-- IA Suite -->
+                <div class="card" style="display: flex; gap: 1rem; align-items: flex-start; padding: 2rem; grid-column: 1 / -1;">
+                    <div class="mission-icon" style="color: #9333ea; background: #f3e8ff;">🤖</div>
+                    <div>
+                        <h3>Suite d'outils Intelligence Artificielle</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Votre assistant personnel étudiant propulsé par l'IA pour tout simplifier dans vos démarches complexes :</p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <span class="tag" style="background: var(--bg-surface);">Trouver un logement</span>
+                            <span class="tag" style="background: var(--bg-surface);">Monter un dossier locatif</span>
+                            <span class="tag" style="background: var(--bg-surface);">Trouver sa formation ideale</span>
+                            <span class="tag" style="background: var(--bg-surface);">Refonte CV & Lettre de motiv'</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. GAMIFICATION / LE MOIS GRATUIT -->
+        <section class="reveal" style="margin-bottom: 6rem; background: var(--bg-card); padding: 4rem 2rem; border-radius: 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid var(--border-light);">
+            <div class="section-title text-center" style="margin-bottom: 3rem;">
+                <span class="tag text-theme" style="margin-bottom: 1rem; display: inline-block; border: 1px solid var(--primary-color);">🏆 Le Système Gagnant-Gagnant</span>
+                <h2 style="font-size: 2.2rem;">Comment obtenir ton mois suivant gratuitement ?</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Ici, l'engagement paie ! Remplis simplement cette checklist dans le mois en cours. Si tous les objectifs sont validés, ton abonnement du mois suivant passe automatiquement à 0 €.
+                </p>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="mission-item" style="border-left-color: #3b82f6;">
+                    <div class="mission-icon text-blue">🛒</div>
+                    <div>
+                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">Faire un achat validé chez un partenaire</h4>
+                        <p style="margin: 0.2rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Profitez d'une de nos offres exclusives.</p>
+                    </div>
+                </div>
+                <div class="mission-item" style="border-left-color: #10b981;">
+                    <div class="mission-icon text-green">👍</div>
+                    <div>
+                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">Réagir à au moins 3 articles du site</h4>
+                        <p style="margin: 0.2rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Pouce vert ou pouce rouge (limite de 1 réaction prise en compte par jour).</p>
+                    </div>
+                </div>
+                <div class="mission-item" style="border-left-color: #f59e0b;">
+                    <div class="mission-icon text-yellow">📊</div>
+                    <div>
+                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">Répondre au sondage du mois</h4>
+                        <p style="margin: 0.2rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Donnez votre avis pour faire évoluer la plateforme.</p>
+                    </div>
+                </div>
+                <div class="mission-item" style="border-left-color: #ef4444;">
+                    <div class="mission-icon text-red">💡</div>
+                    <div>
+                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">Renseigner un bon plan</h4>
+                        <p style="margin: 0.2rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Dans la section "Les bons plans selon VOUS" pour aider la communauté.</p>
+                    </div>
+                </div>
+                <div class="mission-item" style="border-left-color: #8b5cf6;">
+                    <div class="mission-icon text-purple">📰</div>
+                    <div>
+                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">Télécharger la brochure du mois</h4>
+                        <p style="margin: 0.2rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Téléchargez le magazine mensuel et répondez à son mini-sondage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. POURQUOI C'EST INTERESSANT ? -->
+        <section class="reveal" style="margin-bottom: 6rem;">
+            <div class="section-title text-center">
+                <h2>Pourquoi c'est LE bon plan ?</h2>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="card" style="padding: 2rem; text-align: center;">
+                    <h3 style="color: #3b82f6;">🚀 Rentabilité immédiate</h3>
+                    <p style="color: var(--text-muted);">Avec nos réductions partenaires, tes 3,99 € initiaux sont souvent remboursés dès ton premier achat.</p>
+                </div>
+                <div class="card" style="padding: 2rem; text-align: center;">
+                    <h3 style="color: #10b981;">💰 Gratuité possible</h3>
+                    <p style="color: var(--text-muted);">C'est la seule plateforme qui te permet d'obtenir les mois suivants à 0 € juste en étant actif.</p>
+                </div>
+                <div class="card" style="padding: 2rem; text-align: center;">
+                    <h3 style="color: #8b5cf6;">🤝 Une vraie communauté</h3>
+                    <p style="color: var(--text-muted);">Rejoins un écosystème étudiant intelligent, partage tes bons plans, tes avis et soutiens ton BDE.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. COMMUNAUTÉ (Visual engagement) -->
+        <section class="reveal" style="margin-bottom: 6rem; text-align: center;">
+            <div class="section-title">
+                <h2>Plus qu'un pass, un mouvement</h2>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <!-- Gamification UI pieces -->
+                <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 100px; display: flex; align-items: center; gap: 1rem; border: 1px solid var(--border-light); font-weight: 600;">
+                    <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 50px;">+12k</span>
+                    Sondages complétés
+                </div>
+                <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 100px; display: flex; align-items: center; gap: 1rem; border: 1px solid var(--border-light); font-weight: 600;">
+                    <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 50px;">+5.4k</span>
+                    Mois gratuits débloqués
+                </div>
+                <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 100px; display: flex; align-items: center; gap: 1rem; border: 1px solid var(--border-light); font-weight: 600;">
+                    <span style="background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 50px;">+800</span>
+                    Bons plans partagés par VOUS
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="reveal" style="margin-bottom: 6rem;">
+            <div class="section-title text-center">
+                <h2>Les questions fréquentes</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 1rem;">
+                <div class="faq-card">
+                    <h4>Que coûte le Pass EtuReady ?</h4>
+                    <p style="color: var(--text-muted); margin: 0;">L'abonnement initial est de 3,99 € TTC pour le premier mois. Il n'y a pas d'engagement de durée.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Le mois suivant est-il vraiment gratuit ?</h4>
+                    <p style="color: var(--text-muted); margin: 0;">Absolument. Si tu remplis les objectifs de la checklist avant la fin du mois en cours, ton prochain mois tarifaire passe automatiquement à 0 €. Et oui, tu garderas 100% de tes avantages.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Quand les objectifs sont-ils vérifiés ?</h4>
+                    <p style="color: var(--text-muted); margin: 0;">Notre système met à jour tes jauges d'objectif en temps réel. La validation finale s'opère le dernier jour de ton cycle de facturation mensuel.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Que se passe-t-il si je ne complète pas les objectifs ?</h4>
+                    <p style="color: var(--text-muted); margin: 0;">Si tout n'est pas rempli, ton abonnement se renouvelle au tarif standard de 3,99 € pour le mois suivant, et tu repars avec de nouveaux objectifs pour tenter de débloquer le mois d'après.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Est-ce que j'ai les avantages IA dès le premier mois ?</h4>
+                    <p style="color: var(--text-muted); margin: 0;">Oui, dès ton inscription initiale à 3,99 €, ton compte est "Premium" et tu accèdes à la suite IA, aux événements, coupe-files et sondages.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FINAL CTA -->
+        <section class="cta-max reveal" id="join">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 800; color: white;">Rejoins le mouvement EtuReady</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9;">
+                Active ton premier mois à 3,99 €, découvre nos outils, et commence dès maintenant à tenter d'obtenir ton prochain mois offert !
+            </p>
+            <a href="/formulaire-generique.html" class="btn-primary" style="background: white; color: #4f46e5; border-radius: 100px; font-size: 1.2rem; padding: 1.2rem 3rem; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">Commencer l'aventure 👉</a>
+        </section>
+
+    </main>
+
+    <site-footer></site-footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        // Simple reveal logic to ensure elements pop gracefully upon scrolling
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+                
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger once on load
+        });
+    </script>
+</body>
+
+</html>

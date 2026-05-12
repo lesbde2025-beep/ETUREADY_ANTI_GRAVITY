@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/style-auth.css">
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="login-page">
+        <div class="login-container">
+            <div class="login-sidebar">
+                <h2>Bienvenue sur EtuReady</h2>
+                <p>La plateforme vivante pour tous les acteurs de la vie étudiante.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">Connectez-vous pour accéder à vos services
+                    personnalisés.</p>
+            </div>
+
+            <div class="login-content">
+                <p style="margin-bottom: 1rem; font-weight: 600; color: #666;">Je suis :</p>
+
+                <div class="role-selector-grid">
+                    <button class="role-btn active" onclick="selectRole('etudiant', this)">
+                        <span class="role-btn-icon">🎓</span>
+                        <span>Étudiant</span>
+                    </button>
+                    <button class="role-btn" onclick="selectRole('parent', this)">
+                        <span class="role-btn-icon">👪</span>
+                        <span>Parent</span>
+                    </button>
+                    <button class="role-btn" onclick="selectRole('enseignant', this)">
+                        <span class="role-btn-icon">👨‍🏫</span>
+                        <span>Enseignant</span>
+                    </button>
+                    <button class="role-btn" onclick="selectRole('bde', this)">
+                        <span class="role-btn-icon">🎉</span>
+                        <span>BDE / Asso</span>
+                    </button>
+                    <button class="role-btn" onclick="selectRole('alumni', this)">
+                        <span class="role-btn-icon">🤝</span>
+                        <span>Alumni</span>
+                    </button>
+                    <button class="role-btn" onclick="selectRole('admin', this)">
+                        <span class="role-btn-icon">🏢</span>
+                        <span>Personnel Admin</span>
+                    </button>
+                </div>
+
+                <div class="login-form-container">
+                    <h3 id="form-title" style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--primary-color);">
+                        Connexion Espace Étudiant</h3>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email ou Identifiant</label>
+                            <input type="email" id="email" placeholder="exemple@ecole.fr" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="password" placeholder="••••••••" required>
+                                <button type="button" class="password-toggle-btn"
+                                    onclick="togglePassword('password', this)">👁️</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="login-submit-btn">Se connecter</button>
+
+                        <div class="form-footer">
+                            <a href="/mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+                            <span style="margin: 0 0.5rem;">•</span>
+                            <a href="/inscription.html">Créer un compte</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+
+    <script type="module">
+        import { authService } from '/src/auth-service.js';
+
+        // Password Toggle Logic
+        window.togglePassword = function (id, btn) {
+            const input = document.getElementById(id);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '👁️‍🗨️';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁️';
+            }
+        }
+
+        // Role selection visual logic
+        window.selectRole = (role, btn) => {
+            document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const titles = {
+                'etudiant': 'Connexion Espace Étudiant',
+                'parent': 'Connexion Espace Parents',
+                'enseignant': 'Connexion Espace Enseignant',
+                'bde': 'Connexion Espace BDE / Asso',
+                'alumni': 'Connexion Espace Alumni',
+                'admin': 'Connexion Espace Personnel Administratif'
+            };
+
+            const titleElement = document.getElementById('form-title');
+            titleElement.textContent = titles[role];
+        }
+
+        // Login Logic
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.querySelector('.login-submit-btn');
+            const originalText = btn.textContent;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            btn.textContent = 'Connexion...';
+            btn.disabled = true;
+
+            try {
+                const { data, error } = await authService.signIn(email, password);
+
+                if (error) throw error;
+
+                // Success
+                window.location.href = '/dashboard.html'; // Go to Dashboard
+
+            } catch (err) {
+                console.error(err);
+                alert("Erreur de connexion : " + (err.message || "Identifiants incorrects"));
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

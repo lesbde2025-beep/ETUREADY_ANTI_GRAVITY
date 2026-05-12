@@ -1,0 +1,18 @@
+[
+  { "date": "2025-10-02", "title": "Afterwork BDE", "location": "Paris", "type": "Soirée", "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-05", "title": "Salon de l'Étudiant", "location": "Lyon", "type": "Carrière", "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-12", "title": "Soirée d'intégration", "location": "Paris", "type": "Soirée", "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-15", "title": "Conférence Climat", "location": "Lyon", "type": "Culture", "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-18", "title": "Hackathon Tech", "location": "Nantes", "type": "Carrière", "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-20", "title": "Vente de plantes", "location": "Toulouse", "type": "Bon Plan", "image": "https://images.unsplash.com/photo-1459156212016-c812468e2115?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-25", "title": "Tournoi E-Sport", "location": "Bordeaux", "type": "Sport", "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-10-31", "title": "Halloween Party", "location": "Marseille", "type": "Soirée", "image": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-11-03", "title": "Distribution alimentaire", "location": "Paris", "type": "Bon Plan", "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-11-05", "title": "Forum des Métiers", "location": "Lille", "type": "Carrière", "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2025-11-14", "title": "Soirée Beaujolais", "location": "Lyon", "type": "Soirée", "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2026-02-14", "title": "Saint-Valentin du BDE", "location": "Campus", "type": "Soirée", "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2026-02-18", "title": "Don du Sang", "location": "Hall B", "type": "Culture", "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2026-02-21", "title": "LAN Party CS2", "location": "Nantes", "type": "Sport", "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2026-02-26", "title": "Job Fair Tech", "location": "Paris Station F", "type": "Carrière", "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800" },
+  { "date": "2026-02-28", "title": "Dégustation Vins", "location": "Bordeaux", "type": "Culture", "image": "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&q=80&w=800" }
+]

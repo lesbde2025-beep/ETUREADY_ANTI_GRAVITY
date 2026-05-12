@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDE & Associations - EtuReady</title>
+    <meta name="description" content="Toute l'actualité des associations étudiantes." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <!-- New Header Structure (L'Etudiant Style) -->
+    <site-header></site-header>
+
+    <header class="hero hero-bde" style="background: linear-gradient(135deg, #f72585 0%, #7209b7 100%); position: relative; overflow: hidden; padding: 6rem 0 5rem; border-bottom-left-radius: 48px; border-bottom-right-radius: 48px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+        <!-- Decorative Blobs -->
+        <div class="blob blob-1" style="background: white; opacity: 0.1;"></div>
+        <div class="blob blob-2" style="background: white; opacity: 0.15;"></div>
+        
+        <div class="container hero-grid" style="position: relative; z-index: 1;">
+            <div class="hero-content">
+              <span class="tag reveal" style="background: rgba(255,255,255,0.2); color: white;">🚀 Au cœur du campus</span>
+              <h1 class="reveal" style="animation-delay: 0.1s; color: white;">Vie Associative</h1>
+              <p class="reveal" style="font-weight: 500; font-size: 1.25rem; color: rgba(255,255,255,0.9); animation-delay: 0.2s;">BDE, BDS, BDA... Retrouvez tous les conseils pour gérer et dynamiser votre asso.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-title reveal">
+            <h2>Guides & Conseils Asso</h2>
+        </div>
+
+        <div class="articles-grid reveal" style="animation-delay: 0.1s; margin-bottom: 4rem;">
+            <!-- Article 1 -->
+            <a href="/article-bde-organiser-wei.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_party.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Événementiel</span>
+                    <h3>Organiser un WEI inoubliable</h3>
+                    <p>Sécurité, budget, activités : les clés d'un week-end réussi.</p>
+                </div>
+            </a>
+            <!-- Article 2 -->
+            <a href="/article-bde-trouver-sponsors.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_job.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Financement</span>
+                    <h3>Trouver des sponsors</h3>
+                    <p>Comment convaincre les entreprises de financer vos projets ?</p>
+                </div>
+            </a>
+            <!-- Article 3 -->
+            <a href="/article-bde-gerer-budget-asso.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_budget.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Trésorerie</span>
+                    <h3>Gérer le budget d'une asso</h3>
+                    <p>Les règles d'or pour ne pas finir dans le rouge.</p>
+                </div>
+            </a>
+            <!-- Article 4 -->
+            <a href="/article-bde-communication-reseaux.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_tech.png');">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">Communication</span>
+                    <h3>Booster sa com sur les réseaux</h3>
+                    <p>Instagram, TikTok : les stratégies qui marchent.</p>
+                </div>
+            </a>
+            
+            <!-- In-Content Ad Placeholder (Breaks the grid) -->
+            <div style="grid-column: 1 / -1; margin: 2rem 0;">
+                <ad-in-content sponsor="Lydia Pro" title="La solution de paiement des assos" copy="Encaissez les cotisations et gérez votre billetterie sans frais cachés." cta="Créer un compte Asso"></ad-in-content>
+            </div>
+
+            <!-- Article 5 -->
+            <a href="/article-bde-responsabilite-soiree.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_health.png');">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">Prévention</span>
+                    <h3>Organiser une soirée responsable</h3>
+                    <p>Alcool, VSS, bruit : comment assurer la sécurité ?</p>
+                </div>
+            </a>
+            <!-- Article 6 -->
+            <a href="/article-bde-recruter-membres.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_job.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Management</span>
+                    <h3>Recruter et motiver son équipe</h3>
+                    <p>Comment attirer les meilleurs talents dans ton asso ?</p>
+                </div>
+            </a>
+            <!-- Article 7 -->
+            <a href="/article-bde-passation.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_alumni.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Vie Asso</span>
+                    <h3>Réussir sa passation</h3>
+                    <p>Transmettre le flambeau sans se brûler.</p>
+                </div>
+            </a>
+            <!-- Article 8 -->
+            <a href="/article-bde-creer-asso.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_student_life.png');">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">Administration</span>
+                    <h3>Créer son asso : le guide</h3>
+                    <p>Statuts, préfecture, banque : les étapes clés.</p>
+                </div>
+            </a>
+            <!-- Article 9 -->
+            <a href="/article-bde-droit-asso.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_study.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Juridique</span>
+                    <h3>Le cadre légal des assos</h3>
+                    <p>Responsabilité civile et pénale : ce qu'il faut savoir.</p>
+                </div>
+            </a>
+            <!-- Article 10 -->
+            <a href="/article-bde-idees-evenements.html" class="article-card">
+                <div class="article-image" style="background-image: url('/images/articles/img_party.png');"></div>
+                <div class="article-content">
+                    <span class="article-tag">Idées</span>
+                    <h3>10 idées d'événements originaux</h3>
+                    <p>Marre des soirées ? Innovez pour toucher tous les étudiants.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- 🧠 BDE QUIZ ZONE -->
+        <section class="reveal" style="margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2 class="text-theme">🧠 BDE Quiz Zone</h2>
+                <span class="view-all">Testez votre asso</span>
+            </div>
+            <div class="grid">
+                <!-- Quiz Poste -->
+                <a href="/quiz-bde-poste-bureau.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Team</span>
+                        <h3>Quel poste est fait pour toi ?</h3>
+                        <p>Président, Trésorier, Com ? Trouve ta place dans le bureau.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Ecolo -->
+                <a href="/quiz-bde-label-ecolo.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">RSE</span>
+                        <h3>Audit : Ton asso est-elle écolo ?</h3>
+                        <p>Calculez votre score vert et obtenez des conseils.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+
+                <!-- Quiz Event -->
+                <a href="/quiz-bde-type-event.html" class="card">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Event</span>
+                        <h3>Quel événement organiser ?</h3>
+                        <p>Gala, Soirée, Voyage ? Ce qu'il faut à votre promo.</p>
+                        <span class="btn-text">Faire le test →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="section-title reveal">
+            <h2>Annuaire des Assos</h2>
+        </div>
+
+        <div class="grid reveal" style="animation-delay: 0.1s; margin-bottom: 4rem;">
+            <article class="card">
+                <div class="card-content">
+                    <h3>Bureau des Élèves (BDE)</h3>
+                    <p>L'asso qui rythme ta vie étudiante : soirées, WEI, partenariats...</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-content">
+                    <h3>Bureau des Sports (BDS)</h3>
+                    <p>Pour les sportifs du dimanche comme les athlètes de haut niveau.</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-content">
+                    <h3>Bureau des Arts (BDA)</h3>
+                    <p>Théâtre, musique, ciné, photo... Exprimez vos talents !</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer Banner Ad Placeholder -->
+    <ad-footer-banner sponsor="Red Bull" title="L'énergie de vos projets" copy="Sponsorisation et dotation de boissons pour vos événements majeurs." cta="Demander un partenariat"></ad-footer-banner>
+
+    <site-footer></site-footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

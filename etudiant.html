@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace étudiant - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/style-etudiant.css">
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <section class="hero hero-etudiant reveal">
+        <div class="container hero-content">
+            <h1 class="hero-title">Espace étudiant</h1>
+            <p class="hero-subtitle">Tout pour réussir tes études, booster ton réseau et kiffer ta vie étudiante.</p>
+        </div>
+    </section>
+
+    <main class="container theme-green page-etudiant">
+        <!-- Intro Section -->
+        <div class="section-intro reveal text-center">
+            <p class="intro-text">Bienvenue dans ton espace ! Ici, c'est ton QG : que tu sois au lycée ou déjà à la fac,
+                on a tout ce qu'il te faut pour réussir et kiffer ta vie.</p>
+        </div>
+
+        <!-- • AVANT BAC -->
+        <section class="reveal section-spacing">
+            <div class="section-title">
+                <h2 class="text-theme">🎓 Avant Bac : Prep' Zen</h2>
+                <span class="view-all">Lycée (1ère & Terminale)</span>
+            </div>
+            <div class="grid grid-3">
+                <!-- Orientation & Parcoursup -->
+                <article class="card card-premium">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Parcoursup & Orientation</span>
+                        <h3>🎯 Choisir sa voie</h3>
+                        <p>Spécialités du Bac, filières d'avenir, et tout comprendre sur la procédure Parcoursup.</p>
+                        <ul class="card-list styled-list">
+                            <li><a href="/article-parcoursup-calendrier.html">Dossier Parcoursup : étapes clés</a></li>
+                            <li><a href="/quiz-filieres-correspondance.html">Quiz : Quelle filière pour moi ?</a></li>
+                            <li><a href="/classement-ecoles.html">Classement des écoles</a></li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Méthodologie Lycée -->
+                <article class="card card-premium">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Réussir le Bac</span>
+                        <h3>🧠 Méthodes & Révisions</h3>
+                        <p>Fiches de révision, grand oral, et gestion du stress des examens.</p>
+                        <ul class="card-list styled-list">
+                            <li><a href="/article-grand-oral.html">Préparer le Grand Oral</a></li>
+                            <li><a href="/article-techniques-memorisation.html">Techniques de mémorisation</a></li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Découverte Métiers -->
+                <article class="card card-premium">
+                    <div class="card-content">
+                        <span class="tag bg-theme-light text-theme">Inspiration</span>
+                        <h3>🔭 Découverte Métiers</h3>
+                        <p>Explore des fiches métiers concrètes et des témoignages de pros.</p>
+                        <ul class="card-list styled-list">
+                            <li><a href="/article-metiers-ia.html">Les métiers de l'IA</a></li>
+                            <li><a href="/article-salons-etudiants.html">Salons étudiants à venir</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- • POST BAC -->
+        <section class="reveal section-spacing">
+            <div class="section-title">
+                <h2 class="text-theme">🎓 Post Bac : En Mode Expert</h2>
+            </div>
+            <div class="grid grid-3">
+                <!-- Techniques d'étude -->
+                <a href="/article-formation-continue-outils.html" class="card card-premium card-image-bg">
+                    <div class="card-background"
+                        style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content content-over-image">
+                        <span class="tag glass-tag">Performance</span>
+                        <h3>Techniques d'étude & Organisation</h3>
+                        <p>Pomodoro, Mind Mapping, Prise de notes... Valider son année sans nuit blanche.</p>
+                    </div>
+                </a>
+
+                <!-- Orientation Pro & Académique -->
+                <a href="/article-boite-outils-etudes.html" class="card card-premium card-image-bg">
+                    <div class="card-background"
+                        style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=600&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content content-over-image">
+                        <span class="tag glass-tag">Orientation</span>
+                        <h3>Mon Parcours & Mon Avenir</h3>
+                        <p>Se réorienter, trouver un stage, partir en césure ou choisir son Master.</p>
+                    </div>
+                </a>
+
+                <!-- Santé Mentale -->
+                <a href="/article-sante-etudes-mentale-physique.html" class="card card-premium card-image-bg">
+                    <div class="card-background"
+                        style="background-image: url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=600&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content content-over-image">
+                        <span class="tag glass-tag">Santé / Bien-être</span>
+                        <h3>Santé Mentale & équilibre</h3>
+                        <p>Gérer le stress, l'anxiété, la solitude. Prendre soin de soi (et de sa tête).</p>
+                    </div>
+                </a>
+
+                <!-- Conseils Pratiques -->
+                <a href="/article-budget.html" class="card card-premium card-image-bg">
+                    <div class="card-background"
+                        style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content content-over-image">
+                        <span class="tag glass-tag">Vie Quotidienne</span>
+                        <h3>Débrouille & Vie Adulte</h3>
+                        <p>Gérer son budget, cuisiner équilibré, logement... Le kit de l'étudiant autonome.</p>
+                        <div class="tags-group mt-auto">
+                            <span class="tag mini-tag">Budget</span>
+                            <span class="tag mini-tag">Recettes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- IA et Plagiat -->
+                <a href="/article-ia-enseignement.html" class="card card-premium card-image-bg">
+                    <div class="card-background"
+                        style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content content-over-image">
+                        <span class="tag glass-tag">Nouveaux Outils</span>
+                        <h3>L'IA au service de tes études</h3>
+                        <p>Comment utiliser ChatGPT intelligemment sans tomber dans le plagiat.</p>
+                    </div>
+                </a>
+
+                <!-- Aides -->
+                <a href="/article-bourses-apl-aides.html" class="card card-premium card-image-bg">
+                    <div class="card-background"
+                        style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=600&auto=format&fit=crop');">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content content-over-image">
+                        <span class="tag glass-tag">Finances</span>
+                        <h3>Toutes les aides disponibles</h3>
+                        <p>Bourses sur critères sociaux, APL, aides régionales... Ne passe pas à côté de tes droits !
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Ad Banner Interstitial -->
+        <div class="featured-banner reveal">
+            <span class="featured-badge">Sponsorisé</span>
+            <div class="banner-content">
+                <h3>MacBook Pro pour étudiants</h3>
+                <p>-10% toute l'année sur le store éducation</p>
+                <a href="javascript:void(0)" class="btn-theme-outline"
+                    style="border-color: #0f172a; color: #0f172a; padding: 0.75rem 1.5rem; border-radius: 99px; text-decoration: none; font-weight: 600;">Profiter
+                    de l'offre</a>
+            </div>
+        </div>
+
+        <!-- • MODE DE VIE (Huge Grid) -->
+        <section class="reveal section-spacing">
+            <div class="section-title">
+                <h2 class="text-theme">🌴 Mode de Vie : Smart Life</h2>
+            </div>
+            <div class="lifestyle-grid">
+                <a href="/etu-elles.html" class="lifestyle-card feature-elles">
+                    <div class="icon">🌸</div>
+                    <span>EtuElles</span>
+                </a>
+                <a href="/bons-plans.html" class="lifestyle-card">
+                    <div class="icon">🍔</div>
+                    <span>Alimentation</span>
+                </a>
+                <a href="/assos.html" class="lifestyle-card">
+                    <div class="icon">🎉</div>
+                    <span>Soirées</span>
+                </a>
+                <a href="/article-top-applis-etudes.html" class="lifestyle-card">
+                    <div class="icon">🎮</div>
+                    <span>Loisirs & Geek</span>
+                </a>
+                <a href="/article-sante-etudes-mentale-physique.html" class="lifestyle-card">
+                    <div class="icon">🏃</div>
+                    <span>Sport</span>
+                </a>
+                <a href="/article-etudes-etranger.html" class="lifestyle-card">
+                    <div class="icon">✈️</div>
+                    <span>Voyages</span>
+                </a>
+                <a href="/bons-plans.html" class="lifestyle-card">
+                    <div class="icon">🏷️</div>
+                    <span>Bons Plans</span>
+                </a>
+                <a href="/article-job-etudiant-emploi-temps.html" class="lifestyle-card">
+                    <div class="icon">💼</div>
+                    <span>Jobs & Thunes</span>
+                </a>
+                <a href="/article-permis-etudiant-financement.html" class="lifestyle-card">
+                    <div class="icon">🚗</div>
+                    <span>Permis</span>
+                </a>
+                <a href="/article-parents-logement-garant.html" class="lifestyle-card">
+                    <div class="icon">🏠</div>
+                    <span>Logement</span>
+                </a>
+                <a href="/article-style-vestimentaire-etudiant.html" class="lifestyle-card">
+                    <div class="icon">👕</div>
+                    <span>Mode</span>
+                </a>
+                <a href="/article-crypto-etudiant.html" class="lifestyle-card">
+                    <div class="icon">₿</div>
+                    <span>Cryptos</span>
+                </a>
+                <a href="/article-tech-etudiant.html" class="lifestyle-card">
+                    <div class="icon">💻</div>
+                    <span>Tech / Info</span>
+                </a>
+                <a href="/article-armee-etudiant.html" class="lifestyle-card">
+                    <div class="icon">🎖️</div>
+                    <span>Armée</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- • ESPACE QUIZ -->
+        <section class="reveal section-spacing">
+            <div class="section-title">
+                <h2 class="text-theme">🧩 Espace Tests & Quiz</h2>
+                <span class="view-all">Détente & Orientation</span>
+            </div>
+            <div class="grid grid-3">
+                <a href="/quiz-filieres-correspondance.html" class="card card-premium quiz-card">
+                    <div class="card-content">
+                        <span class="tag">Orientation</span>
+                        <h3>Quelle filière est faite pour toi ?</h3>
+                        <p>Tu hésites encore ? Fais ce test rapide pour trouver ta voie idéale.</p>
+                        <span class="btn-text"
+                            style="color: var(--theme-primary); font-weight: 600; margin-top: auto;">Faire le test
+                            →</span>
+                    </div>
+                </a>
+                <a href="/quiz-type-etudiant-soiree.html" class="card card-premium quiz-card">
+                    <div class="card-content">
+                        <span class="tag">Fun</span>
+                        <h3>Quel étudiant es-tu en soirée ?</h3>
+                        <p>Plutôt roi du dancefloor ou pilier de bar ? Découvre ton profil fêtard.</p>
+                        <span class="btn-text"
+                            style="color: var(--theme-primary); font-weight: 600; margin-top: auto;">Faire le test
+                            →</span>
+                    </div>
+                </a>
+                <a href="/quiz-timide-ou-reserve.html" class="card card-premium quiz-card">
+                    <div class="card-content">
+                        <span class="tag">Psychologie</span>
+                        <h3>Grand timide ou juste réservé ?</h3>
+                        <p>Apprends à mieux gérer ta prise de parole et tes relations.</p>
+                        <span class="btn-text"
+                            style="color: var(--theme-primary); font-weight: 600; margin-top: auto;">Faire le test
+                            →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- • TON AGENDA -->
+        <section class="reveal section-spacing">
+            <div class="section-title">
+                <h2 class="text-theme">📅 Ton Agenda : Ne Rate Rien</h2>
+                <a href="/annuaire-bde.html" class="view-all text-theme">Tout l'annuaire BDE</a>
+            </div>
+            <div class="grid grid-3">
+                <div class="card card-premium bg-theme-light border-theme" style="border-width: 2px;">
+                    <div class="card-content">
+                        <h3>L'Univers BDE / Asso</h3>
+                        <p>Le cœur battant de ton école. Soirées, WEI, événements pro...</p>
+                        <ul class="card-list styled-list text-theme">
+                            <li><a href="/bde.html">Qu'est-ce qu'un BDE ?</a></li>
+                            <li><a href="/bde.html">Créer / Rejoindre une asso</a></li>
+                            <li><a href="/annuaire-bde.html">Trouver mon BDE</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card-premium">
+                    <div class="card-content">
+                        <h3>Entrepreneuriat & Startups</h3>
+                        <p>Tu as une idée ? Lance-toi ! Incubateurs, statuts étudiant-entrepreneur...</p>
+                        <a href="/article-entrepreneuriat-etudiant.html" class="read-more text-theme mt-auto"
+                            style="font-weight: 600; text-decoration: none;">Lire le dossier →</a>
+                    </div>
+                </div>
+                <div class="card card-premium">
+                    <div class="card-content">
+                        <h3>Bénévolat & Impact</h3>
+                        <p>Donne du sens à tes études : missions humanitaires, tutorat, écologie.</p>
+                        <ul class="card-list styled-list text-theme">
+                            <li><a href="/article-service-civique.html">Service Civique</a></li>
+                            <li><a href="/article-assos-ecolos.html">Assos écolos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <div class="cta-section premium-cta section-spacing reveal">
+            <div class="cta-content">
+                <h2>Ne rate pas une miette !</h2>
+                <p>Reçois les meilleurs bons plans, les dates de soirées et les conseils pour tes partiels.</p>
+                <form class="newsletter-form modern-form">
+                    <input type="email" placeholder="Ton email étudiant" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn btn-theme">S'abonner</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section class="reveal section-spacing">
+            <div class="section-title text-center mx-auto" style="justify-content: center;">
+                <h2>La parole aux étudiants</h2>
+            </div>
+            <div class="testimonials-grid grid-3">
+                <div class="testimonial-card premium-testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">J'ai trouvé mon stage de fin d'études grâce au réseau EtuReady. Les
+                        offres sont vraiment adaptées à nos profils !</p>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/50x50?text=L" alt="Lucas" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Lucas</h4>
+                            <span>M2 Informatique</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card premium-testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Les bons plans et réductions m'ont fait économiser pas mal d'argent
+                        cette année. Merci le BDE !</p>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/50x50?text=E" alt="Emma" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Emma</h4>
+                            <span>L3 Droit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card premium-testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">L'ambiance aux soirées est top, et c'est super simple de prendre sa
+                        place sur le site. Hâte de la prochaine !</p>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/50x50?text=N" alt="Nathan" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Nathan</h4>
+                            <span>B1 Commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

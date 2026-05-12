@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trouver mon école - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-wrapper {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            min-height: 60vh;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-header {
+            margin-bottom: 2rem;
+        }
+
+        .step-count {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .step-desc {
+            color: #64748b;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* Step 1 Grid */
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-btn {
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            background: #f8fafc;
+            color: #334155;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn:hover {
+            background: #e0f2fe;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .option-btn .letter-badge {
+            background: #cbd5e1;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .option-btn:hover .letter-badge {
+            background: var(--primary-color);
+        }
+
+        /* Profile & Level List */
+        .list-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            max-width: 600px;
+        }
+
+        /* Date Input */
+        .date-inputs {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+        }
+
+        .date-input {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .action-btn {
+            background: #e63946;
+            /* L'Etudiant Red style as requested */
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: transform 0.2s;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            background: #d62828;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Results */
+        .result-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #f1f5f9;
+        }
+
+        .match-tag {
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="container theme-blue" style="padding-top: 2rem;">
+        <div class="quiz-wrapper">
+
+            <!-- STEP 1 -->
+            <div class="step active" id="step1">
+                <div class="step-header">
+                    <span class="step-count">1</span>
+                    <h2 class="step-title">Quels domaines de formation t'intéressent ?</h2>
+                    <p class="step-desc">Nous pourrons mieux te guider dans ton projet d'orientation.</p>
+                </div>
+                <div class="domain-grid">
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">A</span> Agriculture,
+                        Environnement</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">B</span> Art, Culture,
+                        Design, Mode</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">C</span> Bien-être,
+                        Beauté</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">D</span> Commerce,
+                        Management</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">E</span> Droit, Sciences
+                        Politiques</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">F</span> Finance,
+                        Comptabilité</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">G</span> Fonction
+                        publique</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">H</span> Hôtellerie,
+                        Tourisme</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">I</span> Image, Son,
+                        Animation 3D</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">J</span> Informatique,
+                        Numérique</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">K</span> Ingénierie,
+                        Sciences</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">L</span> Langues,
+                        SHS</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">M</span> Marketing,
+                        Communication</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">N</span> Santé,
+                        Paramédical</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">P</span> Transport,
+                        Logistique</button>
+                    <button class="option-btn" onclick="next(2)"><span class="letter-badge">Q</span> Je ne sais pas
+                        encore...</button>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step" id="step2">
+                <div class="step-header">
+                    <span class="step-count">2</span>
+                    <h2 class="step-title">Quel est ton profil ?</h2>
+                    <p class="step-desc">Pour proposer des formations adaptées.</p>
+                </div>
+                <div class="list-options">
+                    <button class="option-btn" onclick="next(3)"><span class="letter-badge">A</span> Collégien</button>
+                    <button class="option-btn" onclick="next(3)"><span class="letter-badge">B</span> Lycéen</button>
+                    <button class="option-btn" onclick="next(3)"><span class="letter-badge">C</span> Étudiant</button>
+                    <button class="option-btn" onclick="next(3)"><span class="letter-badge">D</span> En activité /
+                        Reconversion</button>
+                    <button class="option-btn" onclick="next(3)"><span class="letter-badge">E</span> En recherche
+                        d'emploi</button>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step" id="step3">
+                <div class="step-header">
+                    <span class="step-count">3</span>
+                    <h2 class="step-title">Quel est ton niveau d'études actuel ?</h2>
+                    <p class="step-desc">Le diplôme le plus élevé que tu prépares ou as obtenu.</p>
+                </div>
+                <div class="domain-grid">
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">A</span> CAP ou
+                        équivalent</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">B</span> Bac ou
+                        équivalent</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">C</span> Bac +1</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">D</span> Bac +2</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">E</span> Bac +3
+                        (Licence/Bachelor)</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">F</span> Bac +4</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">G</span> Bac +5
+                        (Master/MSc)</button>
+                    <button class="option-btn" onclick="next(4)"><span class="letter-badge">H</span> Aucun
+                        diplôme</button>
+                </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="step" id="step4">
+                <div class="step-header">
+                    <span class="step-count">4</span>
+                    <h2 class="step-title">Quelle est ta date de naissance ?</h2>
+                    <p class="step-desc">Certaines formations ont des critères d'âge.</p>
+                </div>
+                <div class="date-inputs">
+                    <input type="number" class="date-input" placeholder="JJ" min="1" max="31">
+                    <input type="number" class="date-input" placeholder="MM" min="1" max="12">
+                    <input type="number" class="date-input" placeholder="AAAA" min="1950" max="2015">
+                </div>
+                <button class="action-btn" onclick="next(5)">Valider</button>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="step" id="step5">
+                <div class="step-header">
+                    <span class="step-count">5</span>
+                    <h2 class="step-title">Dernière étape !</h2>
+                    <p class="step-desc">Reçois ta liste personnalisée d'écoles directement.</p>
+                </div>
+                <form onsubmit="event.preventDefault(); next(6);">
+                    <div class="form-group">
+                        <label class="form-label">Prénom *</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nom *</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" required>
+                    </div>
+                    <button type="submit" class="action-btn" style="width:100%">Voir mes résultats</button>
+                </form>
+            </div>
+
+            <!-- STEP 6: RESULTS -->
+            <div class="step" id="step6">
+                <div class="step-header" style="text-align:center;">
+                    <h2 class="step-title" style="color:var(--primary-color);">🎉 Nous avons trouvé 4 écoles pour toi !
+                    </h2>
+                    <p class="step-desc">Basé sur ton profil et tes intérêts.</p>
+                </div>
+
+                <div class="result-list">
+                    <!-- Fake Result 1 -->
+                    <div class="result-card">
+                        <img src="https://placehold.co/80x80?text=ESSEC" alt="Logo" class="school-logo">
+                        <div style="flex:1;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <h3>ESSEC Business School</h3>
+                                <span class="match-tag">98% Match</span>
+                            </div>
+                            <p style="color:#64748b; margin:0.5rem 0;">Grande École de Commerce • Cergy</p>
+                            <a href="javascript:void(0)" style="color:var(--primary-color); font-weight:600;">Demander une brochure</a>
+                        </div>
+                    </div>
+
+                    <!-- Fake Result 2 -->
+                    <div class="result-card">
+                        <img src="https://placehold.co/80x80?text=IIM" alt="Logo" class="school-logo">
+                        <div style="flex:1;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <h3>IIM Digital School</h3>
+                                <span class="match-tag">95% Match</span>
+                            </div>
+                            <p style="color:#64748b; margin:0.5rem 0;">École du Digital • Paris La Défense</p>
+                            <a href="javascript:void(0)" style="color:var(--primary-color); font-weight:600;">Demander une brochure</a>
+                        </div>
+                    </div>
+
+                    <!-- Fake Result 3 -->
+                    <div class="result-card">
+                        <img src="https://placehold.co/80x80?text=Sorbonne" alt="Logo" class="school-logo">
+                        <div style="flex:1;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <h3>Sorbonne Université</h3>
+                                <span class="match-tag">88% Match</span>
+                            </div>
+                            <p style="color:#64748b; margin:0.5rem 0;">Université Publique • Paris</p>
+                            <a href="javascript:void(0)" style="color:var(--primary-color); font-weight:600;">Voir le site</a>
+                        </div>
+                    </div>
+
+                    <!-- Fake Result 4 -->
+                    <div class="result-card">
+                        <img src="https://placehold.co/80x80?text=WebTech" alt="Logo" class="school-logo">
+                        <div style="flex:1;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <h3>WebTech Institute</h3>
+                                <span class="match-tag">82% Match</span>
+                            </div>
+                            <p style="color:#64748b; margin:0.5rem 0;">Informatique & BlockChain • Lyon</p>
+                            <a href="javascript:void(0)" style="color:var(--primary-color); font-weight:600;">Demander une brochure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:2rem;">
+                    <a href="/formation.html" class="btn-theme-outline">Nouvelle recherche</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function next(stepId) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + stepId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+
+</html>

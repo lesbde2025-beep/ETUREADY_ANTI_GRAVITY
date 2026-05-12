@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actualité en détail - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <site-header></site-header>
+
+    <main class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <article style="max-width: 800px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <span class="tag">Actualité</span>
+            <h1 style="font-size: 2.5rem; margin: 1rem 0;">Détail de l'actualité / Info</h1>
+            <div style="color: #666; margin-bottom: 2rem;">Publié récemment par l'Équipe EtuReady</div>
+
+            <img src="https://placehold.co/800x400/4361ee/ffffff?text=EtuReady+Info" alt="Actualité"
+                style="width: 100%; border-radius: 8px; margin-bottom: 2rem;">
+
+            <div style="line-height: 1.8; font-size: 1.1rem;">
+                <p style="margin-bottom: 1rem;">Découvrez les détails complets de cet article ici. L'information a été mise en ligne récemment et sera bientôt mise à jour avec plus de détails contextuels.</p>
+
+                <h2 style="margin: 2rem 0 1rem; color: #1a237e;">Restez connectés</h2>
+                <p style="margin-bottom: 1rem;">Retrouvez-nous sur les réseaux via la plateforme pour ne rien manquer des futurs événements, bons plans et annonces.</p>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <button class="btn-theme-outline" onclick="window.history.back()">Retour à la page précédente</button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

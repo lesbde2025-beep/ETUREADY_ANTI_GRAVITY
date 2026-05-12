@@ -1,0 +1,11 @@
+[
+  { "id": "10-erreurs", "title": "10 erreurs à éviter en première année", "tag": "Vie Étudiante", "image": "/images/articles/img_student_life.png", "url": "/article-10-erreurs-premiere-annee.html" },
+  { "id": "wei", "title": "Organiser son WEI sans stress", "tag": "BDE", "image": "/images/actus_hero.png", "url": "/article-bde-organiser-wei.html" },
+  { "id": "entreprendre", "title": "Entreprendre après ses études", "tag": "Carrière", "image": "/images/actus_hackathon.png", "url": "/article-alumni-entreprendre.html" },
+  { "id": "etranger", "title": "Partir étudier à l'étranger", "tag": "International", "image": "/images/actus_international.png", "url": "/article-etudes-etranger.html" },
+  { "id": "partiels", "title": "Calendrier des partiels 2025", "tag": "Études", "image": "/images/actus_exams.png", "url": "/article-planning-partiels.html" },
+  { "id": "ia", "title": "L'IA dans l'enseignement supérieur", "tag": "Tech", "image": "/images/actus_ai_conf.jpg", "url": "/article-ia-enseignement.html" },
+  { "id": "budget", "title": "Gérer son budget étudiant", "tag": "Bon Plan", "image": "/images/special_offer_laptop.png", "url": "/article-budget.html" },
+  { "id": "apl", "title": "Tout savoir sur les APL", "tag": "Vie Pratique", "image": "/images/actus_crous.jpg", "url": "/article-apl.html" },
+  { "id": "bourses", "title": "Bourses et aides financières", "tag": "Vie Pratique", "image": "/images/actus_crous.jpg", "url": "/article-bourses-apl-aides.html" }
+]

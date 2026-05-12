@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournois & E-Sport - EtuReady</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .tournaments-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #111 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tournaments-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 220, 130, 0.15) 0%, transparent 70%);
+            opacity: 1;
+        }
+
+        .bracket-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+            overflow-x: auto;
+        }
+
+        .bracket {
+            display: flex;
+            justify-content: space-around;
+            min-width: 600px;
+        }
+
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .matchup {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            border-radius: 6px;
+            width: 150px;
+            position: relative;
+        }
+
+        .matchup.winner {
+            border-color: var(--secondary-color);
+            background: rgba(0, 220, 130, 0.1);
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.2rem;
+            font-size: 0.9rem;
+        }
+
+        .team.advancing {
+            font-weight: bold;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-header {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .game-content {
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="container">
+        <div class="tournaments-hero">
+            <h1 style="font-family: 'Space Grotesk'; font-size: 3rem; margin-bottom: 0.5rem;">E-Sport & Compétitions
+            </h1>
+            <p style="color: rgba(255,255,255,0.8);">Affrontez les autres écoles sur LoL, FIFA, Valorant et Échecs.</p>
+            <button class="hero-cta" style="margin-top: 2rem;">Créer une équipe</button>
+        </div>
+
+        <!-- Live Bracket -->
+        <div class="section-title">
+            <h2>🔴 Tournoi League of Legends - Finale Régionale</h2>
+            <span class="tag tag-sm"
+                style="background:rgba(0,220,130,0.1); color:var(--secondary-color); border:1px solid var(--secondary-color);">LIVE</span>
+        </div>
+
+        <div class="bracket-container">
+            <div class="bracket">
+                <div class="round">
+                    <div class="matchup winner">
+                        <div class="team advancing">HEC <span class="text-theme">2</span></div>
+                        <div class="team">ESSEC <span>0</span></div>
+                    </div>
+                    <div class="matchup">
+                        <div class="team">Polytech <span class="text-theme">1</span></div>
+                        <div class="team advancing">INSA <span class="text-theme">2</span></div>
+                    </div>
+                </div>
+                <div class="round">
+                    <div class="matchup">
+                        <div class="team">HEC <span>-</span></div>
+                        <div class="team">INSA <span>-</span></div>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--text-secondary); margin-top: 1rem;">Grande Finale : Samedi 20h
+                sur Twitch</p>
+        </div>
+
+        <!-- Upcoming Tournaments -->
+        <div class="section-title">
+            <h2>🎮 Inscriptions Ouvertes</h2>
+        </div>
+
+        <div class="grid">
+            <!-- FIFA -->
+            <div class="game-card">
+                <div class="game-header"
+                    style="background-image: url('https://placehold.co/400x200?text=FIFA+24'); background-color: var(--primary-light);">
+                    <span class="tag" style="position: absolute; top:1rem; right:1rem;">10€ / Joueur</span>
+                </div>
+                <div class="game-content">
+                    <h3>FIFA 24 Cup</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Tournoi 1v1. Cashprize 500€.</p>
+                    <div style="margin: 1rem 0; font-size: 0.85rem;">
+                        📅 25 Octobre • 📍 En ligne
+                    </div>
+                    <button class="btn-theme-outline" style="width: 100%;">S'inscrire</button>
+                </div>
+            </div>
+
+            <!-- Chess -->
+            <div class="game-card">
+                <div class="game-header"
+                    style="background-image: url('https://placehold.co/400x200?text=Echecs'); background-color: var(--primary-light);">
+                    <span class="tag" style="position: absolute; top:1rem; right:1rem;">Gratuit</span>
+                </div>
+                <div class="game-content">
+                    <h3>Master Class Échecs</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Tournoi Blitz 5+0. Ouvert à tous.</p>
+                    <div style="margin: 1rem 0; font-size: 0.85rem;">
+                        📅 Tous les jeudis 20h • 📍 Lichess
+                    </div>
+                    <button class="btn-theme-outline" style="width: 100%;">Rejoindre le club</button>
+                </div>
+            </div>
+
+            <!-- Valorant -->
+            <div class="game-card">
+                <div class="game-header"
+                    style="background-image: url('https://placehold.co/400x200?text=Valorant'); background-color: var(--primary-light);">
+                    <span class="tag" style="position: absolute; top:1rem; right:1rem;">50€ / Équipe</span>
+                </div>
+                <div class="game-content">
+                    <h3>Valorant University Series</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">5v5. Qualifiez votre école pour la
+                        saison régulière.</p>
+                    <div style="margin: 1rem 0; font-size: 0.85rem;">
+                        📅 10 Novembre • 📍 En ligne
+                    </div>
+                    <button class="btn-theme-outline" style="width: 100%;">Inscrire une team</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mot de passe oublié - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/style-auth.css">
+</head>
+<body>
+    <site-header></site-header>
+    <main class="login-page">
+        <div class="login-container" style="max-width: 600px; margin: 0 auto; display: block; padding: 2rem;">
+            <div class="login-content" style="width: 100%;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--primary-color);">Réinitialisation du mot de passe</h3>
+                <p style="margin-bottom: 2rem; color: #666;">Entrez votre adresse e-mail pour recevoir un lien de réinitialisation.</p>
+                <form onsubmit="event.preventDefault(); alert('Si l\'adresse existe, un email a été envoyé.'); window.location.href='/connexion.html';">
+                    <div class="form-group">
+                        <label for="email">Email de récupération</label>
+                        <input type="email" id="email" placeholder="exemple@ecole.fr" required>
+                    </div>
+                    <button type="submit" class="login-submit-btn">Envoyer le lien</button>
+                    <div class="form-footer" style="margin-top: 1rem; text-align: center;">
+                        <a href="/connexion.html">Retour à la connexion</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

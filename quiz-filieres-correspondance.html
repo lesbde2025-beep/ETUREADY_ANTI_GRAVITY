@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz : Quelle filière est faite pour toi ? - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .question {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            margin: 0.8rem 0;
+            background: #ffffff;
+            border: 2px solid #eef2ff;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+            background: #f8fafc;
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, var(--primary-color));
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .question-counter {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Result Styles */
+        .result-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .top-match-card {
+            background: linear-gradient(135deg, var(--primary-color), #4338ca);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .top-match-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .other-matches {
+            margin-top: 2rem;
+        }
+
+        .match-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .match-label {
+            width: 150px;
+            font-weight: 600;
+        }
+
+        .match-bar-bg {
+            flex-grow: 1;
+            height: 10px;
+            background: #f1f5f9;
+            border-radius: 5px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+
+        .match-bar-fill {
+            height: 100%;
+            background: #64748b;
+            border-radius: 5px;
+        }
+
+        .match-percent {
+            width: 50px;
+            text-align: right;
+            font-weight: bold;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="container theme-blue" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="quiz-container">
+            <div class="progress-container">
+                <div class="question-counter">Question <span id="current-q-num">1</span>/<span
+                        id="total-q-num">10</span></div>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+
+            <h1 style="text-align:center; color: var(--primary-color); margin-bottom:2.5rem; font-size: 1.8rem;">
+                Orientation : Découvre ta Voie Idéale 🚀</h1>
+
+            <div id="quiz-area">
+                <!-- Questions injected here -->
+            </div>
+
+            <div id="result-area" style="display: none;">
+                <!-- Result injected here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Categories:
+        // SCI: Sciences & Ingénierie
+        // ECO: Économie & Business
+        // LIT: Lettres, Sciences Humaines & Droit
+        // CREA: Arts & Création
+
+        const questions = [
+            {
+                text: "À l'école, quel type d'exercice préfères-tu ?",
+                options: [
+                    { text: "Résoudre un problème mathématique complexe.", scores: { SCI: 3, ECO: 1, LIT: 0, CREA: 0 } },
+                    { text: "Rédiger une dissertation ou un essai argumenté.", scores: { SCI: 0, ECO: 1, LIT: 3, CREA: 1 } },
+                    { text: "Imaginer un projet, dessiner ou créer une présentation visuelle.", scores: { SCI: 1, ECO: 0, LIT: 0, CREA: 3 } },
+                    { text: "Analyser des documents d'actualité ou historiques.", scores: { SCI: 0, ECO: 2, LIT: 2, CREA: 0 } }
+                ]
+            },
+            {
+                text: "Si tu devais regarder un documentaire ce soir...",
+                options: [
+                    { text: "Les mystères de l'univers ou les nouvelles technos.", scores: { SCI: 3, ECO: 0, LIT: 0, CREA: 1 } },
+                    { text: "L'histoire de la mode ou le portrait d'un artiste.", scores: { SCI: 0, ECO: 0, LIT: 1, CREA: 3 } },
+                    { text: "Les grandes crises financières ou la géopolitique.", scores: { SCI: 0, ECO: 3, LIT: 1, CREA: 0 } },
+                    { text: "Une enquête psychologique ou sociétale.", scores: { SCI: 0, ECO: 1, LIT: 3, CREA: 0 } }
+                ]
+            },
+            {
+                text: "Dans un groupe de projet, quel rôle prends-tu naturellement ?",
+                options: [
+                    { text: "Le leader qui organise, tranche et présente.", scores: { SCI: 1, ECO: 3, LIT: 1, CREA: 0 } },
+                    { text: "L'expert technique qui s'assure que tout est logique.", scores: { SCI: 3, ECO: 1, LIT: 0, CREA: 0 } },
+                    { text: "Le créatif qui a des idées 'out of the box'.", scores: { SCI: 0, ECO: 1, LIT: 0, CREA: 3 } },
+                    { text: "Le rédacteur qui met tout en forme avec les bons mots.", scores: { SCI: 0, ECO: 0, LIT: 3, CREA: 1 } }
+                ]
+            },
+            {
+                text: "Qu'est-ce qui te motive le plus dans la vie ?",
+                options: [
+                    { text: "Comprendre comment le monde fonctionne (lois physiques).", scores: { SCI: 3, ECO: 0, LIT: 0, CREA: 0 } },
+                    { text: "Exprimer mes émotions et ma vision du monde.", scores: { SCI: 0, ECO: 0, LIT: 1, CREA: 3 } },
+                    { text: "Défendre des causes, la justice, comprendre les humains.", scores: { SCI: 0, ECO: 1, LIT: 3, CREA: 1 } },
+                    { text: "Entreprendre, gagner de l'argent, avoir de l'impact concret.", scores: { SCI: 1, ECO: 3, LIT: 0, CREA: 0 } }
+                ]
+            },
+            {
+                text: "Tu gagnes au loto. Que fais-tu ?",
+                options: [
+                    { text: "J'investis dans des startups et l'immobilier.", scores: { SCI: 0, ECO: 3, LIT: 0, CREA: 0 } },
+                    { text: "Je finance un labo de recherche ou une mission spatiale.", scores: { SCI: 3, ECO: 0, LIT: 0, CREA: 0 } },
+                    { text: "Je voyage pour découvrir des cultures et écrire un livre.", scores: { SCI: 0, ECO: 0, LIT: 3, CREA: 1 } },
+                    { text: "J'ouvre une galerie d'art ou je produis un film.", scores: { SCI: 0, ECO: 0, LIT: 1, CREA: 3 } }
+                ]
+            },
+            {
+                text: "Ton outil de travail préféré :",
+                options: [
+                    { text: "Excel ou une calculatrice.", scores: { SCI: 2, ECO: 3, LIT: 0, CREA: 0 } },
+                    { text: "Un microscope ou du code informatique.", scores: { SCI: 3, ECO: 0, LIT: 0, CREA: 1 } },
+                    { text: "Word, des livres, ma voix.", scores: { SCI: 0, ECO: 1, LIT: 3, CREA: 0 } },
+                    { text: "Photoshop, un carnet de croquis, une caméra.", scores: { SCI: 0, ECO: 0, LIT: 0, CREA: 3 } }
+                ]
+            },
+            {
+                text: "Quelle qualité tes amis te reconnaissent-ils ?",
+                options: [
+                    { text: "Ta logique implacable.", scores: { SCI: 3, ECO: 1, LIT: 0, CREA: 0 } },
+                    { text: "Ton sens de la négociation et ton ambition.", scores: { SCI: 0, ECO: 3, LIT: 0, CREA: 0 } },
+                    { text: "Ton empathie et ton écoute.", scores: { SCI: 0, ECO: 0, LIT: 3, CREA: 1 } },
+                    { text: "Ton originalité et ton style.", scores: { SCI: 0, ECO: 1, LIT: 0, CREA: 3 } }
+                ]
+            },
+            {
+                text: "Un problème survient. Ta méthode ?",
+                options: [
+                    { text: "Je cherche la cause rationnelle et la solution technique.", scores: { SCI: 3, ECO: 1, LIT: 0, CREA: 0 } },
+                    { text: "Je réunis tout le monde pour en discuter.", scores: { SCI: 0, ECO: 0, LIT: 3, CREA: 0 } },
+                    { text: "J'improvise une solution créative avec ce que j'ai.", scores: { SCI: 1, ECO: 0, LIT: 0, CREA: 3 } },
+                    { text: "J'évalue le coût et le bénéfice des solutions.", scores: { SCI: 0, ECO: 3, LIT: 0, CREA: 0 } }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let userScores = { SCI: 0, ECO: 0, LIT: 0, CREA: 0 };
+
+        const quizArea = document.getElementById('quiz-area');
+        const resultArea = document.getElementById('result-area');
+        const progressBar = document.getElementById('progress');
+        const currentQNum = document.getElementById('current-q-num');
+        const totalQNum = document.getElementById('total-q-num');
+
+        totalQNum.textContent = questions.length;
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            currentQNum.textContent = currentQuestion + 1;
+            progressBar.style.width = `${((currentQuestion) / questions.length) * 100}%`;
+
+            let html = `
+                <div class="question active">
+                    <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: #1e293b;">${q.text}</h2>
+                    <div class="options">
+            `;
+
+            q.options.forEach((opt, index) => {
+                html += `<button class="btn-quiz" onclick="selectOption(${index})">${opt.text}</button>`;
+            });
+
+            html += `</div></div>`;
+            quizArea.innerHTML = html;
+        }
+
+        window.selectOption = function (optIndex) {
+            const scores = questions[currentQuestion].options[optIndex].scores;
+
+            for (let key in scores) {
+                userScores[key] += scores[key];
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        };
+
+        function showResults() {
+            quizArea.style.display = 'none';
+            resultArea.style.display = 'block';
+            progressBar.style.width = '100%';
+            document.querySelector('.question-counter').style.display = 'none';
+
+            // Find Winner
+            let maxScore = -1;
+            let winner = '';
+
+            // Convert to array to sort
+            let sortedScores = Object.entries(userScores).sort((a, b) => b[1] - a[1]);
+            winner = sortedScores[0][0];
+
+            const profiles = {
+                SCI: {
+                    title: "Profil Scientifique & Tech 🧪",
+                    desc: "Tu as un esprit logique, curieux et rigoureux. Tu aimes comprendre le 'comment' et le 'pourquoi'. Le monde a besoin de tes compétences pour innover !",
+                    jobs: "Ingénieur, Développeur, Médecin, Chercheur, Architecte, Data Scientist."
+                },
+                ECO: {
+                    title: "Profil Business & Éco 📈",
+                    desc: "Tu es pragmatique, ambitieux et tu comprends les enjeux du monde réel. Tu aimes décider, gérer et organiser.",
+                    jobs: "Manager, Entrepreneur, Expert-comptable, Directeur Marketing, Juriste d'affaires."
+                },
+                LIT: {
+                    title: "Profil Lettres & Humain 📚",
+                    desc: "Tu es sensible à l'humain, aux mots et à la société. Tu as une grande capacité d'analyse et d'empathie.",
+                    jobs: "Psychologue, Journaliste, Avocat, Enseignant, Ressources Humaines, Communication."
+                },
+                CREA: {
+                    title: "Profil Créatif & Artistique 🎨",
+                    desc: "Tu as besoin d'exprimer ta vision. Tu ne rentres pas toujours dans les cases et c'est ta force. L'innovation vient souvent de gens comme toi.",
+                    jobs: "Designer (Graphique, Produit), Artiste, Réalisateur, Architecte d'intérieur, Publicitaire."
+                }
+            };
+
+            const profile = profiles[winner];
+
+            let html = `
+                <div class="result-intro">
+                    <p>D'après tes réponses, ton profil dominant est :</p>
+                </div>
+                
+                <div class="top-match-card">
+                    <div class="top-match-title">${profile.title}</div>
+                    <p style="font-size: 1.1rem; opacity: 0.9;">${profile.desc}</p>
+                    <div style="margin-top: 1.5rem; background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                        <strong>Métiers potentiels :</strong><br>${profile.jobs}
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Détail de tes affinités :</h3>
+                <div class="other-matches">
+            `;
+
+            // Display all bars
+            const maxVal = sortedScores[0][1]; // based on highest score for scaling
+
+            sortedScores.forEach(item => {
+                const code = item[0];
+                const score = item[1];
+                const percent = Math.max(Math.round((score / maxVal) * 100), 10); // visual percent relative to max
+
+                let label = "";
+                if (code === 'SCI') label = "Sciences";
+                if (code === 'ECO') label = "Business";
+                if (code === 'LIT') label = "Humain/Droit";
+                if (code === 'CREA') label = "Créatif";
+
+                let color = "#64748b";
+                if (code === winner) color = "var(--primary-color)";
+
+                html += `
+                    <div class="match-row">
+                        <span class="match-label">${label}</span>
+                        <div class="match-bar-bg">
+                            <div class="match-bar-fill" style="width: ${percent}%; background-color: ${color};"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <a href="/formation.html" class="btn-theme">Voir les formations</a>
+                    <button class="btn-theme-outline" style="margin-left: 1rem;" onclick="location.reload()">Refaire</button>
+                </div>
+            `;
+
+            resultArea.innerHTML = html;
+        }
+
+        // Start
+        loadQuestion();
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

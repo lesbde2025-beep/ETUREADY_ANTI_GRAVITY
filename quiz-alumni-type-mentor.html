@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Alumni : Quel mentor êtes-vous ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: #fb5607;
+            background: #fff3e0;
+        }
+    </style>
+</head>
+
+<body class="theme-orange">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #fb5607; margin-bottom:2rem;">Quel type de Mentor êtes-vous ? 🤝</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Un étudiant vous demande de l'aide pour son stage. Vous faites quoi ?", o: [
+                    { t: "Je lui donne 3 contacts clés dans mon carnet d'adresses.", s: { NET: 3, TECH: 0, HUM: 1 } },
+                    { t: "Je relis son CV et je corrige les aspects techniques.", s: { NET: 0, TECH: 3, HUM: 1 } },
+                    { t: "Je l'appelle pour discuter de son projet de vie.", s: { NET: 1, TECH: 0, HUM: 3 } }
+                ]
+            },
+            {
+                t: "Votre plus grande force aujourd'hui, c'est...", o: [
+                    { t: "Mon réseau.", s: { NET: 3, TECH: 0, HUM: 0 } },
+                    { t: "Mon expertise métier.", s: { NET: 0, TECH: 3, HUM: 0 } },
+                    { t: "Mon écoute.", s: { NET: 0, TECH: 0, HUM: 3 } }
+                ]
+            },
+            {
+                t: "Le conseil que vous donnez le plus souvent :", o: [
+                    { t: "Sors, rencontre des gens, sois visible.", s: { NET: 3, TECH: 0, HUM: 0 } },
+                    { t: "Forme-toi, sois le meilleur techniquement.", s: { NET: 0, TECH: 3, HUM: 0 } },
+                    { t: "Fais ce qui te plaît, le reste suivra.", s: { NET: 0, TECH: 0, HUM: 3 } }
+                ]
+            }
+        ];
+        let c = 0, sc = { NET: 0, TECH: 0, HUM: 0 };
+        function l() {
+            if (c >= 3) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let w = Object.keys(sc).reduce((a, b) => sc[a] > sc[b] ? a : b);
+                let txt = {
+                    NET: "Le Super-Connecteur 🕸️<br><small>Vous ouvrez des portes. Votre carnet d'adresses est une mine d'or pour les jeunes diplômés.</small>",
+                    TECH: "L'Expert Technique 🛠️<br><small>Vous transmettez un savoir-faire précis. Vous aidez les étudiants à monter en compétences concrètes.</small>",
+                    HUM: "Le Coach Bienveillant 🌱<br><small>Vous êtes là pour rassurer et guider. Vous aidez l'étudiant à trouver sa voie et à prendre confiance.</small>"
+                };
+                d.innerHTML = `<h2 style="color:#fb5607;">${txt[w]}</h2><br><a href="/alumni.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='let s=${JSON.stringify(x.s)};for(k in s)sc[k]+=s[k];c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

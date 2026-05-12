@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <site-header></site-header>
+
+    <header class="hero" style="background: linear-gradient(135deg, #7209b7, #f72585);">
+        <div class="container">
+            <h1>La Newsletter EtuReady</h1>
+            <p>Le meilleur de la vie étudiante, directement dans ta boîte mail.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="cta-section"
+            style="margin-top: -3rem; position: relative; z-index: 10; background: white; color: var(--text-dark); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h2 style="color: var(--primary-color);">Rejoins +10 000 étudiants informés</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Chaque lundi matin, reçois notre sélection :</p>
+
+            <div class="grid" style="margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2rem;">🔥</span>
+                    <div>
+                        <h4 style="margin: 0;">Les meilleurs bons plans</h4>
+                        <p style="margin: 0; font-size: 0.9rem;">Codes promo exclusifs et réductions.</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2rem;">📅</span>
+                    <div>
+                        <h4 style="margin: 0;">L'agenda de la semaine</h4>
+                        <p style="margin: 0; font-size: 0.9rem;">Soirées, salons et événements campus.</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2rem;">🎓</span>
+                    <div>
+                        <h4 style="margin: 0;">Conseils & Orientation</h4>
+                        <p style="margin: 0; font-size: 0.9rem;">Stages, jobs et réussite scolaire.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="newsletter-form" style="background: #f8f9fa; padding: 2rem; border-radius: 8px;">
+                <input type="email" placeholder="Ton email étudiant" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Je m'inscris gratuitement</button>
+            </form>
+            <p style="font-size: 0.8rem; color: #999; margin-top: 1rem;">Désinscription possible à tout moment. Pas de
+                spam, promis.</p>
+        </div>
+
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>Ils nous lisent déjà</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Grâce à la newsletter, j'ai trouvé mon stage de fin d'études et j'ai économisé sur mon Mac !"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"
+                        style="background-image: url('https://placehold.co/50x50/4361ee/ffffff?text=L');"></div>
+                    <div class="author-info">
+                        <h4>Léa</h4>
+                        <span>Étudiante en Droit</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Le récap des soirées du jeudi, c'est la vie. Je ne rate plus aucun événement sur le campus."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"
+                        style="background-image: url('https://placehold.co/50x50/2ec4b6/ffffff?text=T');"></div>
+                    <div class="author-info">
+                        <h4>Thomas</h4>
+                        <span>Président BDE</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Des infos claires et utiles, pas de blabla. C'est la seule newsletter que j'ouvre vraiment."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"
+                        style="background-image: url('https://placehold.co/50x50/fb5607/ffffff?text=S');"></div>
+                    <div class="author-info">
+                        <h4>Sarah</h4>
+                        <span>Master Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

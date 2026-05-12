@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Parents : Êtes-vous prêt pour le budget étudiant ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: #fb8500;
+            background: #fff8e1;
+        }
+    </style>
+</head>
+
+<body class="theme-yellow">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #fb8500; margin-bottom:2rem;">Budget Étudiant : Le Crash Test 💸</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Savez-vous combien coûte un logement étudiant moyen en province ?", o: [
+                    { t: "Moins de 300€.", s: 0 },
+                    { t: "Entre 400€ et 600€.", s: 20 },
+                    { t: "Plus de 800€.", s: 10 }
+                ]
+            },
+            {
+                t: "Avez-vous anticipé la caution et les frais d'agence ?", o: [
+                    { t: "Oui, tout est de côté.", s: 20 },
+                    { t: "Ah mince, j'avais oublié ça.", s: 0 },
+                    { t: "On verra sur le moment.", s: 5 }
+                ]
+            },
+            {
+                t: "Le budget courses mensuel pour un étudiant, c'est environ...", o: [
+                    { t: "100€ (il mange des pâtes).", s: 5 },
+                    { t: "200€ à 300€.", s: 20 },
+                    { t: "500€ (foie gras inclus).", s: 10 }
+                ]
+            },
+            {
+                t: "Les APL (Aides au logement), vous avez fait la simulation ?", o: [
+                    { t: "Oui, dossier prêt.", s: 20 },
+                    { t: "C'est quoi les APL ?", s: 0 },
+                    { t: "Je vais le faire demain.", s: 10 }
+                ]
+            },
+            {
+                t: "En cas de coup dur (ordi cassé, frais médicaux)...", o: [
+                    { t: "On a prévu une épargne de précaution.", s: 20 },
+                    { t: "Il devra travailler plus.", s: 5 },
+                    { t: "On vendra la voiture.", s: 0 }
+                ]
+            }
+        ];
+        let c = 0, s = 0;
+        function l() {
+            if (c >= 5) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let t = "", m = "";
+                if (s < 50) { t = "Budget en Danger ⚠️"; m = "Attention ! Vous sous-estimez le coût réel de la vie étudiante. Regardez nos guides budget vite !"; }
+                else if (s < 80) { t = "Pas mal, mais prudence ⚖️"; m = "Vous avez les grandes lignes, mais gare aux imprévus. Un budget se pilote au mois le mois."; }
+                else { t = "Comptable Expert 💰"; m = "Bravo ! Vous avez tout anticipé. Votre enfant peut étudier l'esprit tranquille."; }
+                d.innerHTML = `<h2 style="color:#fb8500;">${s}% - ${t}</h2><p style="font-size:1.2rem; margin:2rem 0;">${m}</p><a href="/parents.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='s+=${x.s};c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

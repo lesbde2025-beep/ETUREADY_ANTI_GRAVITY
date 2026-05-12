@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Personnel : Quel est votre super-pouvoir ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: #38b0ac;
+            background: #e6fffa;
+        }
+
+        /* Teal hover */
+    </style>
+</head>
+
+<body class="theme-green">
+    <site-header></site-header>
+    <main class="container" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: #38b0ac; margin-bottom:2rem;">Quel est votre Super-Pouvoir
+                Administratif ? 🦸‍♀️</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Un étudiant arrive en pleurs car il a perdu sa carte...", o: [
+                    { t: "Je lui en refais une en 30 secondes chrono.", s: { FLASH: 3, SAGE: 0, DIPLO: 0 } },
+                    { t: "Je le rassure et je lui offre un mouchoir.", s: { FLASH: 0, SAGE: 1, DIPLO: 3 } },
+                    { t: "Je lui explique calmement la procédure.", s: { FLASH: 0, SAGE: 3, DIPLO: 1 } }
+                ]
+            },
+            {
+                t: "La période des inscriptions arrive...", o: [
+                    { t: "J'ai déjà tout préparé 3 mois à l'avance.", s: { FLASH: 1, SAGE: 3, DIPLO: 0 } },
+                    { t: "Je gère 3 dossiers à la minute.", s: { FLASH: 3, SAGE: 0, DIPLO: 1 } },
+                    { t: "J'explique aux parents stressés que tout va bien se passer.", s: { FLASH: 0, SAGE: 1, DIPLO: 3 } }
+                ]
+            },
+            {
+                t: "Le logiciel de scolarité plante.", o: [
+                    { t: "Je trouve une solution de contournement (Excel).", s: { FLASH: 3, SAGE: 1, DIPLO: 0 } },
+                    { t: "J'appelle le support technique calmement.", s: { FLASH: 0, SAGE: 3, DIPLO: 1 } },
+                    { t: "Je profite de la pause pour discuter avec les collègues.", s: { FLASH: 0, SAGE: 0, DIPLO: 3 } }
+                ]
+            }
+        ];
+        let c = 0, sc = { FLASH: 0, SAGE: 0, DIPLO: 0 };
+        function l() {
+            if (c >= 3) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let w = Object.keys(sc).reduce((a, b) => sc[a] > sc[b] ? a : b);
+                let txt = {
+                    FLASH: "The Flash (Efficacité) ⚡<br><small>Rien ne traîne avec vous. Vous êtes une machine de guerre administrative. Les dossiers sont traités avant d'arriver.</small>",
+                    SAGE: "Le Sage (Organisation) 🧘<br><small>Vous anticipez tout. Votre bureau est rangé, vos process sont clairs. Vous êtes le pilier du service.</small>",
+                    DIPLO: "Le Diplomate (Relationnel) 🤝<br><small>Vous gérez l'humain à la perfection. Vous savez désamorcer les conflits et rassurer les étudiants.</small>"
+                };
+                d.innerHTML = `<h2 style="color:#38b0ac;">${txt[w]}</h2><br><a href="/personnel-administratif.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='let s=${JSON.stringify(x.s)};for(k in s)sc[k]+=s[k];c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

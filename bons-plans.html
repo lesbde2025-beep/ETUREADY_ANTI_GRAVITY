@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bons Plans - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/style-deals.css">
+</head>
+
+<body>
+    <!-- New Header Structure (L'Etudiant Style) -->
+    <site-header></site-header>
+
+    <!-- Enriched Hero -->
+    <!-- Supercharged Hero -->
+    <header class="hero-deals" style="background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #c2410c 100%); padding: 6rem 2rem; color: white; text-align: center; border-radius: 0 0 48px 48px; margin-bottom: 4rem; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(234, 88, 12, 0.2);">
+        <!-- Decorative Blobs -->
+        <div style="position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: rgba(253, 224, 71, 0.3); filter: blur(80px); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -100px; right: -100px; width: 300px; height: 300px; background: rgba(251, 146, 60, 0.4); filter: blur(70px); border-radius: 50%;"></div>
+
+        <div class="container reveal" style="position: relative; z-index: 2;">
+            <span class="tag" style="background: rgba(255, 255, 255, 0.2); color: #fef08a; margin-bottom: 2rem; display: inline-block; font-weight: 800; border: 1px solid rgba(255, 255, 255, 0.4); padding: 0.6rem 1.2rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">🔥 Économies Étudiantes</span>
+            <h1 style="font-family: 'Space Grotesk'; font-size: 4.5rem; margin-bottom: 1.5rem; font-weight: 800; text-shadow: 0 4px 20px rgba(0,0,0,0.1); line-height: 1.1;">
+                Les Meilleurs <br><span style="color: #fef08a;">Bons Plans</span>
+            </h1>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                Accédez à plus de 500 réductions exclusives : High-Tech, Food, Mode et plus encore.
+            </p>
+
+            <div class="glass-panel"
+                style="max-width: 650px; margin: 0 auto; display: flex; gap: 0.5rem; padding: 0.75rem; border-radius: 50px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
+                <input type="text" placeholder="Rechercher une marque (ex: Apple, Nike...)"
+                    style="flex: 1; border:none; background:transparent; color:white; padding: 0 1.5rem; outline: none; font-size: 1.1rem;">
+                <button class="btn-theme" style="border-radius: 50px; padding: 1rem 2.5rem; font-weight: 800; background: white; color: #ea580c; border: none; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Rechercher</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Brands Ticker -->
+    <div style="background: white; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 2rem 0; margin-bottom: 3rem; overflow: hidden; white-space: nowrap; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; width: 100px; height: 100%; background: linear-gradient(90deg, white, transparent); z-index: 2;"></div>
+        <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100%; background: linear-gradient(270deg, white, transparent); z-index: 2;"></div>
+        <style>
+            @keyframes scrollTicker {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .brand-ticker { display: inline-flex; gap: 4rem; align-items: center; animation: scrollTicker 30s linear infinite; padding: 0 2rem; }
+            .brand-ticker span { font-size: 1.5rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; }
+        </style>
+        <div class="brand-ticker">
+            <span>Apple</span><span>Nike</span><span>Uber Eats</span><span>Asos</span><span>Spotify</span><span>Samsung</span><span>Sephora</span><span>SNCF</span><span>Amazon Prime</span><span>Deliveroo</span><span>Zalando</span>
+            <!-- Duplicate for infinite loop -->
+            <span>Apple</span><span>Nike</span><span>Uber Eats</span><span>Asos</span><span>Spotify</span><span>Samsung</span><span>Sephora</span><span>SNCF</span><span>Amazon Prime</span><span>Deliveroo</span><span>Zalando</span>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Gorgeous Ad Banner -->
+        <div class="ad-space-banner reveal" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 2.5rem 3rem; border-radius: 24px; color: white; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin: 3rem 0; display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);" onmouseover="this.style.transform='scale(1.02) translateY(-5px)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.4)';" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)';">
+            <!-- Gold glow -->
+            <div style="position: absolute; top: -50px; left: -50px; width: 250px; height: 250px; background: rgba(234, 179, 8, 0.15); filter: blur(50px); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: rgba(234, 179, 8, 0.1); filter: blur(40px); border-radius: 50%;"></div>
+            
+            <div style="display: flex; align-items: center; gap: 1.5rem; position: relative; z-index: 2;">
+                <div style="font-size: 3rem; background: rgba(255,255,255,0.1); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">📱</div>
+                <div style="text-align: left;">
+                    <span style="color: #facc15; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px;">🎁 Jeu Concours Premium</span>
+                    <h3 style="font-size: 2rem; margin: 0.5rem 0 0 0; color: white; font-family: 'Space Grotesk'; font-weight: 800;">Gagnez un iPhone 15 Pro Max !</h3>
+                </div>
+            </div>
+            <button style="position: relative; z-index: 2; background: linear-gradient(135deg, #facc15 0%, #eab308 100%); color: black; border: none; padding: 1.2rem 3rem; border-radius: 50px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 10px 20px rgba(234, 179, 8, 0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Participer</button>
+        </div>
+
+        <!-- Category Rail (Quick Access) -->
+        <div class="category-rail reveal">
+            <button class="category-chip active" data-filter="all">🔥 Tout voir</button>
+            <button class="category-chip" data-filter="Food">🍔 Food</button>
+            <button class="category-chip" data-filter="Tech">💻 High-Tech</button>
+            <button class="category-chip" data-filter="Mode">👗 Mode</button>
+            <button class="category-chip" data-filter="Voyage">✈️ Voyage</button>
+            <button class="category-chip" data-filter="Culture">🎵 Culture</button>
+            <button class="category-chip" data-filter="Sport">🏋️ Sport</button>
+            <button class="category-chip" data-filter="Beauté">💄 Beauté</button>
+            <button class="category-chip" data-filter="Shopping">🛍️ Shopping</button>
+        </div>
+
+        <!-- Featured Section (Spotlight) -->
+        <section class="featured-deals reveal">
+            <div class="section-title">
+                <h2>🔥 Les Immanquables</h2>
+            </div>
+
+            <div class="featured-grid">
+                <!-- Spotlight 1 -->
+                <article class="deal-spotlight" style="box-shadow: 0 15px 30px rgba(0,0,0,0.05); border: none; border-radius: 24px; overflow: hidden; display: flex; flex-direction: row; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.05)';">
+                    <div class="ds-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600'); background-size: cover; background-position: center; flex: 1; min-height: 250px; position: relative;">
+                        <span class="ds-badge" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); border-radius: 8px; padding: 0.5rem 1rem; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);">-10% + 150€</span>
+                    </div>
+                    <div class="ds-content" style="flex: 1.2; padding: 2rem; background: white; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="font-size: 1.8rem; font-weight: 800; color: #111827;">Apple Education</h3>
+                        <p class="ds-price" style="font-size: 1.2rem; color: #ec4899; font-weight: 700; margin-bottom: 1rem;">MacBook Air dès 999€</p>
+                        <p style="margin-bottom: 1.5rem; color: #4b5563; font-size: 0.95rem;">Remise immédiate sur Mac et iPad
+                            + Carte cadeau jusqu'à 150€ offerte pour la rentrée.</p>
+                        <div class="code-box" style="background: #fdf2f8; border: 1px dashed #ec4899; color: #be185d;">BACKTOSCHOOL</div>
+                        <a href="/formulaire-generique.html" class="btn-theme"
+                            style="text-align:center; background: #111827; color: white; padding: 1rem; border-radius: 12px; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">J'en
+                            profite</a>
+                    </div>
+                </article>
+
+                <!-- Spotlight 2 -->
+                <article class="deal-spotlight" style="box-shadow: 0 15px 30px rgba(0,0,0,0.05); border: none; border-radius: 24px; overflow: hidden; display: flex; flex-direction: row; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.05)';">
+                    <div class="ds-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=600'); background-size: cover; background-position: center; flex: 1; min-height: 250px; position: relative;">
+                        <span class="ds-badge" style="background: linear-gradient(135deg, #10b981 0%, #047857 100%); border-radius: 8px; padding: 0.5rem 1rem; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);">4 Semaines Offertes</span>
+                    </div>
+                    <div class="ds-content" style="flex: 1.2; padding: 2rem; background: white; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="font-size: 1.8rem; font-weight: 800; color: #111827;">Basic-Fit</h3>
+                        <p class="ds-price" style="font-size: 1.2rem; color: #10b981; font-weight: 700; margin-bottom: 1rem;">19,99€ / mois</p>
+                        <p style="margin-bottom: 1.5rem; color: #4b5563; font-size: 0.95rem;">Frais d'inscription offerts et
+                            sac de sport inclus pour toute inscription annuelle.</p>
+                        <div class="code-box" style="background: #ecfdf5; border: 1px dashed #10b981; color: #047857;">STUDENTFIT</div>
+                        <a href="/formulaire-generique.html" class="btn-theme"
+                            style="text-align:center; background: #111827; color: white; padding: 1rem; border-radius: 12px; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">J'en
+                            profite</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Ventes Flash Exclusives -->
+        <section class="flash-sales reveal" style="margin-bottom: 4rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+                <div class="section-title" style="margin-bottom: 0;">
+                    <h2 style="display: flex; align-items: center; gap: 0.5rem;">⚡ Ventes Flash <span style="font-size: 1rem; background: #ef4444; color: white; padding: 0.3rem 0.8rem; border-radius: 50px; font-weight: 800; letter-spacing: 1px;">-48H RESTANTES</span></h2>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                <!-- Flash 1 -->
+                <div style="background: white; border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(239, 68, 68, 0.2); position: relative; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.03); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(239, 68, 68, 0.1); border-radius: 50%; filter: blur(20px);"></div>
+                    <span style="color: #ef4444; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">🔥 Dernières heures</span>
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0; color: #111827;">Disneyland Paris</h3>
+                    <p style="color: #4b5563; margin-bottom: 1rem;">Billet étudiant 1 Jour / 2 Parcs à seulement 49€ (au lieu de 105€).</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 1.5rem; font-weight: 800; color: #ef4444;">49€</span>
+                        <button class="btn-theme" style="background: #ef4444; border: none; padding: 0.6rem 1.2rem; border-radius: 12px; font-weight: 700; color: white;">J'en profite</button>
+                    </div>
+                </div>
+                <!-- Flash 2 -->
+                <div style="background: white; border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(249, 115, 22, 0.2); position: relative; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.03); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(249, 115, 22, 0.1); border-radius: 50%; filter: blur(20px);"></div>
+                    <span style="color: #f97316; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">✈️ Spécial BDE</span>
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0; color: #111827;">EasyJet</h3>
+                    <p style="color: #4b5563; margin-bottom: 1rem;">-25% sur tous les vols vers l'Europe pour vos séjours étudiants cet hiver.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 1.2rem; font-weight: 800; color: #f97316;">Code : BDE25</span>
+                        <button class="btn-theme" style="background: #f97316; border: none; padding: 0.6rem 1.2rem; border-radius: 12px; font-weight: 700; color: white;">Voir les vols</button>
+                    </div>
+                </div>
+                <!-- Flash 3 -->
+                <div style="background: white; border-radius: 20px; padding: 1.5rem; border: 1px solid rgba(59, 130, 246, 0.2); position: relative; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.03); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; filter: blur(20px);"></div>
+                    <span style="color: #3b82f6; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">🍔 Food</span>
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0; color: #111827;">Domino's Pizza</h3>
+                    <p style="color: #4b5563; margin-bottom: 1rem;">Toutes les pizzas Large à 7,99€ en livraison pour les étudiants (jusqu'à minuit).</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 1.2rem; font-weight: 800; color: #3b82f6;">Code : ETU799</span>
+                        <button class="btn-theme" style="background: #3b82f6; border: none; padding: 0.6rem 1.2rem; border-radius: 12px; font-weight: 700; color: white;">Commander</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Pass EtuReady Exclusives (Locked) -->
+        <section class="premium-deals reveal" style="margin-bottom: 5rem; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+                <div class="section-title" style="margin-bottom: 0;">
+                    <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #111827;">
+                        💎 Offres <span style="background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pass EtuReady</span>
+                    </h2>
+                    <p style="color: #64748b; margin-top: 0.5rem; max-width: 600px; font-size: 1.05rem;">Des réductions massives et exclusives réservées uniquement à nos membres premium. Débloquez-les maintenant.</p>
+                </div>
+            </div>
+
+            <!-- The Grid of blurred cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; position: relative; min-height: 400px; padding: 1rem 0;">
+                
+                <!-- Overlay for the whole grid -->
+                <div style="position: absolute; inset: -20px; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(2px); border-radius: 32px; border: 1px solid rgba(255,255,255,0.4);">
+                    <div style="background: white; padding: 2.5rem 2rem; border-radius: 24px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.1); max-width: 450px; width: 90%; border: 1px solid rgba(234, 179, 8, 0.4); position: relative; overflow: hidden; margin: 1rem;">
+                        <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(234, 179, 8, 0.1); filter: blur(30px); border-radius: 50%;"></div>
+                        <div style="font-size: 3.5rem; margin-bottom: 0.5rem; position: relative; z-index: 2;">🔒</div>
+                        <h3 style="font-size: 1.6rem; font-weight: 800; color: #111827; margin-bottom: 1rem; position: relative; z-index: 2;">Bons Plans Verrouillés</h3>
+                        <p style="color: #475569; margin-bottom: 1.5rem; line-height: 1.6; position: relative; z-index: 2;">Abonnez-vous au <strong>Pass EtuReady</strong> pour débloquer ces offres VIP : -50% sur des abonnements, places offertes, et offres en quantité limitée.</p>
+                        <a href="/pass-etuready.html" class="btn-theme" style="display: block; background: linear-gradient(135deg, #facc15 0%, #eab308 100%); color: black; font-weight: 800; font-size: 1.1rem; padding: 1rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(234, 179, 8, 0.35); text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; z-index: 2;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 35px rgba(234, 179, 8, 0.45)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(234, 179, 8, 0.35)';">Débloquer le Pass Premium</a>
+                    </div>
+                </div>
+
+                <!-- Fake premium cards behind the blur (Realistic previews) - Row 1 -->
+                <div style="background: white; border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); height: 100%; opacity: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 64px; height: 64px; background: #f8fafc; border-radius: 18px; padding: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05);">
+                            <span style="font-size: 2rem;">💻</span>
+                        </div>
+                        <div style="flex: 1; overflow: hidden;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--secondary-color); background: rgba(139, 92, 246, 0.1); padding: 0.3rem 0.6rem; border-radius: 8px; margin-bottom: 0.4rem;">TECH</span>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Apple Premium</h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin: 0 0 1.5rem 0; flex: 1;">Jusqu'à -15% sur les derniers modèles de Mac et d'iPad, AirPods offerts à la rentrée.</p>
+                    <button style="width: 100%; padding: 1rem; font-weight: 800; border-radius: 16px; background: #0f172a; color: white; border: none;">Obtenir le code</button>
+                </div>
+                
+                <div style="background: white; border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); height: 100%; opacity: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 64px; height: 64px; background: #f8fafc; border-radius: 18px; padding: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05);">
+                            <span style="font-size: 2rem;">👟</span>
+                        </div>
+                        <div style="flex: 1; overflow: hidden;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--secondary-color); background: rgba(139, 92, 246, 0.1); padding: 0.3rem 0.6rem; border-radius: 8px; margin-bottom: 0.4rem;">MODE</span>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Nike Store VIP</h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin: 0 0 1.5rem 0; flex: 1;">-30% supplémentaires sur toute la section Outlet et livraison express gratuite.</p>
+                    <button style="width: 100%; padding: 1rem; font-weight: 800; border-radius: 16px; background: #0f172a; color: white; border: none;">Obtenir le code</button>
+                </div>
+
+                <div style="background: white; border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); height: 100%; opacity: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 64px; height: 64px; background: #f8fafc; border-radius: 18px; padding: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05);">
+                            <span style="font-size: 2rem;">🎧</span>
+                        </div>
+                        <div style="flex: 1; overflow: hidden;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--secondary-color); background: rgba(139, 92, 246, 0.1); padding: 0.3rem 0.6rem; border-radius: 8px; margin-bottom: 0.4rem;">CULTURE</span>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Spotify Premium</h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin: 0 0 1.5rem 0; flex: 1;">3 mois de Spotify Premium 100% gratuits puis tarif étudiant garanti à vie.</p>
+                    <button style="width: 100%; padding: 1rem; font-weight: 800; border-radius: 16px; background: #0f172a; color: white; border: none;">Obtenir le code</button>
+                </div>
+                
+                <!-- Fake premium cards behind the blur (Realistic previews) - Row 2 -->
+                <div style="background: white; border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); height: 100%; opacity: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 64px; height: 64px; background: #f8fafc; border-radius: 18px; padding: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05);">
+                            <span style="font-size: 2rem;">🚄</span>
+                        </div>
+                        <div style="flex: 1; overflow: hidden;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--secondary-color); background: rgba(139, 92, 246, 0.1); padding: 0.3rem 0.6rem; border-radius: 8px; margin-bottom: 0.4rem;">VOYAGE</span>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">SNCF Avantage</h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin: 0 0 1.5rem 0; flex: 1;">La Carte Avantage Jeune à seulement 25€ au lieu de 49€ en offre limitée.</p>
+                    <button style="width: 100%; padding: 1rem; font-weight: 800; border-radius: 16px; background: #0f172a; color: white; border: none;">Obtenir le code</button>
+                </div>
+                
+                <div style="background: white; border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); height: 100%; opacity: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 64px; height: 64px; background: #f8fafc; border-radius: 18px; padding: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05);">
+                            <span style="font-size: 2rem;">🍿</span>
+                        </div>
+                        <div style="flex: 1; overflow: hidden;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--secondary-color); background: rgba(139, 92, 246, 0.1); padding: 0.3rem 0.6rem; border-radius: 8px; margin-bottom: 0.4rem;">CULTURE</span>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Cinéma UGC</h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin: 0 0 1.5rem 0; flex: 1;">Vos places à 5€ tous les jours et à toutes les séances, 2 places offertes par an.</p>
+                    <button style="width: 100%; padding: 1rem; font-weight: 800; border-radius: 16px; background: #0f172a; color: white; border: none;">Obtenir le code</button>
+                </div>
+
+                <div style="background: white; border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); height: 100%; opacity: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 64px; height: 64px; background: #f8fafc; border-radius: 18px; padding: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.05);">
+                            <span style="font-size: 2rem;">🍔</span>
+                        </div>
+                        <div style="flex: 1; overflow: hidden;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--secondary-color); background: rgba(139, 92, 246, 0.1); padding: 0.3rem 0.6rem; border-radius: 8px; margin-bottom: 0.4rem;">FOOD</span>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Uber Eats VIP</h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin: 0 0 1.5rem 0; flex: 1;">Frais de livraison offerts le soir + 15€ offerts sur votre prochaine commande.</p>
+                    <button style="width: 100%; padding: 1rem; font-weight: 800; border-radius: 16px; background: #0f172a; color: white; border: none;">Obtenir le code</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section reveal"
+            style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.02)); padding: 2rem; border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.2); margin-bottom: 3rem; box-shadow: var(--shadow-sm);">
+            <h3 style="margin-bottom: 1.5rem; color: var(--text-main);">Affiner la recherche</h3>
+            <div class="filter-row" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <div class="filter-group" style="flex: 1; min-width: 200px;">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 600;">Région</label>
+                    <select id="regionFilter" class="filter-select border-theme"
+                        style="background: white; color: var(--text-main); width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.2);">
+                        <option value="all">Toutes les régions</option>
+                        <option value="National">National (Partout)</option>
+                        <option value="Île-de-France">Île-de-France</option>
+                        <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+                    </select>
+                </div>
+                <div class="filter-group" style="flex: 1; min-width: 200px;">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 600;">Ville</label>
+                    <select id="cityFilter" class="filter-select border-theme"
+                        style="background: white; color: var(--text-main); width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.2);">
+                        <option value="all">Toutes les villes</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Lyon">Lyon</option>
+                    </select>
+                </div>
+                <div class="filter-group" style="flex: 1; min-width: 200px;">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 600;">Catégorie</label>
+                    <select id="categoryFilter" class="filter-select border-theme"
+                        style="background: white; color: var(--text-main); width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.2);">
+                        <option value="all">Toutes les catégories</option>
+                        <option value="Food">Food & Resto</option>
+                        <option value="Tech">High-Tech</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Grid (Dynamic) -->
+        <div class="section-title">
+            <h2>🏷️ Tous les Codes Promo</h2>
+        </div>
+        <div class="grid" id="dealsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2.5rem;">
+            <!-- Content injected by JS -->
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="margin-top: 6rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <div class="section-title" style="justify-content: center;">
+                <h2>Questions Fréquentes</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>🎓 Qui peut profiter de ces offres ?</h4>
+                    <p>La majorité des offres sont réservées aux étudiants disposant d'une carte
+                        étudiante valide ou
+                        d'une adresse email universitaire (.edu, .univ, etc.). Certaines offres sont
+                        accessibles aux -26
+                        ans sans statut étudiant.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>💵 Les codes sont-ils cumulables ?</h4>
+                    <p>En général, non. Les codes promotionnels étudiants ne sont pas cumulables avec
+                        les soldes ou
+                        d'autres promotions en cours, sauf mention contraire.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>🔄 À quelle fréquence les offres sont-elles mises à jour ?</h4>
+                    <p>Nous ajoutons de nouveaux bons plans chaque semaine, en particulier lors des
+                        temps forts
+                        (Rentrée, Black Friday, Soldes).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deal Newsletter -->
+        <div class="cta-section"
+            style="margin-top: 4rem; background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); color: white; padding: 4rem 3rem; border-radius: 32px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(236, 72, 153, 0.25);">
+            <div style="position: absolute; top: -100px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.2); filter: blur(50px); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: -100px; left: -50px; width: 250px; height: 250px; background: rgba(255,255,255,0.15); filter: blur(40px); border-radius: 50%;"></div>
+
+            <div style="position: relative; z-index: 2;">
+                <span style="display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.9rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.3);">💌 Newsletter Exclusive</span>
+                <h2 style="font-family: 'Space Grotesk'; font-size: 3rem; margin-bottom: 1rem; font-weight: 800;">Ne ratez aucun code promo !</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 500px; margin-left: auto; margin-right: auto;">
+                    Reçois chaque lundi matin les 5 meilleures offres de la semaine directement dans ta
+                    boîte mail.</p>
+                <form class="newsletter-form"
+                    style="display: flex; gap: 0.5rem; justify-content: center; max-width: 550px; margin: 0 auto; background: rgba(255,255,255,0.15); padding: 0.5rem; border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                    <input type="email" placeholder="Ton email étudiant..." class="newsletter-input"
+                        style="flex: 1; padding: 1rem 1.5rem; border-radius: 50px; border: none; background: transparent; color: white; font-size: 1.05rem; outline: none;">
+                    <button type="submit" class="newsletter-btn"
+                        style="background: white; color: #ec4899; padding: 0 2.5rem; border-radius: 50px; font-weight: 800; font-size: 1.05rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

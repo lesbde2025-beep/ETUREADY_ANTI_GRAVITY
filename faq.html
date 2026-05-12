@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+            <site-header></site-header>
+
+    <header class="hero" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); position: relative; overflow: hidden; padding: 6rem 2rem; border-radius: 0 0 40px 40px; margin-bottom: 3rem; text-align: center; color: white; box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);">
+        <div style="position: absolute; top: -100px; left: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); filter: blur(50px); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); filter: blur(40px); border-radius: 50%;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <span style="display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.9rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.3);">💡 Besoin d'aide ?</span>
+            <h1 style="font-family: 'Space Grotesk'; font-size: 3.5rem; margin-bottom: 1rem; font-weight: 800;">Foire Aux Questions</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Les réponses à vos questions les plus fréquentes pour utiliser EtuReady au maximum.</p>
+        </div>
+    </header>
+
+    <main class="container article-content">
+        <div style="margin-bottom: 2rem;">
+            <h3>Comment créer un compte ?</h3>
+            <p>Cliquez sur le bouton "Se connecter" en haut à droite, puis sur "Créer un compte". Suivez les
+                instructions pour remplir votre profil.</p>
+        </div>
+        <div style="margin-bottom: 2rem;">
+            <h3>Comment proposer un événement ?</h3>
+            <p>Si vous êtes membre d'un BDE ou d'une association, vous pouvez proposer un événement directement depuis
+                votre tableau de bord après validation de votre statut.</p>
+        </div>
+        <div style="margin-bottom: 2rem;">
+            <h3>L'accès est-il gratuit ?</h3>
+            <p>Oui, l'accès à la plateforme et à la majorité des contenus est entièrement gratuit pour les étudiants.
+            </p>
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

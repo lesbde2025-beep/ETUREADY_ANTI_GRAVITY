@@ -1,0 +1,201 @@
+/* =========================================
+   Deals Page Specific Styles
+   ========================================= */
+
+/* Deals Hero */
+.hero-deals {
+    background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+        linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    padding: 6rem 2rem;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Category Chips Rail */
+.category-rail {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0 2rem;
+    margin-bottom: 2rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-rail::-webkit-scrollbar {
+    display: none;
+}
+
+.category-chip {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--secondary-hover);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.category-chip:hover,
+.category-chip.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Featured Deals Section */
+.featured-deals {
+    margin-bottom: 4rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.deal-spotlight {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: var(--shadow-sm);
+}
+
+.deal-spotlight:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.ds-image {
+    width: 40%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-right: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.ds-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+}
+
+.ds-content {
+    width: 60%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ds-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+.ds-price {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.code-box {
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px dashed var(--secondary-color);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    cursor: copy;
+    transition: all 0.2s;
+    position: relative;
+    font-weight: 700;
+}
+
+.code-box:hover {
+    background: rgba(139, 92, 246, 0.15);
+    transform: scale(1.02);
+}
+
+.code-box::after {
+    content: 'COPIER';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.65rem;
+    color: rgba(139, 92, 246, 0.8);
+    font-family: var(--font-body);
+    font-weight: 800;
+}
+
+/* FAQ Accordion */
+.faq-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--secondary-light);
+}
+
+.faq-item h4 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz BDE : Quel événement organiser ? - EtuReady</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            background: #eef2ff;
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+    <main class="container theme-purple" style="padding-top: 4rem;">
+        <div class="quiz-container">
+            <h1 style="text-align:center; color: var(--primary-color); margin-bottom:2rem;">Quel prochain évent pour ton
+                Asso ? 🎉</h1>
+            <div id="quiz-area"></div>
+            <div id="result-area" style="display:none; text-align:center;"></div>
+        </div>
+    </main>
+    <script>
+        const qs = [
+            {
+                t: "Quel est votre budget actuel ?", o: [
+                    { t: "On est riches (merci les sponsors).", s: { GALA: 3, SKI: 3, CLUB: 1, AFTER: 0 } },
+                    { t: "Moyen, on doit faire attention.", s: { GALA: 0, SKI: 0, CLUB: 3, AFTER: 2 } },
+                    { t: "Fauché comme les blés.", s: { GALA: 0, SKI: 0, CLUB: 0, AFTER: 3 } }
+                ]
+            },
+            {
+                t: "L'objectif principal ?", o: [
+                    { t: "Prestige et paillettes.", s: { GALA: 3, SKI: 0, CLUB: 0, AFTER: 0 } },
+                    { t: "Se la coller / Danser jusqu'à l'aube.", s: { GALA: 0, SKI: 1, CLUB: 3, AFTER: 0 } },
+                    { t: "Souder la promo sur plusieurs jours.", s: { GALA: 0, SKI: 3, CLUB: 0, AFTER: 0 } },
+                    { t: "Discuter tranquillement et réseauter.", s: { GALA: 0, SKI: 0, CLUB: 0, AFTER: 3 } }
+                ]
+            },
+            {
+                t: "La cible ?", o: [
+                    { t: "Toute l'école + les Profs + les Anciens.", s: { GALA: 3, SKI: 0, CLUB: 1, AFTER: 1 } },
+                    { t: "Juste les étudiants fêtards.", s: { GALA: 0, SKI: 1, CLUB: 3, AFTER: 0 } },
+                    { t: "Petit comité convivial.", s: { GALA: 0, SKI: 0, CLUB: 0, AFTER: 3 } }
+                ]
+            }
+        ];
+        let c = 0, sc = { GALA: 0, SKI: 0, CLUB: 0, AFTER: 0 };
+        function l() {
+            if (c >= 3) {
+                document.getElementById('quiz-area').style.display = 'none';
+                let d = document.getElementById('result-area');
+                d.style.display = 'block';
+                let w = Object.keys(sc).reduce((a, b) => sc[a] > sc[b] ? a : b);
+                let txt = {
+                    GALA: "Le Gala de Prestige 🥂<br><small>Robes de soirée, champagne et petits fours. C'est le moment de marquer l'année.</small>",
+                    SKI: "Le Séjour Ski / Week-end ❄️<br><small>Rien de tel qu'un voyage pour créer des souvenirs impérissables.</small>",
+                    CLUB: "La Grosse Soirée Club 🪩<br><small>Musique à fond, thème décalé, c'est ce que les étudiants attendent !</small>",
+                    AFTER: "L'Afterwork Chill 🍻<br><small>Simple, efficace, pas cher. Parfait pour discuter vraiment.</small>"
+                };
+                d.innerHTML = `<h2 style="color:var(--primary-color);">${txt[w]}</h2><br><a href="/bde.html" class="btn-theme">Retour</a>`;
+                return;
+            }
+            let h = `<h3>${qs[c].t}</h3>`;
+            qs[c].o.forEach(x => h += `<button class="btn-quiz" onclick='let s=${JSON.stringify(x.s)};for(k in s)sc[k]+=s[k];c++;l()'>${x.t}</button>`);
+            document.getElementById('quiz-area').innerHTML = h;
+        }
+        l();
+    </script>
+</body>
+
+</html>

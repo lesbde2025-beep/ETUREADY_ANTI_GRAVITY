@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz : Quel type d'étudiant es-tu en soirée ? - EtuReady</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .question {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-quiz {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            margin: 0.8rem 0;
+            background: #ffffff;
+            border: 2px solid #eef2ff;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .btn-quiz:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+            background: #f8fafc;
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #4f46e5);
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .question-counter {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Result Styles */
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .result-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .result-desc {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #334155;
+            margin-bottom: 2rem;
+        }
+
+        .trait-bars {
+            margin-top: 2rem;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .trait-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .trait-label {
+            width: 120px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .trait-progress-bg {
+            flex-grow: 1;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .trait-progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+
+        .trait-value {
+            width: 40px;
+            text-align: right;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <site-header></site-header>
+
+    <main class="container theme-blue" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="quiz-container">
+            <div class="progress-container">
+                <div class="question-counter">Question <span id="current-q-num">1</span>/<span id="total-q-num">8</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+
+            <h1 style="text-align:center; color: var(--primary-color); margin-bottom:2.5rem; font-size: 1.8rem;">Quel
+                est ton VRAI profil en soirée ? 🎉</h1>
+
+            <div id="quiz-area">
+                <!-- Questions will be injected by JS -->
+            </div>
+
+            <div id="result-area" style="display: none;">
+                <!-- Result will be injected by JS -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Configuration du Quiz complexe
+        const questions = [
+            {
+                text: "C'est vendredi soir, une grosse soirée s'annonce. Ton mood actuel ?",
+                options: [
+                    { text: "J'ai préparé ma playlist, ma tenue et l'after depuis mardi.", scores: { party: 3, social: 2, chaos: 1, chill: 0 } },
+                    { text: "J'y vais, mais si c'est nul à 23h30 je suis dans mon lit.", scores: { party: 1, social: 1, chaos: 0, chill: 3 } },
+                    { text: "Je ne sais pas encore où on va, je suivrai le mouvement.", scores: { party: 1, social: 2, chaos: 2, chill: 1 } },
+                    { text: "Je vérifie qui y va pour être sûr que ça vaut le coup.", scores: { party: 0, social: 3, chaos: 0, chill: 1 } }
+                ]
+            },
+            {
+                text: "Tu arrives à la soirée. Premier réflexe ?",
+                options: [
+                    { text: "Direction le bar / frigo. L'hydratation c'est la clé.", scores: { party: 2, social: 1, chaos: 1, chill: 0 } },
+                    { text: "Je scanne la salle pour voir qui est là et je dis bonjour à TOUT le monde.", scores: { party: 1, social: 3, chaos: 0, chill: 0 } },
+                    { text: "Je cherche le spot le plus confortable (canapé) et je m'installe.", scores: { party: 0, social: 1, chaos: 0, chill: 3 } },
+                    { text: "Je lance un 'EST-CE QUE VOUS ÊTES CHAUDS ?!?' en entrant.", scores: { party: 3, social: 2, chaos: 3, chill: 0 } }
+                ]
+            },
+            {
+                text: "La musique s'arrête brutalement à cause d'un bug. Que fais-tu ?",
+                options: [
+                    { text: "Je branche mon téléphone direct. DJ de secours activé.", scores: { party: 3, social: 2, chaos: 0, chill: 0 } },
+                    { text: "J'en profite pour lancer une discussion philosophique avec mon voisin.", scores: { party: 0, social: 3, chaos: 0, chill: 2 } },
+                    { text: "Je crie 'C'EST LA CHENILLE QUI REDÉMARRE' pour combler le vide.", scores: { party: 2, social: 1, chaos: 3, chill: 0 } },
+                    { text: "Rien, ça fait du bien un peu de calme pour mes oreilles.", scores: { party: 0, social: 0, chaos: 0, chill: 3 } }
+                ]
+            },
+            {
+                text: "Il est 2h du matin. Où es-tu ?",
+                options: [
+                    { text: "Sur une table, torse nu (ou presque), en train de chanter.", scores: { party: 3, social: 1, chaos: 3, chill: 0 } },
+                    { text: "Dans la cuisine, en pleine 'Deep Talk' sur le sens de la vie.", scores: { party: 1, social: 3, chaos: 0, chill: 2 } },
+                    { text: "Sur le dancefloor, je ne me suis pas arrêté une seconde.", scores: { party: 3, social: 2, chaos: 1, chill: 0 } },
+                    { text: "Chez moi, je dors depuis 1h. Faut pas déconner.", scores: { party: 0, social: 0, chaos: 0, chill: 3 } }
+                ]
+            },
+            {
+                text: "Un verre se renverse sur quelqu'un. Ta réaction ?",
+                options: [
+                    { text: "Je cours chercher de l'essuie-tout et je m'excuse même si c'est pas moi.", scores: { party: 0, social: 3, chaos: 0, chill: 1 } },
+                    { text: "Je rigole. C'est juste de l'eau (ou de la vodka), ça sèche !", scores: { party: 1, social: 0, chaos: 2, chill: 1 } },
+                    { text: "C'est moi qui l'ai renversé en dansant la Macarena...", scores: { party: 2, social: 1, chaos: 3, chill: 0 } },
+                    { text: "Je m'éloigne discrètement de la zone sinistrée.", scores: { party: 0, social: 0, chaos: 0, chill: 3 } }
+                ]
+            },
+            {
+                text: "Ton ratio Photos/Vidéos le lendemain ?",
+                options: [
+                    { text: "0. Je vis l'instant présent (ou j'ai perdu mon tel).", scores: { party: 2, social: 0, chaos: 2, chill: 0 } },
+                    { text: "50 stories, 3 posts, tout est documenté.", scores: { party: 1, social: 3, chaos: 1, chill: 0 } },
+                    { text: "Juste quelques selfies flous avec mes potes proches.", scores: { party: 1, social: 2, chaos: 1, chill: 1 } },
+                    { text: "Je suis le photographe officiel, je tiens les dossiers.", scores: { party: 0, social: 2, chaos: 0, chill: 2 } }
+                ]
+            },
+            {
+                text: "On propose un After. Tu dis :",
+                options: [
+                    { text: "LET'S GO ! On dort quand on sera morts !", scores: { party: 3, social: 1, chaos: 2, chill: 0 } },
+                    { text: "Ça dépend qui y va et s'il y a à manger.", scores: { party: 1, social: 2, chaos: 0, chill: 2 } },
+                    { text: "Non merci, ma batterie sociale est à 0%.", scores: { party: 0, social: 0, chaos: 0, chill: 3 } },
+                    { text: "Seulement si c'est chez moi (pour contrôler la musique).", scores: { party: 1, social: 1, chaos: 1, chill: 1 } }
+                ]
+            },
+            {
+                text: "Le lendemain midi, état des lieux :",
+                options: [
+                    { text: "J'ai mal partout, j'ai plus de voix, mais c'était LÉGENDAIRE.", scores: { party: 3, social: 1, chaos: 2, chill: 0 } },
+                    { text: "Je brunche tranquillement en racontant la soirée à ceux qui n'étaient pas là.", scores: { party: 1, social: 3, chaos: 0, chill: 1 } },
+                    { text: "Je suis encore au lit, volets fermés, mode avion.", scores: { party: 0, social: 0, chaos: 1, chill: 3 } },
+                    { text: "Je suis déjà à la BU / au sport. L'efficacité avant tout.", scores: { party: 0, social: 1, chaos: 0, chill: 2 } }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let userScores = { party: 0, social: 0, chaos: 0, chill: 0 };
+
+        const quizArea = document.getElementById('quiz-area');
+        const resultArea = document.getElementById('result-area');
+        const progressBar = document.getElementById('progress');
+        const currentQNum = document.getElementById('current-q-num');
+        const totalQNum = document.getElementById('total-q-num');
+
+        totalQNum.textContent = questions.length;
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            currentQNum.textContent = currentQuestion + 1;
+            progressBar.style.width = `${((currentQuestion) / questions.length) * 100}%`;
+
+            let html = `
+                <div class="question active">
+                    <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: #1e293b;">${q.text}</h2>
+                    <div class="options">
+            `;
+
+            q.options.forEach((opt, index) => {
+                html += `<button class="btn-quiz" onclick="selectOption(${index})">${opt.text}</button>`;
+            });
+
+            html += `</div></div>`;
+            quizArea.innerHTML = html;
+        }
+
+        window.selectOption = function (optIndex) {
+            const scores = questions[currentQuestion].options[optIndex].scores;
+
+            // Add scores
+            for (let key in scores) {
+                userScores[key] += scores[key];
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        };
+
+        function showResults() {
+            quizArea.style.display = 'none';
+            resultArea.style.display = 'block';
+            progressBar.style.width = '100%';
+            document.querySelector('.question-counter').style.display = 'none';
+
+            // Calculate dominant trait
+            let maxScore = -1;
+            let dominantTrait = '';
+            for (let key in userScores) {
+                if (userScores[key] > maxScore) {
+                    maxScore = userScores[key];
+                    dominantTrait = key;
+                }
+            }
+
+            // Normalize scores for bars (approximate percentage based on max possible)
+            // Max score per category approx: 3 points * 8 questions = 24
+            const maxPossible = 20;
+            const percentages = {
+                party: Math.min((userScores.party / maxPossible) * 100, 100),
+                social: Math.min((userScores.social / maxPossible) * 100, 100),
+                chaos: Math.min((userScores.chaos / maxPossible) * 100, 100),
+                chill: Math.min((userScores.chill / maxPossible) * 100, 100)
+            };
+
+            const profiles = {
+                party: {
+                    title: "Le/La Roi/Reine de la Nuit 👑",
+                    icon: "🦁",
+                    desc: "Pour toi, une soirée n'est réussie que si elle finit au lever du soleil. Tu es l'énergie du groupe, celui/celle qui relance l'ambiance quand ça mou. Attention au burnout festif, mais merci d'exister !"
+                },
+                social: {
+                    title: "Le Papillon Social 🦋",
+                    icon: "💬",
+                    desc: "Tu connais tout le monde, ou tu vas connaître tout le monde. Tu passes de groupe en groupe, tu connectes les gens. Les soirées sont ton terrain de jeu diplomatique. Tu es le liant de la promo."
+                },
+                chaos: {
+                    title: "L'Élément Chaotique 🌪️",
+                    icon: "🤪",
+                    desc: "Imprévisible. C'est le mot. Avec toi, on ne sait jamais ce qui va se passer. Un karaoké improvisé ? Une fugue ? Une déclaration d'amour ? Tu rends les soirées mémorables (et parfois dangereuses)."
+                },
+                chill: {
+                    title: "La Force Tranquille 🧘",
+                    icon: "☕",
+                    desc: "Tu profites, mais à ton rythme. Tu aimes les bonnes discussions, le confort et observer le spectacle des autres. Tu es souvent le pilier sur qui on peut compter quand ça dégénère. Indispensable."
+                }
+            };
+
+            const profile = profiles[dominantTrait];
+
+            let html = `
+                <div class="result-header">
+                    <span class="result-icon">${profile.icon}</span>
+                    <h2 class="result-title">${profile.title}</h2>
+                    <p class="result-desc">${profile.desc}</p>
+                </div>
+                
+                <h3 style="margin-bottom: 1rem;">Ton ADN de fêtard :</h3>
+                <div class="trait-bars">
+                    <div class="trait-row">
+                        <span class="trait-label">Fête & Énergie</span>
+                        <div class="trait-progress-bg">
+                            <div class="trait-progress-fill" style="width: ${percentages.party}%"></div>
+                        </div>
+                        <span class="trait-value">${Math.round(percentages.party)}%</span>
+                    </div>
+                    <div class="trait-row">
+                        <span class="trait-label">Sociabilité</span>
+                        <div class="trait-progress-bg">
+                            <div class="trait-progress-fill" style="width: ${percentages.social}%"></div>
+                        </div>
+                        <span class="trait-value">${Math.round(percentages.social)}%</span>
+                    </div>
+                    <div class="trait-row">
+                        <span class="trait-label">Chaos / Imprévu</span>
+                        <div class="trait-progress-bg">
+                            <div class="trait-progress-fill" style="width: ${percentages.chaos}%"></div>
+                        </div>
+                        <span class="trait-value">${Math.round(percentages.chaos)}%</span>
+                    </div>
+                    <div class="trait-row">
+                        <span class="trait-label">Chill / Zen</span>
+                        <div class="trait-progress-bg">
+                            <div class="trait-progress-fill" style="width: ${percentages.chill}%"></div>
+                        </div>
+                        <span class="trait-value">${Math.round(percentages.chill)}%</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <button class="btn-theme" onclick="location.reload()">Recommencer</button>
+                    <a href="/etudiant.html" class="btn-theme-outline" style="margin-left: 1rem;">Retour</a>
+                </div>
+            `;
+
+            resultArea.innerHTML = html;
+        }
+
+        // Start
+        loadQuestion();
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
