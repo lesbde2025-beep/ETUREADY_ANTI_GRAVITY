@@ -751,6 +751,18 @@ img {
   animation: float 4s ease-in-out infinite;
 }
 
+.text-accent-vibrant {
+  color: var(--accent-color);
+  background: linear-gradient(to right, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite 0.5s;
+  font-weight: 900;
+  text-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+}
+
 @keyframes float {
 
   0%,
